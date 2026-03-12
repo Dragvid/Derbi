@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://sap1ksyc8xdr"]
+
+[ext_resource type="PackedScene" uid="uid://c3ru3mhkfxswn" path="res://Ui/Gameplay/Player controls/player_controls.tscn" id="1_ftrgj"]
+
+[node name="BattleScreen" type="Control" unique_id=1630584974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1436272098]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="playerControls" parent="HBoxContainer" unique_id=1172923877 instance=ExtResource("1_ftrgj")]
+layout_mode = 2
+
+[node name="playerControls2" parent="HBoxContainer" unique_id=635404946 instance=ExtResource("1_ftrgj")]
+layout_mode = 2
