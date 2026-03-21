@@ -1,0 +1,37 @@
+{
+	"Punch": {
+		"name": "Punch",
+		"image_path": "",
+		"damage": 10,
+		"type":"strike",
+		"hit_rate": 15
+	},
+	"Kick": {
+		"name": "Kick",
+		"image_path": "",
+		"damage": 15,
+		"type":"strike",
+		"hit_rate": 20
+	},
+	"Suplex": {
+		"name": "Suplex",
+		"image_path": "",
+		"damage": 15,
+		"type":"grab",
+		"hit_rate": 100
+	},
+	"Roundhouse": {
+		"name": "Roundhouse",
+		"image_path": "",
+		"damage": 15,
+		"type":"strike",
+		"hit_rate": 85
+	},
+	"Hook": {
+		"name": "Hook",
+		"image_path": "",
+		"damage": 10,
+		"type":"strike",
+		"hit_rate": 65
+	},
+}

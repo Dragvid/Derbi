@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cmgpav6q0n2wo"]
+
+[ext_resource type="Script" uid="uid://px7qaauvat2w" path="res://Ui/move_list/move_list.gd" id="1_1jdmd"]
+[ext_resource type="PackedScene" uid="uid://bb8ayxv3g61c1" path="res://Ui/move_list/Move_option/Move_option.tscn" id="1_smayb"]
+
+[node name="MoveList" type="Control" unique_id=1920058374]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1jdmd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=201498415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=1632458265]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="list" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=962527493]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoveOption" parent="HBoxContainer/ScrollContainer/list" unique_id=1361151142 instance=ExtResource("1_smayb")]
+layout_mode = 2
+
+[node name="description" type="ScrollContainer" parent="HBoxContainer" unique_id=374832825]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="content" type="VBoxContainer" parent="HBoxContainer/description" unique_id=2101470692]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

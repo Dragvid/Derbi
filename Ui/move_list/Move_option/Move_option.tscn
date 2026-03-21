@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bb8ayxv3g61c1"]
+
+[ext_resource type="Script" uid="uid://bl70dd174fo6r" path="res://Ui/move_list/Move_option/move_option.gd" id="1_7hxu6"]
+
+[node name="MoveOption" type="Button" unique_id=1916072003]
+custom_minimum_size = Vector2(20, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "asdsad"
+script = ExtResource("1_7hxu6")
+
+[node name="move_name" type="Label" parent="." unique_id=897375640]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "asdsadsa"
+horizontal_alignment = 1
+vertical_alignment = 1
