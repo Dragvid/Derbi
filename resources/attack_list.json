@@ -2,6 +2,8 @@
 	"Punch": {
 		"name": "Punch",
 		"image_path": "",
+		"level_requirement": 1,
+		"description": "wqeqwe",
 		"damage": 10,
 		"type":"strike",
 		"hit_rate": 15
@@ -9,6 +11,8 @@
 	"Kick": {
 		"name": "Kick",
 		"image_path": "",
+		"level_requirement": 2,
+		"description": "<zxcc",
 		"damage": 15,
 		"type":"strike",
 		"hit_rate": 20
@@ -16,6 +20,8 @@
 	"Suplex": {
 		"name": "Suplex",
 		"image_path": "",
+		"level_requirement": 3,
+		"description": "asdasdas",
 		"damage": 15,
 		"type":"grab",
 		"hit_rate": 100
@@ -23,6 +29,8 @@
 	"Roundhouse": {
 		"name": "Roundhouse",
 		"image_path": "",
+		"level_requirement": 4,
+		"description": "xcvcxvxc",
 		"damage": 15,
 		"type":"strike",
 		"hit_rate": 85
@@ -30,6 +38,8 @@
 	"Hook": {
 		"name": "Hook",
 		"image_path": "",
+		"level_requirement": 4,
+		"description": "xcvxcv",
 		"damage": 10,
 		"type":"strike",
 		"hit_rate": 65

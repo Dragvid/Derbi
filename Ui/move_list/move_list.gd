@@ -5,6 +5,13 @@ var option_button_path = "res://Ui/move_list/Move_option/Move_option.tscn"
 func _ready() -> void:
 	load_list(GeneralToolsStatic.get_dictionary_from_json(ATTACK_LIST_path))
 	
+@onready var label_atk_name: Label = $HBoxContainer/description/content/atkName
+@onready var label_atk_hit_chance: Label = $HBoxContainer/description/content/HBoxContainer/atkHitChance
+@onready var label_atk_dmg: Label = $HBoxContainer/description/content/HBoxContainer/atkDmg
+@onready var label_atk_lvl_requirement: Label = $HBoxContainer/description/content/HBoxContainer2/atkLvlRequirement
+@onready var label_atk_description: Label = $HBoxContainer/description/content/atkDescription
+
+
 
 func load_list(data: Dictionary):
 	# 1. Clear old buttons
@@ -19,7 +26,12 @@ func load_list(data: Dictionary):
 			new_button.write_info(attack_info["Name"])
 		else:
 			new_button.call_deferred("write_info", attack_info["name"])
-		new_button.connect("pressed",display_attack_info.bind(attack_info["name"]))
+		new_button.connect("pressed",display_attack_info.bind(attack_info))
 
-func display_attack_info(atk_name=""):
-	print("click ", atk_name)
+func display_attack_info(_atk_info):
+	#print("click ", _atk_info)
+	label_atk_name.text = _atk_info["name"]
+	label_atk_dmg.text = str(_atk_info["damage"])
+	label_atk_description.text = _atk_info["description"]
+	label_atk_lvl_requirement.text = str(_atk_info["level_requirement"])
+	label_atk_hit_chance.text = str(_atk_info["hit_rate"])

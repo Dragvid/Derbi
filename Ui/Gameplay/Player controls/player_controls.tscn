@@ -13,8 +13,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_6ns1b")
+total_health = 100
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1671102052]
+[node name="char_portrait" type="TextureRect" parent="." unique_id=1671102052]
 modulate = Color(1, 1, 1, 0.32941177)
 layout_mode = 1
 anchors_preset = 15
@@ -35,9 +36,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=282909483]
+[node name="lifeBar" type="ProgressBar" parent="VBoxContainer" unique_id=282909483]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+step = 1.0
 show_percentage = false
 
 [node name="Keyboard" type="GridContainer" parent="VBoxContainer" unique_id=1418449935]

@@ -39,3 +39,47 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="atkName" type="Label" parent="HBoxContainer/description/content" unique_id=5096878]
+layout_mode = 2
+text = "xxxxx"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/description/content" unique_id=2035092912]
+layout_mode = 2
+
+[node name="atkLvlRequirementLabel" type="Label" parent="HBoxContainer/description/content/HBoxContainer2" unique_id=1605961010]
+layout_mode = 2
+text = "Level Requirement: "
+
+[node name="atkLvlRequirement" type="Label" parent="HBoxContainer/description/content/HBoxContainer2" unique_id=983810412]
+layout_mode = 2
+text = "xxxxx"
+
+[node name="atkDescription" type="Label" parent="HBoxContainer/description/content" unique_id=724916310]
+layout_mode = 2
+text = "xxxxx"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/description/content" unique_id=833261891]
+layout_mode = 2
+
+[node name="atkDmgLabel" type="Label" parent="HBoxContainer/description/content/HBoxContainer" unique_id=1759703425]
+layout_mode = 2
+text = "DMG: "
+
+[node name="atkDmg" type="Label" parent="HBoxContainer/description/content/HBoxContainer" unique_id=1989188569]
+layout_mode = 2
+text = "xxx"
+
+[node name="Control" type="Control" parent="HBoxContainer/description/content/HBoxContainer" unique_id=960936631]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="atkHitChanceLabel" type="Label" parent="HBoxContainer/description/content/HBoxContainer" unique_id=1132661643]
+layout_mode = 2
+text = "hit chance: "
+
+[node name="atkHitChance" type="Label" parent="HBoxContainer/description/content/HBoxContainer" unique_id=1148464683]
+layout_mode = 2
+text = "xxx"
