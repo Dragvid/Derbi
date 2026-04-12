@@ -1,6 +1,6 @@
 {
-	"Punch": {
-		"name": "Punch",
+	"soco": {
+		"name": "Soco",
 		"image_path": "",
 		"level_requirement": 1,
 		"description": "wqeqwe",
@@ -8,8 +8,8 @@
 		"type":"strike",
 		"hit_rate": 15
 	},
-	"Kick": {
-		"name": "Kick",
+	"pontape": {
+		"name": "Pontapé",
 		"image_path": "",
 		"level_requirement": 2,
 		"description": "<zxcc",
@@ -35,8 +35,8 @@
 		"type":"strike",
 		"hit_rate": 85
 	},
-	"Hook": {
-		"name": "Hook",
+	"gancho": {
+		"name": "Gancho",
 		"image_path": "",
 		"level_requirement": 4,
 		"description": "xcvxcv",
