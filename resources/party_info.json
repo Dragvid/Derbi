@@ -1,10 +1,10 @@
 {
 	"Pedro":{
 		"total_life":100,
-		"attacks":["soco","suplex","massagem"],
+		"attacks":["soco","Suplex","massagem"],
 	},
 	"Alex":{
 		"total_life":100,
-		"attacks":["soco","suplex"],
+		"attacks":["soco","Suplex"],
 	}
 }

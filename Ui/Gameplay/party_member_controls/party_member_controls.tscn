@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rkvbppw5p24i" path="res://Ui/Gameplay/party_member_controls/party_member_controls.gd" id="1_6ns1b"]
 [ext_resource type="Texture2D" uid="uid://p20530qk7dv5" path="res://Assets/9a9fc7af914fdca5831900671774cb09.jpg" id="2_g6gwd"]
+[ext_resource type="PackedScene" uid="uid://c30ic2fx7m240" path="res://Ui/Gameplay/party_member_controls/attack_option/atk_option.tscn" id="3_feik1"]
 
 [node name="party_member" type="Control" unique_id=1172923877]
 custom_minimum_size = Vector2(100, 100)
@@ -13,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_6ns1b")
+attack_option_scene = ExtResource("3_feik1")
 
 [node name="char_portrait" type="TextureRect" parent="." unique_id=1671102052]
 modulate = Color(1, 1, 1, 0.32941177)
@@ -38,7 +40,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1696605019]
+[node name="main_game" type="VBoxContainer" parent="." unique_id=1696605019]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,70 +49,69 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="lifeBar" type="ProgressBar" parent="VBoxContainer" unique_id=282909483]
+[node name="lifeBar" type="ProgressBar" parent="main_game" unique_id=282909483]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 step = 1.0
 
-[node name="Keyboard" type="GridContainer" parent="VBoxContainer" unique_id=1418449935]
+[node name="Keyboard" type="GridContainer" parent="main_game" unique_id=1418449935]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 columns = 3
 
-[node name="Blanc2" type="Control" parent="VBoxContainer/Keyboard" unique_id=1274708451]
+[node name="Blanc2" type="Control" parent="main_game/Keyboard" unique_id=1274708451]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Attack" type="Button" parent="VBoxContainer/Keyboard" unique_id=1061321352]
+[node name="Attack" type="Button" parent="main_game/Keyboard" unique_id=1061321352]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "ATK"
 
-[node name="Blanc3" type="Control" parent="VBoxContainer/Keyboard" unique_id=714966968]
+[node name="Blanc3" type="Control" parent="main_game/Keyboard" unique_id=714966968]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Interact" type="Button" parent="VBoxContainer/Keyboard" unique_id=1172447377]
+[node name="Interact" type="Button" parent="main_game/Keyboard" unique_id=1172447377]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "!"
 
-[node name="Block" type="Button" parent="VBoxContainer/Keyboard" unique_id=734239650]
+[node name="Block" type="Button" parent="main_game/Keyboard" unique_id=734239650]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "BLK"
 
-[node name="Inventory" type="Button" parent="VBoxContainer/Keyboard" unique_id=723869408]
+[node name="Inventory" type="Button" parent="main_game/Keyboard" unique_id=723869408]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "INV"
 
-[node name="Blanc4" type="Control" parent="VBoxContainer/Keyboard" unique_id=887368485]
+[node name="Blanc4" type="Control" parent="main_game/Keyboard" unique_id=887368485]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Escape" type="Button" parent="VBoxContainer/Keyboard" unique_id=204573664]
+[node name="Escape" type="Button" parent="main_game/Keyboard" unique_id=204573664]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "ESC"
 
-[node name="Blanc" type="Control" parent="VBoxContainer/Keyboard" unique_id=800990994]
+[node name="Blanc" type="Control" parent="main_game/Keyboard" unique_id=800990994]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="atkListContainer" type="Control" parent="." unique_id=433434328]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,9 +136,8 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="atkListContainer/atkList" unique_id=1289273806]
+[node name="atk_option" parent="atkListContainer/atkList" unique_id=1348666946 instance=ExtResource("3_feik1")]
 layout_mode = 2
-text = "atk"
 
 [node name="leaveAtkList" type="Button" parent="atkListContainer" unique_id=617116106]
 layout_mode = 1
@@ -152,5 +152,5 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
 
-[connection signal="button_up" from="VBoxContainer/Keyboard/Attack" to="." method="_on_attack_button_up"]
+[connection signal="button_up" from="main_game/Keyboard/Attack" to="." method="_on_attack_button_up"]
 [connection signal="button_up" from="atkListContainer/leaveAtkList" to="." method="_on_leave_atk_list_button_up"]

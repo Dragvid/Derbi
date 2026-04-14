@@ -6,7 +6,6 @@ var party_info = AppInfo.party_info_json
 var currentTurn = 0
 
 func _ready() -> void:
-	#print(party_info)
 	load_party_members()
 
 func load_party_members():

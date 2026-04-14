@@ -7,6 +7,7 @@ static var new_highscore : bool = false
 
 static var party_members = ["Alex","Pedro"]
 static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")
+static var attack_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/attack_list.json")
 
 
 static func clear_app_info():#At the end the game
