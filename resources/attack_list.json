@@ -1,47 +1,75 @@
 {
-	"soco": {
+	"Soco": {
 		"name": "Soco",
 		"image_path": "",
 		"level_requirement": 1,
-		"description": "wqeqwe",
+		"description": "Soco direto ao peito do alvo.",
+		"target":"opposition",
 		"damage": 10,
 		"type":"strike",
-		"hit_rate": 15
+		"cost":10,
+		"hit_rate": 70,
+		"crit_rate": 20
 	},
 	"pontape": {
 		"name": "Pontapé",
 		"image_path": "",
 		"level_requirement": 2,
-		"description": "<zxcc",
+		"description": "Pontapé dirigido à canela do alvo.",
+		"target":"opposition",
 		"damage": 15,
 		"type":"strike",
-		"hit_rate": 20
+		"cost":10,
+		"hit_rate": 70,
+		"crit_rate": 20
 	},
 	"Suplex": {
 		"name": "Suplex",
 		"image_path": "",
 		"level_requirement": 3,
-		"description": "asdasdas",
+		"description": "Um agarrão que deixa o alvo de cabeça para baixo.",
+		"target":"opposition",
 		"damage": 15,
 		"type":"grab",
-		"hit_rate": 100
+		"cost":60,
+		"hit_rate": 100,
+		"crit_rate": 30
 	},
 	"Roundhouse": {
 		"name": "Roundhouse",
 		"image_path": "",
 		"level_requirement": 4,
-		"description": "xcvcxvxc",
+		"description": "Pontapé que usa a rotação toda do corpo",
+		"target":"opposition",
 		"damage": 15,
 		"type":"strike",
-		"hit_rate": 85
+		"cost":50,
+		"hit_rate": 85,
+		"crit_rate": 30
 	},
 	"gancho": {
 		"name": "Gancho",
 		"image_path": "",
 		"level_requirement": 4,
-		"description": "xcvxcv",
+		"description": "O soco mais forte que um humano pode dar",
+		"target":"opposition",
 		"damage": 10,
 		"type":"strike",
-		"hit_rate": 65
+		"cost":50,
+		"hit_rate": 65,
+		"crit_rate": 10
 	},
+	"Massagem": {
+		"name": "Massagem",
+		"image_path": "",
+		"level_requirement": 2,
+		"description": "Massaga as costas do teu parceiro para por algo que estava partido no lugar.",
+		"target":"ally",
+		"damage": -25,
+		"type":"strike",
+		"cost":25,
+		"hit_rate": 65,
+		"crit_rate": 0
+	},
+	
 }

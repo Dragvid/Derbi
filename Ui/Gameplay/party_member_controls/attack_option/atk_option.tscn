@@ -99,14 +99,18 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_feik1")
 
 [node name="description" type="Label" parent="atk_description" unique_id=1510244622]
-layout_mode = 0
-offset_top = 1.0
-offset_right = 1152.0
-offset_bottom = 102.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "description bla bla bla
 bla
 nba
 salkdjsalklg+df"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1107856489]
 libraries/ = SubResource("AnimationLibrary_ml7ld")
