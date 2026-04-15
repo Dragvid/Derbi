@@ -17,3 +17,10 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	animation_player.play_backwards("display_info")
+
+
+func _on_button_up() -> void:
+	#get the target
+	#queue the attack
+	disable the action
+	pass # Replace with function body.
