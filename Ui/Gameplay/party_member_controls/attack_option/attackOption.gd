@@ -2,9 +2,11 @@ extends Node
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var description_label: Label = $atk_description/description
+var play_area_manager
 
-func set_information(new_text:String):
+func set_information(new_text:String, module_manager):
 	description_label.text = new_text
+	play_area_manager = module_manager
 
 func _on_focus_entered() -> void:
 	animation_player.play("display_info")
@@ -22,5 +24,6 @@ func _on_mouse_exited() -> void:
 func _on_button_up() -> void:
 	#get the target
 	#queue the attack
-	disable the action
+	#disable actions
+	play_area_manager.option_picked()
 	pass # Replace with function body.

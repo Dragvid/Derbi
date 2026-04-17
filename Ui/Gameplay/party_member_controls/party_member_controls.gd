@@ -17,6 +17,7 @@ var attack_list
 @onready var main_game: VBoxContainer = $main_game
 @onready var atk_list_node: VBoxContainer = $atkListContainer/atkList
 @onready var char_name_label: Label = $char_name_label
+@onready var action_picked: Control = $action_picked
 
 func _ready() -> void:
 	btn_attack.grab_focus()
@@ -44,9 +45,18 @@ func load_atk_list():
 			var atk_opt_instance = GeneralToolsStatic.instantiate_scene(attack_option_scene.resource_path,atk_list_node)
 			atk_opt_instance.text = atk
 			var text_to_add = str("Target: ",atk_info.target, " Cost: ",atk_info.cost,"\n ",atk_info.description)
-			atk_opt_instance.call_deferred("set_information",text_to_add)
+			atk_opt_instance.call_deferred("set_information", text_to_add, self)
 		else:
 			print("atk named ",atk," was not found in the list")
+
+func option_picked():
+	atk_list_node.get_parent().visible = false
+	main_game.visible = false
+	action_picked.visible = true
+
+func turn_reset():
+	atk_list_node.visible = true
+	action_picked.visible = false
 
 func _on_attack_button_up() -> void:
 	atk_list_node.get_parent().visible = true
