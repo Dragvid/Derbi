@@ -16,6 +16,14 @@ size_flags_horizontal = 3
 script = ExtResource("1_6ns1b")
 attack_option_scene = ExtResource("3_feik1")
 
+[node name="Panel" type="Panel" parent="." unique_id=514589885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="char_portrait" type="TextureRect" parent="." unique_id=1671102052]
 modulate = Color(1, 1, 1, 0.32941177)
 layout_mode = 1

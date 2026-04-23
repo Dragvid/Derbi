@@ -18,14 +18,17 @@ party_member_interface = ExtResource("1_ftrgj")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.549
+anchor_bottom = 0.5
 offset_bottom = 0.24798584
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="Player_interface" type="HBoxContainer" parent="." unique_id=1436272098]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 292.0
 grow_horizontal = 2
 grow_vertical = 2

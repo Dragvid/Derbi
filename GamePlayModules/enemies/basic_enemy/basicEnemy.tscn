@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bqkouynrb1nif"]
+
+[ext_resource type="Script" uid="uid://chsuoduvultj4" path="res://GamePlayModules/enemies/basic_enemy/enemy_behaviour.gd" id="1_c60tt"]
+
+[node name="BasicEnemy" type="Button" unique_id=304499794]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+expand_icon = true
+script = ExtResource("1_c60tt")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=189023330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5

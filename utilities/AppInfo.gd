@@ -8,6 +8,7 @@ static var new_highscore : bool = false
 static var party_members = ["Alex","Pedro"]
 static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")
 static var attack_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/attack_list.json")
+static var enemy_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/enemy_info.json")
 
 
 static func clear_app_info():#At the end the game
@@ -25,4 +26,10 @@ static func clear_app_info():#At the end the game
 
 static func update_score(new_score:int):
 	score += new_score
-	
+
+static func retrive_attack_info(atk_name):
+	if attack_info_json.has(atk_name):
+		var atk_info = AppInfo.attack_info_json[atk_name]
+		return atk_info
+	else:
+		print("atk named ",atk_name," was not found in the list")

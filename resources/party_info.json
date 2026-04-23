@@ -4,7 +4,7 @@
 		"attacks":["Soco","Suplex","Massagem"],
 	},
 	"Alex":{
-		"total_life":100,
+		"total_life":150,
 		"attacks":["Soco","Suplex"],
 	}
 }
