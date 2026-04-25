@@ -7,6 +7,7 @@ var total_health : int
 var player_id : int
 var current_health : int
 var attack_list
+var battle_manager
 
 @onready var btn_block: Button = $main_game/Keyboard/Block
 @onready var btn_interact: Button = $main_game/Keyboard/Interact
@@ -21,9 +22,9 @@ var attack_list
 
 func _ready() -> void:
 	btn_attack.grab_focus()
-	
 
-func set_up_player(new_name:String = "[missing]", new_life_total:int=100, new_attacks = [], new_player_id:int=0):
+func set_up_player(manager, new_name:String = "[missing]", new_life_total:int=100, new_attacks = [], new_player_id:int=0):
+	battle_manager = manager
 	char_name_label.text = new_name
 	char_name = new_name
 	player_id = new_player_id
@@ -66,3 +67,8 @@ func _on_attack_button_up() -> void:
 func _on_leave_atk_list_button_up() -> void:
 	atk_list_node.get_parent().visible = false
 	main_game.visible = true
+
+
+func _on_escape_button_up() -> void:
+	battle_manager.run_away(0.2)
+	option_picked()

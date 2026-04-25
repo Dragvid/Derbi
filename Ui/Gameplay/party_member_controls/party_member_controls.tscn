@@ -187,4 +187,5 @@ text = "Ready"
 uppercase = true
 
 [connection signal="button_up" from="main_game/Keyboard/Attack" to="." method="_on_attack_button_up"]
+[connection signal="button_up" from="main_game/Keyboard/Escape" to="." method="_on_escape_button_up"]
 [connection signal="button_up" from="atkListContainer/leaveAtkList" to="." method="_on_leave_atk_list_button_up"]
