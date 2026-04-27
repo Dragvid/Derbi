@@ -26,9 +26,13 @@ func load_enemies(enemy_list=[]):
 			var unit_info = AppInfo.enemy_info_json[formation_unit]
 			#instance scene
 			var unit_scene = GeneralToolsStatic.instantiate_scene(unit_info.scene_path,enemies_box)
-			unit_scene.call_deferred("load_info",unit_info)
+			unit_scene.button_up.connect(_on_unit_button_up.bind(unit_scene))
+			unit_scene.call_deferred("load_info",unit_info,self)
 	else:#planned encounter
 		pass
+
+func _on_unit_button_up(target_unit):
+	print(target_unit.name," option clicked")
 
 func load_party_members():
 	var cur_player_id = 1
@@ -36,8 +40,13 @@ func load_party_members():
 		if party_info.has(member):
 			var member_data = party_info[member]
 			var member_ui = GeneralToolsStatic.instantiate_scene(party_member_interface.resource_path,player_interface)
-			member_ui.call_deferred("set_up_player", self, member, member_data.total_life, member_data.attacks, cur_player_id)
+			member_ui.call_deferred("set_up_player", self, member_data, member,  cur_player_id)
 			cur_player_id += 1 
+
+func enter_target_selection(target_is_oponent:bool=true):
+	if target_is_oponent:
+		for enemy in enemies_box.get_children():
+			enemy.disabled = false
 
 func change_turn():
 	turn_player = !turn_player

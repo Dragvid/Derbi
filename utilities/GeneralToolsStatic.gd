@@ -35,6 +35,13 @@ static func change_health_values(subject: Node, change_value: int, total_health:
 	elif change_value > 0:
 		subject.currentHealth = min(new_health, total_health)
 
+static func get_right_parent_node(parent_name, starting_node:Node):
+	var current_node = starting_node
+	while current_node.name != parent_name:
+		current_node = current_node.get_parent()
+	return current_node
+	
+
 static func instantiate_scene(path:String, originNode:Node, spawnPosition:Vector2 = Vector2.ZERO):
 	var scene_resource = load(path)
 	if scene_resource and scene_resource is PackedScene:

@@ -23,7 +23,10 @@ func _on_mouse_exited() -> void:
 
 func _on_button_up() -> void:
 	#get the target
+	var module_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
+	print("Module manager name: ", module_manager.name)
+	module_manager.enter_target_selection(true)
 	#queue the attack
 	#disable actions
-	play_area_manager.option_picked()
-	pass # Replace with function body.
+	#play_area_manager.option_picked()
+	#pass # Replace with function body.

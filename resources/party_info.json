@@ -1,10 +1,12 @@
 {
 	"Pedro":{
-		"total_life":100,
+		"total_life" : 100,
+		"block_dmg_resistance" : 0.5,  
 		"attacks":["Soco","Suplex","Massagem"],
 	},
 	"Alex":{
 		"total_life":150,
+		"block_dmg_resistance" : 0.5, 
 		"attacks":["Soco","Suplex"],
 	}
 }

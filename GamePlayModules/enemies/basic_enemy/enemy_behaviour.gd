@@ -8,21 +8,18 @@ var rng = RandomNumberGenerator.new()
 
 #var enemy_type : String
 var enemy_info
-
+var module_manager
 #func get_enemy_info():
 	#if AppInfo.enemy_info_json.has(enemy_type):
 		#enemy_info = AppInfo.attack_info_json[enemy_type]
 	#else:
 		#print("enemy named ",enemy_type," was not on the list")
 
-func load_info(new_enemy_info):
-	
+func load_info(new_enemy_info,new_module_manager):
+	module_manager = new_module_manager
 	#add information
-	#get_enemy_info() 
 	enemy_info = new_enemy_info
 	sprite.texture = load(enemy_info.sprite_path)
-	#for testing
-	#pick_attack()
 
 #func _ready():
 	

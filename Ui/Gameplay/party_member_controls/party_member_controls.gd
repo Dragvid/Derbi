@@ -8,6 +8,8 @@ var player_id : int
 var current_health : int
 var attack_list
 var battle_manager
+var state_current = AppInfo.states.idle 
+var member_info
 
 @onready var btn_block: Button = $main_game/Keyboard/Block
 @onready var btn_interact: Button = $main_game/Keyboard/Interact
@@ -23,21 +25,25 @@ var battle_manager
 func _ready() -> void:
 	btn_attack.grab_focus()
 
-func set_up_player(manager, new_name:String = "[missing]", new_life_total:int=100, new_attacks = [], new_player_id:int=0):
+func set_up_player(manager, member_data, new_name:String = "[missing]", new_player_id:int=0):
 	battle_manager = manager
 	char_name_label.text = new_name
 	char_name = new_name
 	player_id = new_player_id
-	attack_list = new_attacks
+	attack_list = member_data.attacks
 	load_atk_list()
 	#health
-	total_health = new_life_total
+	total_health = member_data.total_life
 	current_health = total_health
 	life_bar.max_value = total_health
 	update_lifebar(current_health)
+	member_info= member_data
 
 func update_lifebar(updated_life):
-	life_bar.value=updated_life
+	var damage = updated_life 
+	if updated_life < 0 and state_current == AppInfo.states.blocking:#damage
+		damage = damage * member_info.block_dmg_resistance
+	life_bar.value += damage 
 
 func load_atk_list():
 	for atk in attack_list:
@@ -71,4 +77,10 @@ func _on_leave_atk_list_button_up() -> void:
 
 func _on_escape_button_up() -> void:
 	battle_manager.run_away(0.2)
+	option_picked()
+
+
+func _on_block_button_up() -> void:
+	state_current = AppInfo.states.blocking
+	#change sprite
 	option_picked()

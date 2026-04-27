@@ -5,6 +5,8 @@ static var app_cleared = false
 static var highscore : int
 static var new_highscore : bool = false
 
+enum states {idle,stun,blocking}
+
 static var party_members = ["Alex","Pedro"]
 static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")
 static var attack_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/attack_list.json")

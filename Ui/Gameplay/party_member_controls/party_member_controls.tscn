@@ -145,9 +145,6 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="atk_option" parent="atkListContainer/atkList" unique_id=1348666946 instance=ExtResource("3_feik1")]
-layout_mode = 2
-
 [node name="leaveAtkList" type="Button" parent="atkListContainer" unique_id=617116106]
 layout_mode = 1
 anchors_preset = 3
@@ -187,5 +184,6 @@ text = "Ready"
 uppercase = true
 
 [connection signal="button_up" from="main_game/Keyboard/Attack" to="." method="_on_attack_button_up"]
+[connection signal="button_up" from="main_game/Keyboard/Block" to="." method="_on_block_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Escape" to="." method="_on_escape_button_up"]
 [connection signal="button_up" from="atkListContainer/leaveAtkList" to="." method="_on_leave_atk_list_button_up"]
