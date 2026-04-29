@@ -36,10 +36,10 @@ func set_up_player(manager, member_data, new_name:String = "[missing]", new_play
 	total_health = member_data.total_life
 	current_health = total_health
 	life_bar.max_value = total_health
-	update_lifebar(current_health)
-	member_info= member_data
+	update_life(current_health)
+	member_info = member_data
 
-func update_lifebar(updated_life):
+func update_life(updated_life):
 	var damage = updated_life 
 	if updated_life < 0 and state_current == AppInfo.states.blocking:#damage
 		damage = damage * member_info.block_dmg_resistance
@@ -74,11 +74,9 @@ func _on_leave_atk_list_button_up() -> void:
 	atk_list_node.get_parent().visible = false
 	main_game.visible = true
 
-
 func _on_escape_button_up() -> void:
 	battle_manager.run_away(0.2)
 	option_picked()
-
 
 func _on_block_button_up() -> void:
 	state_current = AppInfo.states.blocking

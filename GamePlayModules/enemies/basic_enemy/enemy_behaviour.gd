@@ -5,10 +5,11 @@ extends Button
 @onready var sprite: TextureRect = $TextureRect
 
 var rng = RandomNumberGenerator.new()
-
-#var enemy_type : String
+var current_health
 var enemy_info
 var module_manager
+var state_current = AppInfo.states.idle
+
 #func get_enemy_info():
 	#if AppInfo.enemy_info_json.has(enemy_type):
 		#enemy_info = AppInfo.attack_info_json[enemy_type]
@@ -20,9 +21,7 @@ func load_info(new_enemy_info,new_module_manager):
 	#add information
 	enemy_info = new_enemy_info
 	sprite.texture = load(enemy_info.sprite_path)
-
-#func _ready():
-	
+	current_health = enemy_info.total_life
 
 func pick_action():
 	# Choose if you want to block or attack
@@ -33,6 +32,16 @@ func pick_action():
 	else:
 		#block
 		pass
+
+func update_life(updated_life):
+	var damage = updated_life 
+	if updated_life < 0 and state_current == AppInfo.states.blocking:#damage
+		damage = damage * enemy_info.block_dmg_resistance
+	current_health += damage 
+	if current_health <= 0:
+		print(name," Died")
+		queue_free()
+	print("damage recieved: ",damage,"/ current life: ",current_health)
 
 func pick_attack():
 	rng.randomize()

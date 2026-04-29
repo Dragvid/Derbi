@@ -5,6 +5,8 @@ static var app_cleared = false
 static var highscore : int
 static var new_highscore : bool = false
 
+static var crit_multiplier = 1.5
+
 enum states {idle,stun,blocking}
 
 static var party_members = ["Alex","Pedro"]

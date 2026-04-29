@@ -7,6 +7,14 @@ extends Control
 var party_info = AppInfo.party_info_json
 var turn_player = true
 
+#attack processing
+var current_attack : Dictionary = {
+	"attacker":Node,
+	"target":Node,
+	"attack_name":""
+}
+
+
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -25,14 +33,13 @@ func load_enemies(enemy_list=[]):
 			#get the information and check if the scene is valid
 			var unit_info = AppInfo.enemy_info_json[formation_unit]
 			#instance scene
-			var unit_scene = GeneralToolsStatic.instantiate_scene(unit_info.scene_path,enemies_box)
-			unit_scene.button_up.connect(_on_unit_button_up.bind(unit_scene))
+			var unit_scene:Node = GeneralToolsStatic.instantiate_scene(unit_info.scene_path,enemies_box)
+			unit_scene.button_up.connect(receive_current_attack_target_choice.bind(unit_scene))
 			unit_scene.call_deferred("load_info",unit_info,self)
 	else:#planned encounter
 		pass
 
-func _on_unit_button_up(target_unit):
-	print(target_unit.name," option clicked")
+
 
 func load_party_members():
 	var cur_player_id = 1
@@ -47,6 +54,30 @@ func enter_target_selection(target_is_oponent:bool=true):
 	if target_is_oponent:
 		for enemy in enemies_box.get_children():
 			enemy.disabled = false
+
+
+func receive_current_attack(new_attacker,new_attack_name):
+	current_attack.attacker = new_attacker
+	current_attack.attack_name = new_attack_name
+	#print(current_attack.attacker," did ", current_attack.attack_name)
+func receive_current_attack_target_choice(target_unit):#receive target choice
+	#print(target_unit.name," option clicked")
+	current_attack.target = target_unit
+	if current_attack.attacker != null and current_attack.attack_name != null:
+		attack_process()
+
+#apply damage
+func attack_process():
+	#get attack info
+	var atk_info = AppInfo.attack_info_json[current_attack.attack_name]
+	#print("attack process, atk info: ",atk_info)
+	if randi_range(0,100) < atk_info.hit_rate:
+		var final_damage = atk_info.damage
+		if randi_range(0,100) < atk_info.crit_rate:
+			final_damage = final_damage * AppInfo.crit_multiplier
+		current_attack.target.update_life(final_damage)
+	if turn_player:
+		current_attack.attacker.option_picked()
 
 func change_turn():
 	turn_player = !turn_player

@@ -3,6 +3,7 @@
 		"total_life":100,
 		"attacks":["Soco"],
 		"agressiveness": 70,
+		"block_dmg_resistance" : 0.5,
 		"scene_path":"res://GamePlayModules/enemies/basic_enemy/basicEnemy.tscn",
 		"sprite_path":"res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg",
 	},

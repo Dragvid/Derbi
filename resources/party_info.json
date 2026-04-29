@@ -7,6 +7,6 @@
 	"Alex":{
 		"total_life":150,
 		"block_dmg_resistance" : 0.5, 
-		"attacks":["Soco","Suplex"],
+		"attacks":["Soco","Suplex","Pontapé"],
 	}
 }
