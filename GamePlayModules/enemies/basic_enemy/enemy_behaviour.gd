@@ -44,7 +44,5 @@ func update_life(updated_life):
 	print("damage recieved: ",damage,"/ current life: ",current_health)
 
 func pick_attack():
-	rng.randomize()
-	var atk_option_id = rng.randi_range(0, enemy_info.attacks.size())
-	print(enemy_info.attacks[atk_option_id])
+	return enemy_info.attacks.pick_random()
 	

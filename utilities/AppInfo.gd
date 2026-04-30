@@ -7,7 +7,7 @@ static var new_highscore : bool = false
 
 static var crit_multiplier = 1.5
 
-enum states {idle,stun,blocking}
+enum states {idle,stun,blocking,recovery}
 
 static var party_members = ["Alex","Pedro"]
 static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")

@@ -55,17 +55,26 @@ func enter_target_selection(target_is_oponent:bool=true):
 		for enemy in enemies_box.get_children():
 			enemy.disabled = false
 
-
+func check_turn_end():
+	var turn_end = true
+	var turn_group
+	if turn_player:
+		turn_group = player_interface.get_children()
+	else:
+		turn_group = enemies_box.get_children()
+	for member in turn_group:#check if it is the end of the turn
+		if member.state_current != AppInfo.states.recovery:
+			turn_end = false
+	if turn_end:
+		change_turn()
 func receive_current_attack(new_attacker,new_attack_name):
 	current_attack.attacker = new_attacker
 	current_attack.attack_name = new_attack_name
-	#print(current_attack.attacker," did ", current_attack.attack_name)
 func receive_current_attack_target_choice(target_unit):#receive target choice
-	#print(target_unit.name," option clicked")
 	current_attack.target = target_unit
 	if current_attack.attacker != null and current_attack.attack_name != null:
 		attack_process()
-
+	check_turn_end()
 #apply damage
 func attack_process():
 	#get attack info
@@ -80,7 +89,23 @@ func attack_process():
 		current_attack.attacker.option_picked()
 
 func change_turn():
+	print("change turn")
 	turn_player = !turn_player
+	if !turn_player:
+		enemy_turn()
+	else:
+		for party_member in player_interface.get_children():
+			party_member.turn_reset()
+
+
+func enemy_turn():
+	for enemy in enemies_box.get_children():
+		#print(enemy.pick_attack())
+		print("enemy attack: ",enemy.name)
+		receive_current_attack(enemy,enemy.pick_attack())
+		receive_current_attack_target_choice(player_interface.get_children().pick_random())
+		await get_tree().create_timer(1).timeout
+	change_turn()
 
 func run_away(escape_chance:float):
 	if randf() < escape_chance:

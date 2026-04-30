@@ -57,16 +57,20 @@ func load_atk_list():
 			print("atk named ",atk," was not found in the list")
 
 func option_picked():
+	state_current = AppInfo.states.recovery
 	atk_list_node.get_parent().visible = false
 	main_game.visible = false
 	action_picked.visible = true
 
 func turn_reset():
-	atk_list_node.visible = true
+	state_current = AppInfo.states.idle
+	atk_list_node.get_parent().visible = true
 	action_picked.visible = false
+	
 
 func _on_attack_button_up() -> void:
 	atk_list_node.get_parent().visible = true
+	#atk_list_node.visible = false
 	main_game.visible = false
 	atk_list_node.get_child(0).grab_focus()
 
