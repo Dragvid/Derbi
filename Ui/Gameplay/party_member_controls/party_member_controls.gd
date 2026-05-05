@@ -11,6 +11,7 @@ var battle_manager
 var state_current = AppInfo.states.idle 
 var member_info
 
+@onready var option_keyboard: GridContainer = $main_game/Keyboard
 @onready var btn_block: Button = $main_game/Keyboard/Block
 @onready var btn_interact: Button = $main_game/Keyboard/Interact
 @onready var btn_attack: Button = $main_game/Keyboard/Attack
@@ -18,9 +19,13 @@ var member_info
 @onready var btn_escape: Button = $main_game/Keyboard/Escape
 @onready var life_bar: ProgressBar = $main_game/lifeBar
 @onready var main_game: VBoxContainer = $main_game
-@onready var atk_list_node: VBoxContainer = $atkListContainer/atkList
+
+@onready var atk_list_node: VBoxContainer = $main_game/atkListContainer/atkList
 @onready var char_name_label: Label = $char_name_label
-@onready var action_picked: Control = $action_picked
+@onready var action_picked: Control = $main_game/action_picked
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _ready() -> void:
 	btn_attack.grab_focus()
@@ -41,8 +46,10 @@ func set_up_player(manager, member_data, new_name:String = "[missing]", new_play
 
 func update_life(updated_life):
 	var damage = updated_life 
-	if updated_life < 0 and state_current == AppInfo.states.blocking:#damage
-		damage = damage * member_info.block_dmg_resistance
+	if damage < 0:
+		animation_player.play("damage")
+		if state_current == AppInfo.states.blocking:#damage
+			damage = damage * member_info.block_dmg_resistance
 	life_bar.value += damage 
 
 func load_atk_list():
@@ -57,32 +64,44 @@ func load_atk_list():
 			print("atk named ",atk," was not found in the list")
 
 func option_picked():
-	state_current = AppInfo.states.recovery
+	if state_current != AppInfo.states.blocking:
+		state_current = AppInfo.states.recovery
+	option_keyboard.visible = false
 	atk_list_node.get_parent().visible = false
-	main_game.visible = false
 	action_picked.visible = true
+	battle_manager.check_turn_end()
 
 func turn_reset():
 	state_current = AppInfo.states.idle
-	atk_list_node.get_parent().visible = true
+	atk_list_node.get_parent().visible = false
 	action_picked.visible = false
+	option_keyboard.visible = true
 	
 
 func _on_attack_button_up() -> void:
+	if battle_manager.is_action_pending():
+		return
 	atk_list_node.get_parent().visible = true
-	#atk_list_node.visible = false
-	main_game.visible = false
+	option_keyboard.visible = false
 	atk_list_node.get_child(0).grab_focus()
 
 func _on_leave_atk_list_button_up() -> void:
+	#if battle_manager.is_action_pending():
+		#return
+	battle_manager.clean_current_atk()
 	atk_list_node.get_parent().visible = false
-	main_game.visible = true
+	option_keyboard.visible = true
+	#main_game.visible = true
 
 func _on_escape_button_up() -> void:
+	if battle_manager.is_action_pending():
+		return
 	battle_manager.run_away(0.2)
 	option_picked()
 
 func _on_block_button_up() -> void:
+	if battle_manager.is_action_pending():
+		return
 	state_current = AppInfo.states.blocking
 	#change sprite
 	option_picked()

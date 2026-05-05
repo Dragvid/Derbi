@@ -9,11 +9,10 @@ var turn_player = true
 
 #attack processing
 var current_attack : Dictionary = {
-	"attacker":Node,
-	"target":Node,
-	"attack_name":""
+	"attacker"=null,
+	"target"=null,
+	"attack_name"=null
 }
-
 
 var rng = RandomNumberGenerator.new()
 
@@ -36,10 +35,8 @@ func load_enemies(enemy_list=[]):
 			var unit_scene:Node = GeneralToolsStatic.instantiate_scene(unit_info.scene_path,enemies_box)
 			unit_scene.button_up.connect(receive_current_attack_target_choice.bind(unit_scene))
 			unit_scene.call_deferred("load_info",unit_info,self)
-	else:#planned encounter
-		pass
-
-
+	#else:#planned encounter
+		#pass
 
 func load_party_members():
 	var cur_player_id = 1
@@ -50,12 +47,13 @@ func load_party_members():
 			member_ui.call_deferred("set_up_player", self, member_data, member,  cur_player_id)
 			cur_player_id += 1 
 
-func enter_target_selection(target_is_oponent:bool=true):
+func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
 	if target_is_oponent:
 		for enemy in enemies_box.get_children():
-			enemy.disabled = false
+			enemy.disabled = !enter
 
 func check_turn_end():
+	#print("Check turn end")
 	var turn_end = true
 	var turn_group
 	if turn_player:
@@ -63,18 +61,30 @@ func check_turn_end():
 	else:
 		turn_group = enemies_box.get_children()
 	for member in turn_group:#check if it is the end of the turn
-		if member.state_current != AppInfo.states.recovery:
+		if member.state_current != AppInfo.states.recovery and member.state_current != AppInfo.states.blocking:
+		#if member.state_current != AppInfo.states.recovery:
 			turn_end = false
+	#print("turn_end: ",turn_end)
 	if turn_end:
 		change_turn()
 func receive_current_attack(new_attacker,new_attack_name):
 	current_attack.attacker = new_attacker
 	current_attack.attack_name = new_attack_name
-func receive_current_attack_target_choice(target_unit):#receive target choice
+func receive_current_attack_target_choice(target_unit):
+	# 1. Check if the dictionary is null or empty
+	if current_attack == null or current_attack.is_empty():
+		print("Warning: Attempted to set target, but current_attack is empty.")
+		return # Stop the function here
+	# 2. Check for specific required keys to be safe
+	if not current_attack.has("attacker") or not current_attack.has("attack_name"):
+		print("Warning: current_attack is missing required keys.")
+		return
+	# Proceed with logic safely
 	current_attack.target = target_unit
 	if current_attack.attacker != null and current_attack.attack_name != null:
 		attack_process()
-	check_turn_end()
+	if turn_player:
+		check_turn_end()
 #apply damage
 func attack_process():
 	#get attack info
@@ -85,20 +95,33 @@ func attack_process():
 		if randi_range(0,100) < atk_info.crit_rate:
 			final_damage = final_damage * AppInfo.crit_multiplier
 		current_attack.target.update_life(final_damage)
+	else:
+		print("Miss")
 	if turn_player:
 		current_attack.attacker.option_picked()
+	clean_current_atk()
+
+func clean_current_atk():
+	toggle_target_selection(true,false)
+	current_attack.attacker = null
+	current_attack.target = null
+	current_attack.attack_name = null
+	
 
 func change_turn():
-	print("change turn")
+	#print("change turn")
 	turn_player = !turn_player
+	await get_tree().create_timer(1).timeout
 	if !turn_player:
+		
 		enemy_turn()
 	else:
 		for party_member in player_interface.get_children():
 			party_member.turn_reset()
 
-
 func enemy_turn():
+	for enemy in enemies_box.get_children():
+		enemy.state_current = AppInfo.states.idle
 	for enemy in enemies_box.get_children():
 		#print(enemy.pick_attack())
 		print("enemy attack: ",enemy.name)
@@ -106,6 +129,19 @@ func enemy_turn():
 		receive_current_attack_target_choice(player_interface.get_children().pick_random())
 		await get_tree().create_timer(1).timeout
 	change_turn()
+
+func is_action_pending() -> bool:
+	# If the dictionary is empty, there is definitely no action pending
+	if current_attack.is_empty():
+		return false
+	# We assume no action is pending until we find a non-null value
+	for key in current_attack.keys():
+		if current_attack[key] != null:
+			# We found data! That means an action is in progress.
+			print("Pending action found in key: ", key)
+			return true 
+			
+	return false
 
 func run_away(escape_chance:float):
 	if randf() < escape_chance:

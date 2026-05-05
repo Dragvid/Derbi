@@ -4,6 +4,120 @@
 [ext_resource type="Texture2D" uid="uid://p20530qk7dv5" path="res://Assets/9a9fc7af914fdca5831900671774cb09.jpg" id="2_g6gwd"]
 [ext_resource type="PackedScene" uid="uid://c30ic2fx7m240" path="res://Ui/Gameplay/party_member_controls/attack_option/atk_option.tscn" id="3_feik1"]
 
+[sub_resource type="Animation" id="Animation_feik1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("char_portrait:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("char_portrait:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("char_portrait:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("char_portrait:anchor_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qay8n"]
+resource_name = "attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("char_portrait:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("char_portrait:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.5, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ml7ld"]
+resource_name = "damage"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("char_portrait:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.5, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("char_portrait:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.587, 1.0, 1.0, 1.0, 0.587, 1.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qay8n"]
+_data = {
+&"RESET": SubResource("Animation_feik1"),
+&"attack": SubResource("Animation_qay8n"),
+&"damage": SubResource("Animation_ml7ld")
+}
+
 [node name="party_member" type="Control" unique_id=1172923877]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
@@ -27,7 +141,7 @@ grow_vertical = 2
 [node name="char_portrait" type="TextureRect" parent="." unique_id=1671102052]
 modulate = Color(1, 1, 1, 0.32941177)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -55,12 +169,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
 
 [node name="lifeBar" type="ProgressBar" parent="main_game" unique_id=282909483]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 step = 1.0
+
+[node name="atkListContainer" type="Control" parent="main_game" unique_id=433434328]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="main_game/atkListContainer" unique_id=2090707049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="atkList" type="VBoxContainer" parent="main_game/atkListContainer" unique_id=1334841453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="leaveAtkList" type="Button" parent="main_game/atkListContainer" unique_id=617116106]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
 
 [node name="Keyboard" type="GridContainer" parent="main_game" unique_id=1418449935]
 custom_minimum_size = Vector2(200, 200)
@@ -119,55 +267,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="atkListContainer" type="Control" parent="." unique_id=433434328]
+[node name="action_picked" type="Control" parent="main_game" unique_id=278238469]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="atkListContainer" unique_id=2090707049]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="atkList" type="VBoxContainer" parent="atkListContainer" unique_id=1334841453]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="leaveAtkList" type="Button" parent="atkListContainer" unique_id=617116106]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -31.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Back"
-
-[node name="action_picked" type="Control" parent="." unique_id=278238469]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="action_picked" unique_id=1695469144]
+[node name="Label" type="Label" parent="main_game/action_picked" unique_id=1695469144]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -183,7 +288,10 @@ grow_vertical = 2
 text = "Ready"
 uppercase = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2134662411]
+libraries/ = SubResource("AnimationLibrary_qay8n")
+
+[connection signal="button_up" from="main_game/atkListContainer/leaveAtkList" to="." method="_on_leave_atk_list_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Attack" to="." method="_on_attack_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Block" to="." method="_on_block_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Escape" to="." method="_on_escape_button_up"]
-[connection signal="button_up" from="atkListContainer/leaveAtkList" to="." method="_on_leave_atk_list_button_up"]

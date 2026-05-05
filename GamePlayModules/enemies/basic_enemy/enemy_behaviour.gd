@@ -3,6 +3,7 @@ extends Button
 #@export var enemy_type : String
 
 @onready var sprite: TextureRect = $TextureRect
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var rng = RandomNumberGenerator.new()
 var current_health
@@ -30,13 +31,16 @@ func pick_action():
 	if my_random_number < enemy_info.agressiveness:
 		pick_attack()
 	else:
-		#block
-		pass
+		print("enemy blocked")
+		state_current = AppInfo.states.blocking
 
 func update_life(updated_life):
 	var damage = updated_life 
-	if updated_life < 0 and state_current == AppInfo.states.blocking:#damage
-		damage = damage * enemy_info.block_dmg_resistance
+	if damage < 0:
+		print("Damage animation on enemy")
+		animation_player.play("hurt")
+		if state_current == AppInfo.states.blocking:#damage
+			damage = damage * enemy_info.block_dmg_resistance
 	current_health += damage 
 	if current_health <= 0:
 		print(name," Died")
@@ -44,5 +48,7 @@ func update_life(updated_life):
 	print("damage recieved: ",damage,"/ current life: ",current_health)
 
 func pick_attack():
+	animation_player.play("attack")
+	state_current = AppInfo.states.recovery
 	return enemy_info.attacks.pick_random()
 	
