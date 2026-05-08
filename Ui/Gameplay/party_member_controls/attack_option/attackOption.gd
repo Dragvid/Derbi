@@ -27,12 +27,6 @@ func _on_button_up() -> void:
 	#get the target
 	if module_manager == null:
 		module_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
-	#if party_member_manager == null:
-		#party_member_manager = GeneralToolsStatic.get_right_parent_node("party_member",self)
 	module_manager.receive_current_attack(play_area_manager, self.text)
 	#module_manager.enter_target_selection(true)
-	module_manager.toggle_target_selection(true)
-	#queue the attack
-	#disable actions
-	#play_area_manager.option_picked()
-	#pass # Replace with function body.
+	module_manager.toggle_target_selection()

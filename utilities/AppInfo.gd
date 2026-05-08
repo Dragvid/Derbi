@@ -1,5 +1,7 @@
 class_name AppInfo
 
+#signal target_pick(target)
+
 static var score : int
 static var app_cleared = false
 static var highscore : int
@@ -7,7 +9,7 @@ static var new_highscore : bool = false
 
 static var crit_multiplier = 1.5
 
-enum states {idle,stun,blocking,recovery}
+enum states {idle,stun,blocking,recovery,defeated}
 
 static var party_members = ["Alex","Pedro"]
 static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")

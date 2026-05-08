@@ -43,7 +43,8 @@ func update_life(updated_life):
 			damage = damage * enemy_info.block_dmg_resistance
 	current_health += damage 
 	if current_health <= 0:
-		print(name," Died")
+		#print(name," Died")
+		module_manager.has_battle_ended()
 		queue_free()
 	print("damage recieved: ",damage,"/ current life: ",current_health)
 

@@ -2,9 +2,11 @@
 	"Pedro":{
 		"total_life":100,
 		"atacks":["soco","suplex"],
+		"portrait_path": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
 	},
 	"Alex":{
 		"total_life":100,
 		"atacks":["soco","suplex"],
+		"portrait_path": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
 	}
 }

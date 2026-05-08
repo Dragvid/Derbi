@@ -1,12 +1,14 @@
 {
 	"Pedro":{
-		"total_life" : 100,
+		"total_life" : 70,
 		"block_dmg_resistance" : 0.5,  
 		"attacks":["Soco","Suplex","Massagem"],
+		"portrait_path": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
 	},
 	"Alex":{
 		"total_life":150,
 		"block_dmg_resistance" : 0.5, 
 		"attacks":["Soco","Suplex","Pontapé"],
+		"portrait_path": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
 	}
 }

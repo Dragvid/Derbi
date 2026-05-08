@@ -6,7 +6,7 @@ extends Control
 @onready var player_interface: HBoxContainer = $Player_interface
 var party_info = AppInfo.party_info_json
 var turn_player = true
-
+var ally_pick:bool = false
 #attack processing
 var current_attack : Dictionary = {
 	"attacker"=null,
@@ -48,21 +48,32 @@ func load_party_members():
 			cur_player_id += 1 
 
 func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
+	if current_attack.attack_name!=null:
+		var atk_info = AppInfo.attack_info_json[current_attack.attack_name]
+		match atk_info.target:
+			"opposition":
+				ally_pick = false
+				target_is_oponent = true
+			"ally":
+				ally_pick = true
+				target_is_oponent = false
 	if target_is_oponent:
 		for enemy in enemies_box.get_children():
 			enemy.disabled = !enter
+	else:
+		for party_member in player_interface.get_children():
+			party_member.pick_ally_mode(true)
 
 func check_turn_end():
-	#print("Check turn end")
 	var turn_end = true
 	var turn_group
 	if turn_player:
-		turn_group = player_interface.get_children()
+		turn_group = get_active_party_members()
 	else:
 		turn_group = enemies_box.get_children()
 	for member in turn_group:#check if it is the end of the turn
-		if member.state_current != AppInfo.states.recovery and member.state_current != AppInfo.states.blocking:
-		#if member.state_current != AppInfo.states.recovery:
+		if !member.state_current in [AppInfo.states.recovery,AppInfo.states.blocking]:
+			#print(member.name, " is blocking the turn change, it is in: ", member.state_current)
 			turn_end = false
 	#print("turn_end: ",turn_end)
 	if turn_end:
@@ -83,20 +94,23 @@ func receive_current_attack_target_choice(target_unit):
 	current_attack.target = target_unit
 	if current_attack.attacker != null and current_attack.attack_name != null:
 		attack_process()
+	if ally_pick:
+		ally_pick = false
+		for party_member in player_interface.get_children():
+			party_member.pick_ally_mode(false)
 	if turn_player:
 		check_turn_end()
 #apply damage
 func attack_process():
 	#get attack info
 	var atk_info = AppInfo.attack_info_json[current_attack.attack_name]
-	#print("attack process, atk info: ",atk_info)
 	if randi_range(0,100) < atk_info.hit_rate:
 		var final_damage = atk_info.damage
 		if randi_range(0,100) < atk_info.crit_rate:
 			final_damage = final_damage * AppInfo.crit_multiplier
 		current_attack.target.update_life(final_damage)
-	else:
-		print("Miss")
+	#else:
+		#print("Miss")
 	if turn_player:
 		current_attack.attacker.option_picked()
 	clean_current_atk()
@@ -106,14 +120,11 @@ func clean_current_atk():
 	current_attack.attacker = null
 	current_attack.target = null
 	current_attack.attack_name = null
-	
 
 func change_turn():
-	#print("change turn")
 	turn_player = !turn_player
 	await get_tree().create_timer(1).timeout
 	if !turn_player:
-		
 		enemy_turn()
 	else:
 		for party_member in player_interface.get_children():
@@ -123,12 +134,16 @@ func enemy_turn():
 	for enemy in enemies_box.get_children():
 		enemy.state_current = AppInfo.states.idle
 	for enemy in enemies_box.get_children():
-		#print(enemy.pick_attack())
-		print("enemy attack: ",enemy.name)
 		receive_current_attack(enemy,enemy.pick_attack())
-		receive_current_attack_target_choice(player_interface.get_children().pick_random())
+		var valid_targets = get_active_party_members()
+		receive_current_attack_target_choice(valid_targets.pick_random())
 		await get_tree().create_timer(1).timeout
 	change_turn()
+
+func get_active_party_members() -> Array:
+	return player_interface.get_children().filter(
+		func(member): return member.state_current != AppInfo.states.defeated
+	)
 
 func is_action_pending() -> bool:
 	# If the dictionary is empty, there is definitely no action pending
@@ -150,3 +165,10 @@ func run_away(escape_chance:float):
 		pass
 	else:
 		print("Escape failed.")
+
+func has_battle_ended():
+	if enemies_box.get_children().size() == 0:
+		print("Player wins")
+	var active_party_members = get_active_party_members()
+	if active_party_members.size()==0:
+		print("Enemies won")

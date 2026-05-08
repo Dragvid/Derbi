@@ -68,7 +68,7 @@
 		"damage": 25,
 		"type":"strike",
 		"cost":25,
-		"hit_rate": 65,
+		"hit_rate": 100,
 		"crit_rate": 0
 	},
 	

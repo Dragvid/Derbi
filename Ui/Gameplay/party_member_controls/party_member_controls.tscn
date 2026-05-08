@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3ru3mhkfxswn"]
 
 [ext_resource type="Script" uid="uid://rkvbppw5p24i" path="res://Ui/Gameplay/party_member_controls/party_member_controls.gd" id="1_6ns1b"]
-[ext_resource type="Texture2D" uid="uid://p20530qk7dv5" path="res://Assets/9a9fc7af914fdca5831900671774cb09.jpg" id="2_g6gwd"]
+[ext_resource type="Texture2D" uid="uid://p20530qk7dv5" path="res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg" id="2_g6gwd"]
 [ext_resource type="PackedScene" uid="uid://c30ic2fx7m240" path="res://Ui/Gameplay/party_member_controls/attack_option/atk_option.tscn" id="3_feik1"]
 
 [sub_resource type="Animation" id="Animation_feik1"]
@@ -288,10 +288,51 @@ grow_vertical = 2
 text = "Ready"
 uppercase = true
 
+[node name="pick_button" type="Button" parent="." unique_id=1314249112]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.048
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.10400009
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Pick me"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2134662411]
 libraries/ = SubResource("AnimationLibrary_qay8n")
+
+[node name="deathscreen" type="Control" parent="." unique_id=880284456]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="deathscreen" unique_id=962262250]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "K.O."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="main_game/atkListContainer/leaveAtkList" to="." method="_on_leave_atk_list_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Attack" to="." method="_on_attack_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Block" to="." method="_on_block_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Escape" to="." method="_on_escape_button_up"]
+[connection signal="button_up" from="pick_button" to="." method="_on_pick_button_button_up"]

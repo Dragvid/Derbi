@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p20530qk7dv5"
-path="res://.godot/imported/9a9fc7af914fdca5831900671774cb09.jpg-33ccbcbf1c00a06782280031506a2166.ctex"
+uid="uid://wanoe5qxhlmo"
+path="res://.godot/imported/Ryuji_Persona-5_Atlus_1920.webp-faf6507b3b725707195518ec4c425778.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/9a9fc7af914fdca5831900671774cb09.jpg"
-dest_files=["res://.godot/imported/9a9fc7af914fdca5831900671774cb09.jpg-33ccbcbf1c00a06782280031506a2166.ctex"]
+source_file="res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp"
+dest_files=["res://.godot/imported/Ryuji_Persona-5_Atlus_1920.webp-faf6507b3b725707195518ec4c425778.ctex"]
 
 [params]
 
