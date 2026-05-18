@@ -84,11 +84,11 @@ func receive_current_attack(new_attacker,new_attack_name):
 func receive_current_attack_target_choice(target_unit):
 	# 1. Check if the dictionary is null or empty
 	if current_attack == null or current_attack.is_empty():
-		print("Warning: Attempted to set target, but current_attack is empty.")
+		#print("Warning: Attempted to set target, but current_attack is empty.")
 		return # Stop the function here
 	# 2. Check for specific required keys to be safe
 	if not current_attack.has("attacker") or not current_attack.has("attack_name"):
-		print("Warning: current_attack is missing required keys.")
+		#print("Warning: current_attack is missing required keys.")
 		return
 	# Proceed with logic safely
 	current_attack.target = target_unit
@@ -103,7 +103,8 @@ func receive_current_attack_target_choice(target_unit):
 #apply damage
 func attack_process():
 	#get attack info
-	var atk_info = AppInfo.attack_info_json[current_attack.attack_name]
+	var atk_info = AppInfo.attack_info_json[current_attack.attack_name]	
+	#attack is possible
 	if randi_range(0,100) < atk_info.hit_rate:
 		var final_damage = atk_info.damage
 		if randi_range(0,100) < atk_info.crit_rate:
@@ -153,7 +154,7 @@ func is_action_pending() -> bool:
 	for key in current_attack.keys():
 		if current_attack[key] != null:
 			# We found data! That means an action is in progress.
-			print("Pending action found in key: ", key)
+			#print("Pending action found in key: ", key)
 			return true 
 			
 	return false
@@ -167,6 +168,7 @@ func run_away(escape_chance:float):
 		print("Escape failed.")
 
 func has_battle_ended():
+	print("battle ended check")
 	if enemies_box.get_children().size() == 0:
 		print("Player wins")
 	var active_party_members = get_active_party_members()

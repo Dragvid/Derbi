@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c30ic2fx7m240"]
 
-[ext_resource type="Script" uid="uid://vg6awg67d5rs" path="res://Ui/Gameplay/party_member_controls/attack_option/attackOption.gd" id="1_vebgs"]
+[ext_resource type="Script" uid="uid://vg6awg67d5rs" path="res://GamePlayModules/Battle_screen/party_member_controls/attack_option/attackOption.gd" id="1_vebgs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feik1"]
 bg_color = Color(0.14911401, 0.14911404, 0.14911401, 1)

@@ -37,7 +37,6 @@ func pick_action():
 func update_life(updated_life):
 	var damage = updated_life 
 	if damage < 0:
-		print("Damage animation on enemy")
 		animation_player.play("hurt")
 		if state_current == AppInfo.states.blocking:#damage
 			damage = damage * enemy_info.block_dmg_resistance
@@ -46,7 +45,7 @@ func update_life(updated_life):
 		#print(name," Died")
 		module_manager.has_battle_ended()
 		queue_free()
-	print("damage recieved: ",damage,"/ current life: ",current_health)
+	#print("damage recieved: ",damage,"/ current life: ",current_health)
 
 func pick_attack():
 	animation_player.play("attack")

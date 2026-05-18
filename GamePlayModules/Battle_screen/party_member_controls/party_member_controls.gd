@@ -6,6 +6,7 @@ var char_name : String
 var total_health : int
 var player_id : int
 var current_health : int
+var current_stamina : int
 var attack_list
 var battle_manager
 var state_current = AppInfo.states.idle 
@@ -18,6 +19,7 @@ var member_info
 @onready var btn_inventory: Button = $main_game/Keyboard/Inventory
 @onready var btn_escape: Button = $main_game/Keyboard/Escape
 @onready var life_bar: ProgressBar = $main_game/lifeBar
+@onready var stamina_bar: ProgressBar = $main_game/staminaBar
 @onready var main_game_node: VBoxContainer = $main_game
 @onready var pick_button: Button = $pick_button
 @onready var deathscreen: Control = $deathscreen
@@ -41,10 +43,14 @@ func set_up_player(manager, member_data, new_name:String = "[missing]", new_play
 	attack_list = member_data.attacks
 	load_atk_list()
 	#health
-	total_health = member_data.total_life
-	current_health = total_health
-	life_bar.max_value = total_health
+	#total_health = member_data.total_life
+	current_health = member_data.total_life
+	life_bar.max_value = member_data.total_life
 	update_life(current_health)
+	stamina_bar.max_value = member_data.total_stamina
+	stamina_bar.value = member_data.total_stamina
+	current_stamina = member_data.total_stamina
+	display_stamina_value()
 	member_info = member_data
 	char_portrait.texture = load(member_info.portrait_path)
 
@@ -62,6 +68,27 @@ func die():
 	state_current = AppInfo.states.defeated
 	main_game_node.visible = false
 	deathscreen.visible=true
+
+## Checks if the unit has enough stamina to perform an action.
+## If they do, it automatically spends the stamina and returns true.
+func try_spend_stamina(stamina_cost: int) -> bool:
+	if current_stamina >= stamina_cost:
+		current_stamina -= stamina_cost
+		stamina_bar.value = current_stamina
+		display_stamina_value()
+		#print(name, " spent ", stamina_cost, " stamina. Remaining: ", current_stamina)
+		return true
+	else:
+		#print(name, " does not have enough stamina! Needs: ", stamina_cost, ", Has: ", current_stamina)
+		return false
+func recover_stamina_bar():
+	current_stamina += member_info.stamina_recovery
+	if current_stamina > member_info.total_stamina:
+		current_stamina = member_info.total_stamina
+	stamina_bar.value = current_stamina
+	display_stamina_value()
+func display_stamina_value():
+	stamina_bar.get_child(0).text = str(current_stamina)
 	
 func load_atk_list():
 	for atk in attack_list:
@@ -71,8 +98,8 @@ func load_atk_list():
 			atk_opt_instance.text = atk
 			var text_to_add = str("Target: ",atk_info.target, " Cost: ",atk_info.cost,"\n ",atk_info.description)
 			atk_opt_instance.call_deferred("set_information", text_to_add, self)
-		else:
-			print("atk named ",atk," was not found in the list")
+		#else:
+			#print("atk named ",atk," was not found in the list")
 
 func option_picked():
 	if state_current != AppInfo.states.blocking:
@@ -85,9 +112,13 @@ func option_picked():
 func turn_reset():
 	if state_current != AppInfo.states.defeated:
 		state_current = AppInfo.states.idle
+	#print("Stamina recovery: ", member_info.stamina_recovery)
+	#current_stamina += member_info.stamina_recovery
+	recover_stamina_bar()
 	atk_list_node.get_parent().visible = false
 	action_picked.visible = false
-	option_keyboard.visible = true	
+	option_keyboard.visible = true
+	
 
 func pick_ally_mode(mode:bool):
 	pick_button.visible = mode

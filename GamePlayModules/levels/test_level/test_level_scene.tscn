@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ef1t8yd2r4be"]
+
+[ext_resource type="Script" uid="uid://bfno25jopvg6b" path="res://GamePlayModules/party avatar/party_avatar.gd" id="1_2xj1p"]
+[ext_resource type="Texture2D" uid="uid://dql782x6ft61r" path="res://Assets/auntum city.webp" id="1_cl8n1"]
+[ext_resource type="Texture2D" uid="uid://bg7br404huv84" path="res://icon.svg" id="2_cl8n1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj1p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ff60c"]
+radius = 62.0
+height = 130.0
+
+[node name="TestLevelScene" type="Node2D" unique_id=613694492]
+
+[node name="AuntumCity" type="Sprite2D" parent="." unique_id=473605122]
+position = Vector2(542, 326)
+scale = Vector2(2.7264826, 2.7264826)
+texture = ExtResource("1_cl8n1")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=352203270]
+position = Vector2(568.00006, 90)
+scale = Vector2(60.355, 25.955002)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=932581357]
+shape = SubResource("RectangleShape2D_2xj1p")
+
+[node name="Area2D2" type="StaticBody2D" parent="." unique_id=442538833]
+position = Vector2(572, 683)
+scale = Vector2(60.355, 6.535)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=690533432]
+shape = SubResource("RectangleShape2D_2xj1p")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=29001275]
+position = Vector2(445, 523)
+disable_mode = 2
+script = ExtResource("1_2xj1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=570561812]
+texture = ExtResource("2_cl8n1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=88248704]
+shape = SubResource("CapsuleShape2D_ff60c")

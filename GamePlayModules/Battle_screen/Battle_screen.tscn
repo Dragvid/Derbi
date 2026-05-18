@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sap1ksyc8xdr"]
 
-[ext_resource type="PackedScene" uid="uid://c3ru3mhkfxswn" path="res://Ui/Gameplay/party_member_controls/party_member_controls.tscn" id="1_ftrgj"]
-[ext_resource type="Script" uid="uid://b4b7ienqffbj1" path="res://Ui/Gameplay/Battle_screen/scripts/battle_manager.gd" id="1_wgskt"]
+[ext_resource type="PackedScene" uid="uid://c3ru3mhkfxswn" path="res://GamePlayModules/Battle_screen/party_member_controls/party_member_controls.tscn" id="1_ftrgj"]
+[ext_resource type="Script" uid="uid://b4b7ienqffbj1" path="res://GamePlayModules/Battle_screen/scripts/battle_manager.gd" id="1_wgskt"]
 
 [node name="BattleScreen" type="Control" unique_id=1630584974]
 layout_mode = 3

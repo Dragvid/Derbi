@@ -3,7 +3,6 @@ extends Node
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var description_label: Label = $atk_description/description
 var play_area_manager
-var party_member_manager
 
 func set_information(new_text:String, new_module_manager):
 	description_label.text = new_text
@@ -22,11 +21,11 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	animation_player.play_backwards("display_info")
 
-var module_manager = null
+var battle_manager = null
 func _on_button_up() -> void:
-	#get the target
-	if module_manager == null:
-		module_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
-	module_manager.receive_current_attack(play_area_manager, self.text)
-	#module_manager.enter_target_selection(true)
-	module_manager.toggle_target_selection()
+	if play_area_manager.try_spend_stamina(AppInfo.retrive_attack_info(self.text).cost):
+		#get the target
+		if battle_manager == null:
+			battle_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
+		battle_manager.receive_current_attack(play_area_manager, self.text)
+		battle_manager.toggle_target_selection()
