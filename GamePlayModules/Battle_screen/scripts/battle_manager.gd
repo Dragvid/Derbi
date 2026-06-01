@@ -161,16 +161,28 @@ func is_action_pending() -> bool:
 
 func run_away(escape_chance:float):
 	if randf() < escape_chance:
-		print("Run away.")
+		#print("Run away.")
 		#escape to the combat to world scene
-		pass
+		call_deferred("Back_to_level")
+		AppInfo.last_battle_result = AppInfo.result_of_battle.escape
 	else:
 		print("Escape failed.")
 
 func has_battle_ended():
 	print("battle ended check")
+	await get_tree().create_timer(1).timeout
 	if enemies_box.get_children().size() == 0:
 		print("Player wins")
+		#mantain the position
+		AppInfo.add_defeated_encounter()
+		call_deferred("Back_to_level")
+		AppInfo.last_battle_result = AppInfo.result_of_battle.win
 	var active_party_members = get_active_party_members()
 	if active_party_members.size()==0:
 		print("Enemies won")
+		#clear the position
+		call_deferred("Back_to_level")
+		AppInfo.last_battle_result = AppInfo.result_of_battle.lose
+
+func Back_to_level():
+	get_tree().change_scene_to_file(AppInfo.current_level)

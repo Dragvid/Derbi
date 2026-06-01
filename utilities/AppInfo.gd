@@ -11,11 +11,27 @@ static var crit_multiplier = 1.5
 
 enum states {idle,stun,blocking,recovery,defeated}
 
+enum result_of_battle{win,lose,escape}
+static var last_battle_result
+static var enemy_last_battle
+
 static var party_members = ["Alex","Pedro"]
 static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")
 static var attack_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/attack_list.json")
 static var enemy_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/enemy_info.json")
 
+static var battle_scene = "res://GamePlayModules/Battle_screen/Battle_screen.tscn"
+static var current_level = "res://GamePlayModules/levels/test_level/test_level_scene.tscn"
+
+static var position_in_level : Vector2
+
+static var defeated_encounters = []
+
+static func Set_position_in_level(new_position):
+	position_in_level = new_position
+
+static func add_defeated_encounter():
+	defeated_encounters.append(enemy_last_battle)
 
 static func clear_app_info():#At the end the game
 	if app_cleared:
