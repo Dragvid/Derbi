@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cjvs3jtpsnswg"]
+
+[ext_resource type="Script" uid="uid://cipj1qy7bdbrk" path="res://GamePlayModules/shop/prefabs/atk_option_to_buy.gd" id="1_bdx5h"]
+
+[node name="atk_option" type="HBoxContainer" unique_id=1612413493]
+custom_minimum_size = Vector2(0, 70)
+theme_override_constants/separation = 52
+alignment = 1
+script = ExtResource("1_bdx5h")
+
+[node name="atk_name_label" type="Label" parent="." unique_id=226907540]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+horizontal_alignment = 1
+
+[node name="damage_type_label" type="Label" parent="." unique_id=926329129]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage type"
+horizontal_alignment = 1
+
+[node name="damage_label" type="Label" parent="." unique_id=1100681415]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="price_label" type="Label" parent="." unique_id=2032388274]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "price"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=824930653]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Button" unique_id=597535566]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Comprar"

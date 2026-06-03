@@ -9,7 +9,9 @@
 		"type":"strike",
 		"cost":10,
 		"hit_rate": 70,
-		"crit_rate": 20
+		"crit_rate": 20,
+		"price": 5,
+		"shop":["test"]
 	},
 	"Pontapé": {
 		"name": "Pontapé",
@@ -21,7 +23,9 @@
 		"type":"strike",
 		"cost":10,
 		"hit_rate": 70,
-		"crit_rate": 20
+		"crit_rate": 20,
+		"price": 5,
+		"shop":["test"]
 	},
 	"Suplex": {
 		"name": "Suplex",
@@ -33,7 +37,9 @@
 		"type":"grab",
 		"cost":60,
 		"hit_rate": 100,
-		"crit_rate": 30
+		"crit_rate": 30,
+		"price": 50,
+		"shop":["test"]
 	},
 	"Roundhouse": {
 		"name": "Roundhouse",
@@ -45,7 +51,9 @@
 		"type":"strike",
 		"cost":50,
 		"hit_rate": 85,
-		"crit_rate": 30
+		"crit_rate": 30,
+		"price": 30,
+		"shop":["test"]
 	},
 	"gancho": {
 		"name": "Gancho",
@@ -57,7 +65,9 @@
 		"type":"strike",
 		"cost":50,
 		"hit_rate": 65,
-		"crit_rate": 10
+		"crit_rate": 10,
+		"price": 40,
+		"shop":["test"]
 	},
 	"Massagem": {
 		"name": "Massagem",
@@ -66,10 +76,12 @@
 		"description": "Massaga as costas do teu parceiro para por algo que estava partido no lugar.",
 		"target":"ally",
 		"damage": 25,
-		"type":"strike",
+		"type":"Curar",
 		"cost":25,
 		"hit_rate": 100,
-		"crit_rate": 0
+		"crit_rate": 0,
+		"price": 35,
+		"shop":["test"]
 	},
 	
 }

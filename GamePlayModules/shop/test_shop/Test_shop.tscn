@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dxa4vxkdnawge"]
+
+[ext_resource type="Script" uid="uid://b6teifqbtju16" path="res://GamePlayModules/shop/scripts/ShopManager.gd" id="1_k30k6"]
+[ext_resource type="PackedScene" uid="uid://cjvs3jtpsnswg" path="res://GamePlayModules/shop/prefabs/atk_option_to_buy.tscn" id="2_m8rus"]
+
+[node name="TestShop" type="Control" unique_id=653305225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k30k6")
+shop_name = "test"
+attack_line = ExtResource("2_m8rus")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=779484307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Dead_area" type="Control" parent="HBoxContainer" unique_id=1570366449]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="shopOptions" type="Control" parent="HBoxContainer" unique_id=1924870480]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="HBoxContainer/shopOptions" unique_id=1778084287]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="shopStock" type="ScrollContainer" parent="HBoxContainer/shopOptions" unique_id=856453716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="shopStockContainer" type="VBoxContainer" parent="HBoxContainer/shopOptions/shopStock" unique_id=1714872854]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="atk_option" parent="HBoxContainer/shopOptions/shopStock/shopStockContainer" unique_id=1612413493 instance=ExtResource("2_m8rus")]
+layout_mode = 2
+
+[node name="players_money" type="Label" parent="." unique_id=981670926]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -59.0
+offset_right = 161.0
+offset_bottom = -36.0
+grow_vertical = 0
+text = "Player's money"

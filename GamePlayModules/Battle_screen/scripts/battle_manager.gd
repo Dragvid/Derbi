@@ -164,7 +164,7 @@ func run_away(escape_chance:float):
 		#print("Run away.")
 		#escape to the combat to world scene
 		call_deferred("Back_to_level")
-		AppInfo.last_battle_result = AppInfo.result_of_battle.escape
+		AppInfo.last_reason_to_return = AppInfo.reason_to_return.escape
 	else:
 		print("Escape failed.")
 
@@ -176,13 +176,13 @@ func has_battle_ended():
 		#mantain the position
 		AppInfo.add_defeated_encounter()
 		call_deferred("Back_to_level")
-		AppInfo.last_battle_result = AppInfo.result_of_battle.win
+		AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
 	var active_party_members = get_active_party_members()
 	if active_party_members.size()==0:
 		print("Enemies won")
 		#clear the position
 		call_deferred("Back_to_level")
-		AppInfo.last_battle_result = AppInfo.result_of_battle.lose
+		AppInfo.last_reason_to_return = AppInfo.reason_to_return.lose
 
 func Back_to_level():
 	get_tree().change_scene_to_file(AppInfo.current_level)

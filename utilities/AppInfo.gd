@@ -11,8 +11,8 @@ static var crit_multiplier = 1.5
 
 enum states {idle,stun,blocking,recovery,defeated}
 
-enum result_of_battle{win,lose,escape}
-static var last_battle_result
+enum reason_to_return{win,lose,escape,shop}
+static var last_reason_to_return
 static var enemy_last_battle
 
 static var party_members = ["Alex","Pedro"]
