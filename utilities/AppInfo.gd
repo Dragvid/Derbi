@@ -19,6 +19,7 @@ static var party_members = ["Alex","Pedro"]
 static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")
 static var attack_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/attack_list.json")
 static var enemy_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/enemy_info.json")
+static var save_file_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/Player_Save.json")
 
 static var battle_scene = "res://GamePlayModules/Battle_screen/Battle_screen.tscn"
 static var current_level = "res://GamePlayModules/levels/test_level/test_level_scene.tscn"

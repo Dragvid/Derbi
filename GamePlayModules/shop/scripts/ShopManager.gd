@@ -9,7 +9,17 @@ func _ready() -> void:
 	Load_shop()
 
 func Load_shop():
+	Load_attack_shop()
+
+#func Load_attack_shop():
+	#for attack in AppInfo.attack_info_json.values():
+		#if shop_name in attack["shop"]:
+			#var instance = GeneralToolsStatic.instantiate_scene(attack_line.resource_path, shop_stock_container)
+			#instance.call_deferred("Set_up_option",attack)
+
+func Load_attack_shop():
 	for attack in AppInfo.attack_info_json.values():
-		if shop_name in attack["shop"]:
+		var already_owned = attack["name"] in AppInfo.save_file_json["unlocked_moves"]
+		if shop_name in attack["shop"] and not already_owned:
 			var instance = GeneralToolsStatic.instantiate_scene(attack_line.resource_path, shop_stock_container)
-			instance.call_deferred("Set_up_option",attack)
+			instance.call_deferred("Set_up_option", attack)
