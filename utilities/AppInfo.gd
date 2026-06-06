@@ -56,3 +56,6 @@ static func retrive_attack_info(atk_name):
 		return atk_info
 	else:
 		print("atk named ",atk_name," was not found in the list")
+
+static func update_player_currency(new_value):
+	save_file_json["currency"] = save_file_json["currency"] + new_value

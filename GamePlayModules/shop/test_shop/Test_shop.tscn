@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="shopStock" type="ScrollContainer" parent="HBoxContainer/shopOptions" unique_id=856453716]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/shopOptions" unique_id=52517545]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,12 +48,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="shopStockContainer" type="VBoxContainer" parent="HBoxContainer/shopOptions/shopStock" unique_id=1714872854]
+[node name="tabs" type="HBoxContainer" parent="HBoxContainer/shopOptions/VBoxContainer" unique_id=1648999342]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 2
+
+[node name="option" type="Button" parent="HBoxContainer/shopOptions/VBoxContainer/tabs" unique_id=528605121]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Ataques"
+
+[node name="shopAtkStock" type="ScrollContainer" parent="HBoxContainer/shopOptions/VBoxContainer" unique_id=856453716]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="shopStockContainer" type="VBoxContainer" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock" unique_id=1714872854]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="atk_option" parent="HBoxContainer/shopOptions/shopStock/shopStockContainer" unique_id=1612413493 instance=ExtResource("2_m8rus")]
+[node name="row_id" type="HBoxContainer" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock/shopStockContainer" unique_id=1612413493]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/separation = 52
+alignment = 1
+
+[node name="atk_name_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock/shopStockContainer/row_id" unique_id=226907540]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+horizontal_alignment = 1
+
+[node name="damage_type_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock/shopStockContainer/row_id" unique_id=926329129]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage type"
+horizontal_alignment = 1
+
+[node name="damage_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock/shopStockContainer/row_id" unique_id=1100681415]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="price_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock/shopStockContainer/row_id" unique_id=2032388274]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "price"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock/shopStockContainer/row_id" unique_id=128618499]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="atk_option2" parent="HBoxContainer/shopOptions/VBoxContainer/shopAtkStock/shopStockContainer" unique_id=49055903 instance=ExtResource("2_m8rus")]
+visible = false
 layout_mode = 2
 
 [node name="players_money" type="Label" parent="." unique_id=981670926]
