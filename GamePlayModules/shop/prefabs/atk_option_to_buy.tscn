@@ -11,16 +11,24 @@ script = ExtResource("1_bdx5h")
 
 [node name="atk_option" type="HBoxContainer" parent="." unique_id=1612413493]
 custom_minimum_size = Vector2(0, 70)
-layout_mode = 0
-theme_override_constants/separation = 52
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="atk_name_label" type="Label" parent="atk_option" unique_id=226907540]
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "name"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
 
 [node name="damage_type_label" type="Label" parent="atk_option" unique_id=926329129]
 custom_minimum_size = Vector2(70, 0)
@@ -30,21 +38,21 @@ text = "Damage type"
 horizontal_alignment = 1
 
 [node name="damage_label" type="Label" parent="atk_option" unique_id=1100681415]
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Damage"
 horizontal_alignment = 1
 
 [node name="price_label" type="Label" parent="atk_option" unique_id=2032388274]
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "price"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="atk_option" unique_id=824930653]
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 

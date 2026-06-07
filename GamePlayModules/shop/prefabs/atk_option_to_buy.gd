@@ -21,7 +21,6 @@ func Set_up_option(new_attack,owned = false):
 		
 func Buy_attack():
 	if AppInfo.Check_currency_amount(atk_info["price"]):
-		#AppInfo.save_file_json[""]
 		AppInfo.Update_player_currency(atk_info["price"]*-1)
 		AppInfo.Unlock_Attack(atk_info["name"])
 		SignalsResource.refresh_atk_list.emit()

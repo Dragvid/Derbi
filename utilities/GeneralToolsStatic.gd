@@ -1,8 +1,6 @@
 extends Node
 class_name GeneralToolsStatic
 
-signal refresh_atk_list
-
 static func home_into_target(currentPos:Node,target:Node,speedX:float,speedY:float,delta):
 	#var direction = (target.position - currentPos.position).normalized()
 	if currentPos.position.distance_to(target.position)>0: 
