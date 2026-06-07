@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SaveSystem="*uid://0uvm516cfck6"
 AudioManager="*uid://1riahs7nxmir"
+SignalsResource="*uid://dora06q18suiu"
 
 [input]
 

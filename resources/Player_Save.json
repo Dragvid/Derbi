@@ -1,4 +1,11 @@
 {
-	"currency":100,
-	"unlocked_moves":["Soco","Suplex","Pontapé","Massagem"]
+	"currency": 499930.0,
+	"unlocked_moves": [
+		"Soco",
+		"Suplex",
+		"Pontapé",
+		"Massagem",
+		"Roundhouse",
+		"Gancho"
+	]
 }

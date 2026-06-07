@@ -2,6 +2,7 @@ class_name AppInfo
 
 #signal target_pick(target)
 
+
 static var score : int
 static var app_cleared = false
 static var highscore : int
@@ -31,10 +32,10 @@ static var defeated_encounters = []
 static func Set_position_in_level(new_position):
 	position_in_level = new_position
 
-static func add_defeated_encounter():
+static func Add_defeated_encounter():
 	defeated_encounters.append(enemy_last_battle)
 
-static func clear_app_info():#At the end the game
+static func Clear_app_info():#At the end the game
 	if app_cleared:
 		return
 	if score > SaveSystem.get_highscore():
@@ -47,15 +48,33 @@ static func clear_app_info():#At the end the game
 	score = 0
 	app_cleared = true	
 
-static func update_score(new_score:int):
+static func Update_score(new_score:int):
 	score += new_score
 
-static func retrive_attack_info(atk_name):
+static func Retrive_attack_info(atk_name):
 	if attack_info_json.has(atk_name):
 		var atk_info = AppInfo.attack_info_json[atk_name]
 		return atk_info
 	else:
 		print("atk named ",atk_name," was not found in the list")
 
-static func update_player_currency(new_value):
+static func Update_player_currency(new_value):
 	save_file_json["currency"] = save_file_json["currency"] + new_value
+	Save_file("res://resources/Player_Save.json",save_file_json)
+
+static func Save_file(file_path, dictionary):
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	file.store_string(JSON.stringify(dictionary, "\t"))
+	file.close()
+
+static func Check_currency_amount(check_amount):
+	var result : bool
+	if save_file_json["currency"] >= check_amount:
+		result = true
+	else: 
+		result = false
+	return result
+
+static func Unlock_Attack(new_attack_name:String):
+	save_file_json["unlocked_moves"].append(new_attack_name)
+	Save_file("res://resources/Player_Save.json",save_file_json)
