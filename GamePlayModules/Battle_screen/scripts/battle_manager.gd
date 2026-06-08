@@ -81,6 +81,7 @@ func check_turn_end():
 func receive_current_attack(new_attacker,new_attack_name):
 	current_attack.attacker = new_attacker
 	current_attack.attack_name = new_attack_name
+
 func receive_current_attack_target_choice(target_unit):
 	# 1. Check if the dictionary is null or empty
 	if current_attack == null or current_attack.is_empty():
@@ -174,7 +175,7 @@ func has_battle_ended():
 	if enemies_box.get_children().size() == 0:
 		print("Player wins")
 		#mantain the position
-		AppInfo.add_defeated_encounter()
+		AppInfo.Add_defeated_encounter()
 		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
 	var active_party_members = get_active_party_members()

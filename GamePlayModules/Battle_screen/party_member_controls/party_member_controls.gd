@@ -101,6 +101,11 @@ func load_atk_list():
 		#else:
 			#print("atk named ",atk," was not found in the list")
 
+func Attack_list_disabled_state(new_state):
+	for option in atk_list_node.get_children():
+		if option is Button:
+			option.disabled = new_state
+
 func option_picked():
 	if state_current != AppInfo.states.blocking:
 		state_current = AppInfo.states.recovery
@@ -118,6 +123,7 @@ func turn_reset():
 	atk_list_node.get_parent().visible = false
 	action_picked.visible = false
 	option_keyboard.visible = true
+	Attack_list_disabled_state(false)
 	
 
 func pick_ally_mode(mode:bool):

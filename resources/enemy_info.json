@@ -4,6 +4,7 @@
 		"attacks":["Soco"],
 		"agressiveness": 50,
 		"block_dmg_resistance" : 0.5,
+		"defeat_reward": 20,
 		"scene_path":"res://GamePlayModules/enemies/basic_enemy/basicEnemy.tscn",
 		"sprite_path":"res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg",
 	},
