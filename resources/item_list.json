@@ -1,0 +1,50 @@
+{
+	"Francesinha": {
+		"name": "Francesinha",
+		"image_path": "",
+		"level_requirement": 5,
+		"description": "Comida pesada que cura muito",
+		"target":"ally",
+		"damage": 50,
+		"type":"Curar",
+		"cost":25,
+		"hit_rate": 100,
+		"crit_rate": 20,
+		"stack_cap": 1,
+		"price": 15,
+		"shop":["test"]
+	},
+	"Super-Cevada": {
+		"name": "Super-Cevada",
+		"image_path": "",
+		"level_requirement": 1,
+		"description": "Bebida leve que cura. Depois de bebida adiciona uma garrafa ao teu inventário",
+		"target":"ally",
+		"damage": 50,
+		"type":"Curar",
+		"effects": [
+			{"effect": "AddItemToInventory", "value": "Garrafa"},
+		],
+		"cost":2,
+		"hit_rate": 100,
+		"crit_rate": 15,
+		"stack_cap": 5,
+		"price": 3,
+		"shop":["test"]
+	},
+	"Garrafa": {
+		"name": "Garrafa",
+		"image_path": "",
+		"level_requirement": 1,
+		"description": "Pode ser usado como projétil",
+		"target":"opposition",
+		"damage": 50,
+		"type":"strike",
+		"cost":25,
+		"hit_rate": 70,
+		"crit_rate": 20,
+		"stack_cap": 1,
+		"price": 2,
+		"shop":["test"]
+	},
+}

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://77iy6s8ismp1"]
+
+[ext_resource type="Script" uid="uid://bjr818ntr1xvh" path="res://GamePlayModules/shop/test_shop/item_option.gd" id="1_0bud3"]
+
+[node name="item_option" type="Button" unique_id=347956376]
+custom_minimum_size = Vector2(0, 70)
+script = ExtResource("1_0bud3")
+
+[node name="item_option" type="HBoxContainer" parent="." unique_id=1551729663]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="atk_name_label" type="Label" parent="item_option" unique_id=1950554600]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="damage_type_label" type="Label" parent="item_option" unique_id=1096504845]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage type"
+horizontal_alignment = 1
+
+[node name="damage_label" type="Label" parent="item_option" unique_id=857108815]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="price_label" type="Label" parent="item_option" unique_id=1031430213]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "price"
+horizontal_alignment = 1
+
+[node name="Quantity" type="Label" parent="item_option" unique_id=877744973]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quant"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="item_option" unique_id=974411450]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="item_option/Button" unique_id=324733139]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Comprar"
+
+[connection signal="button_up" from="item_option/Button" to="." method="_on_button_button_up"]

@@ -18,13 +18,12 @@ func Set_up_option(new_attack,owned = false):
 	price_label.text = str(new_attack["price"])
 	if owned:
 		buy_button.visible = false
-		
+
 func Buy_attack():
 	if AppInfo.Check_currency_amount(atk_info["price"]):
 		AppInfo.Update_player_currency(atk_info["price"]*-1)
 		AppInfo.Unlock_Attack(atk_info["name"])
 		SignalsResource.refresh_atk_list.emit()
-
 
 func _on_button_button_up() -> void:
 	Buy_attack()

@@ -73,7 +73,7 @@
 		"name": "Massagem",
 		"image_path": "",
 		"level_requirement": 2,
-		"description": "Massaga as costas do teu parceiro para por algo que estava partido no lugar.",
+		"description": "Massaja as costas do teu parceiro para por algo que estava partido no lugar.",
 		"target":"ally",
 		"damage": 25,
 		"type":"Curar",

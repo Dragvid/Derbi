@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjvs3jtpsnswg"]
 
-[ext_resource type="Script" uid="uid://cipj1qy7bdbrk" path="res://GamePlayModules/shop/prefabs/atk_option_to_buy.gd" id="1_bdx5h"]
+[ext_resource type="Script" uid="uid://cipj1qy7bdbrk" path="res://GamePlayModules/shop/prefabs/atk_option/atk_option_to_buy.gd" id="1_bdx5h"]
 
 [node name="atk_option" type="Button" unique_id=245764159]
 custom_minimum_size = Vector2(0, 70)

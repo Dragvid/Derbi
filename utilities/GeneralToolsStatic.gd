@@ -40,7 +40,6 @@ static func get_right_parent_node(parent_name, starting_node:Node):
 	while current_node.name != parent_name:
 		current_node = current_node.get_parent()
 	return current_node
-	
 
 static func instantiate_scene(path:String, originNode:Node, spawnPosition:Vector2 = Vector2.ZERO):
 	var scene_resource = load(path)

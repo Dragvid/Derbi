@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dxa4vxkdnawge"]
 
 [ext_resource type="Script" uid="uid://b6teifqbtju16" path="res://GamePlayModules/shop/scripts/ShopManager.gd" id="1_k30k6"]
-[ext_resource type="PackedScene" uid="uid://cjvs3jtpsnswg" path="res://GamePlayModules/shop/prefabs/atk_option_to_buy.tscn" id="2_m8rus"]
+[ext_resource type="PackedScene" uid="uid://cjvs3jtpsnswg" path="res://GamePlayModules/shop/prefabs/atk_option/atk_option_to_buy.tscn" id="2_m8rus"]
+[ext_resource type="PackedScene" uid="uid://77iy6s8ismp1" path="res://GamePlayModules/shop/prefabs/item_option/item_option.tscn" id="3_5xfwy"]
 
 [node name="TestShop" type="Control" unique_id=653305225]
 layout_mode = 3
@@ -13,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_k30k6")
 shop_name = "test"
 attack_line = ExtResource("2_m8rus")
+item_line = ExtResource("3_5xfwy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=779484307]
 layout_mode = 1
@@ -63,6 +65,15 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="players_money" type="Label" parent="HBoxContainer/Dead_area/VBoxContainer" unique_id=981670926]
+layout_mode = 2
+text = "Player's money"
+
+[node name="LeaveShop" type="Button" parent="HBoxContainer/Dead_area/VBoxContainer" unique_id=1696589267]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Leave"
+
 [node name="shopOptions" type="Control" parent="HBoxContainer" unique_id=1924870480]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -85,17 +96,22 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="tabs" type="HBoxContainer" parent="HBoxContainer/shopOptions/VBoxContainer" unique_id=1648999342]
-visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 alignment = 2
 
-[node name="option" type="Button" parent="HBoxContainer/shopOptions/VBoxContainer/tabs" unique_id=528605121]
+[node name="atacks" type="Button" parent="HBoxContainer/shopOptions/VBoxContainer/tabs" unique_id=528605121]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Ataques"
 
+[node name="Items" type="Button" parent="HBoxContainer/shopOptions/VBoxContainer/tabs" unique_id=1029849288]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Itens"
+
 [node name="shopAtkStock" type="ScrollContainer" parent="HBoxContainer/shopOptions/VBoxContainer" unique_id=856453716]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -143,14 +159,59 @@ size_flags_horizontal = 3
 visible = false
 layout_mode = 2
 
-[node name="players_money" type="Label" parent="." unique_id=981670926]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 43.0
-offset_top = -59.0
-offset_right = 161.0
-offset_bottom = -36.0
-grow_vertical = 0
-text = "Player's money"
+[node name="shopItemStock" type="ScrollContainer" parent="HBoxContainer/shopOptions/VBoxContainer" unique_id=1971686971]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="shopStockContainer" type="VBoxContainer" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock" unique_id=1330095418]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="row_id" type="HBoxContainer" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer" unique_id=1700406661]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+alignment = 1
+
+[node name="atk_name_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=1980951457]
+custom_minimum_size = Vector2(66.52, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+horizontal_alignment = 1
+
+[node name="damage_type_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=613553154]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tipo"
+horizontal_alignment = 1
+
+[node name="damage_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=1506363417]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="price_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=852752752]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "price"
+horizontal_alignment = 1
+
+[node name="quantity_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=689000863]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quantidade"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=1857987903]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="item_option" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer" unique_id=347956376 instance=ExtResource("3_5xfwy")]
+layout_mode = 2
+
+[connection signal="button_up" from="HBoxContainer/Dead_area/VBoxContainer/LeaveShop" to="." method="_on_leave_shop_button_up"]
+[connection signal="button_up" from="HBoxContainer/shopOptions/VBoxContainer/tabs/atacks" to="." method="_on_atacks_button_up"]
+[connection signal="button_up" from="HBoxContainer/shopOptions/VBoxContainer/tabs/Items" to="." method="_on_items_button_up"]
