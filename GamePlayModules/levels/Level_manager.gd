@@ -6,7 +6,7 @@ var inicial_position
 func _ready() -> void:
 	inicial_position = player_avatar.position
 	
-	if AppInfo.last_reason_to_return == AppInfo.reason_to_return.win or AppInfo.last_reason_to_return == AppInfo.reason_to_return.escape:
+	if AppInfo.last_reason_to_return == AppInfo.reason_to_return.win or AppInfo.last_reason_to_return == AppInfo.reason_to_return.escape or AppInfo.last_reason_to_return == AppInfo.reason_to_return.shop:
 		disable_defeated_encounters(AppInfo.defeated_encounters)
 		
 	if AppInfo.last_reason_to_return == AppInfo.reason_to_return.lose or AppInfo.last_reason_to_return == AppInfo.reason_to_return.escape:

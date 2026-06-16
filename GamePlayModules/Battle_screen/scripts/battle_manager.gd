@@ -170,17 +170,17 @@ func run_away(escape_chance:float):
 		print("Escape failed.")
 
 func has_battle_ended():
-	print("battle ended check")
+	#print("battle ended check")
 	await get_tree().create_timer(1).timeout
 	if enemies_box.get_children().size() == 0:
-		print("Player wins")
+		#print("Player wins")
 		#mantain the position
 		AppInfo.Add_defeated_encounter()
 		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
 	var active_party_members = get_active_party_members()
 	if active_party_members.size()==0:
-		print("Enemies won")
+		#print("Enemies won")
 		#clear the position
 		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.lose

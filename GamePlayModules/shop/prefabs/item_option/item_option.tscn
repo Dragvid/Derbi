@@ -55,12 +55,16 @@ size_flags_horizontal = 3
 text = "Quant"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="item_option" unique_id=974411450]
+[node name="VBoxContainer" type="VBoxContainer" parent="item_option" unique_id=252740857]
+layout_mode = 2
+
+[node name="buyButton" type="Button" parent="item_option/VBoxContainer" unique_id=974411450]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="item_option/Button" unique_id=324733139]
+[node name="Label" type="Label" parent="item_option/VBoxContainer/buyButton" unique_id=324733139]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,4 +79,26 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Comprar"
 
-[connection signal="button_up" from="item_option/Button" to="." method="_on_button_button_up"]
+[node name="sellButton" type="Button" parent="item_option/VBoxContainer" unique_id=527169720]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="item_option/VBoxContainer/sellButton" unique_id=1135485091]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vender"
+
+[connection signal="button_up" from="item_option/VBoxContainer/buyButton" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="item_option/VBoxContainer/sellButton" to="." method="_on_sell_button_button_up"]

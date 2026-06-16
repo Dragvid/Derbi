@@ -26,6 +26,7 @@ static var save_file_json = GeneralToolsStatic.get_dictionary_from_json("res://r
 
 static var battle_scene = "res://GamePlayModules/Battle_screen/Battle_screen.tscn"
 static var current_level = "res://GamePlayModules/levels/test_level/test_level_scene.tscn"
+static var shop_scene = "res://GamePlayModules/shop/test_shop/Test_shop.tscn"
 
 static var position_in_level : Vector2
 
@@ -106,3 +107,11 @@ static func Check_item_stack(item_name: String) -> bool:
 	if inventory.has(item_name):
 		return inventory[item_name] < stack_cap
 	return true  # item not in inventory yet, safe to add
+
+static func Remove_item(item_name: String):
+	var inventory = save_file_json["item_inventory"]
+	if inventory.has(item_name):
+		inventory[item_name] -= 1
+		if inventory[item_name] <= 0:
+			inventory.erase(item_name)  # clean up empty entries
+	Save_file("res://resources/Player_Save.json", save_file_json)

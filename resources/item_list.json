@@ -20,7 +20,7 @@
 		"level_requirement": 1,
 		"description": "Bebida leve que cura. Depois de bebida adiciona uma garrafa ao teu inventário",
 		"target":"ally",
-		"damage": 50,
+		"damage": 15,
 		"type":"Curar",
 		"effects": [
 			{"effect": "AddItemToInventory", "value": "Garrafa"},

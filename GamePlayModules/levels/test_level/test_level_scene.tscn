@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bg7br404huv84" path="res://icon.svg" id="2_cl8n1"]
 [ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="4_ff60c"]
 [ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="4_kvk3t"]
+[ext_resource type="Script" uid="uid://bkehba5cldxlc" path="res://GamePlayModules/shop/level object/Entry_shop.gd" id="7_k0axc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj1p"]
 
@@ -15,6 +16,9 @@ height = 130.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ff60c"]
 size = Vector2(52, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7j8x"]
+size = Vector2(50, 80)
 
 [node name="TestLevelScene" type="Node2D" unique_id=613694492]
 script = ExtResource("1_3l6yi")
@@ -85,5 +89,15 @@ texture = ExtResource("4_ff60c")
 position = Vector2(2, -1.5)
 shape = SubResource("RectangleShape2D_ff60c")
 
+[node name="shop" type="Area2D" parent="." unique_id=315683155]
+position = Vector2(134, 399)
+script = ExtResource("7_k0axc")
+shop_name = "teste"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shop" unique_id=312047815]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_a7j8x")
+
 [connection signal="area_entered" from="enemy" to="enemy" method="_on_area_entered"]
 [connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]
+[connection signal="area_entered" from="shop" to="shop" method="_on_area_entered"]

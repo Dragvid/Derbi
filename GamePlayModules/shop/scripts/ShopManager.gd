@@ -63,6 +63,7 @@ func Back_to_level():
 	get_tree().change_scene_to_file(AppInfo.current_level)
 
 func _on_leave_shop_button_up() -> void:
+	AppInfo.last_reason_to_return = AppInfo.reason_to_return.shop
 	Back_to_level()
 
 func _on_atacks_button_up() -> void:
