@@ -93,6 +93,7 @@ shape = SubResource("RectangleShape2D_ff60c")
 position = Vector2(134, 399)
 script = ExtResource("7_k0axc")
 shop_name = "teste"
+return_pos_offset = Vector2(100, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shop" unique_id=312047815]
 position = Vector2(-1, 1)
