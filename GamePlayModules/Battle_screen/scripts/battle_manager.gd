@@ -1,3 +1,193 @@
+#extends Control
+#
+#@export var party_member_interface : PackedScene
+#@onready var enemies_box: HBoxContainer = $Enemies
+#
+#@onready var player_interface: HBoxContainer = $Player_interface
+#var party_info = AppInfo.party_info_json
+#var turn_player = true
+#var ally_pick:bool = false
+##attack processing
+#var current_attack : Dictionary = {
+	#"attacker"=null,
+	#"target"=null,
+	#"attack_name"=null
+#}
+#
+#var rng = RandomNumberGenerator.new()
+#
+#func _ready() -> void:
+	#load_party_members()
+	#load_enemies()
+#
+#func load_enemies(enemy_list=[]):
+	#if enemy_list.is_empty():#random encounter
+		#var enemy_roster = AppInfo.enemy_info_json.keys()
+		##random enemy number
+		#rng.randomize()
+		#var formation_size = rng.randi_range(1,4)
+		##pick formation
+		#for i in range(0, formation_size):
+			#var formation_unit = enemy_roster.pick_random()
+			##get the information and check if the scene is valid
+			#var unit_info = AppInfo.enemy_info_json[formation_unit]
+			##instance scene
+			#var unit_scene:Node = GeneralToolsStatic.instantiate_scene(unit_info.scene_path,enemies_box)
+			#unit_scene.button_up.connect(receive_current_attack_target_choice.bind(unit_scene))
+			#unit_scene.call_deferred("load_info",unit_info,self)
+	##else:#planned encounter
+		##pass
+#
+#func load_party_members():
+	#var cur_player_id = 1
+	#for member in AppInfo.party_members:
+		#if party_info.has(member):
+			#var member_data = party_info[member]
+			#var member_ui = GeneralToolsStatic.instantiate_scene(party_member_interface.resource_path,player_interface)
+			#member_ui.call_deferred("set_up_player", self, member_data, member,  cur_player_id)
+			#cur_player_id += 1 
+#
+#func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
+	#if current_attack.attack_name!=null:
+		#var atk_info = AppInfo.attack_info_json[current_attack.attack_name]
+		#match atk_info.target:
+			#"opposition":
+				#ally_pick = false
+				#target_is_oponent = true
+			#"ally":
+				#ally_pick = true
+				#target_is_oponent = false
+	#if target_is_oponent:
+		#for enemy in enemies_box.get_children():
+			#enemy.disabled = !enter
+	#else:
+		#for party_member in player_interface.get_children():
+			#party_member.pick_ally_mode(true)
+#
+#func check_turn_end():
+	#var turn_end = true
+	#var turn_group
+	#if turn_player:
+		#turn_group = get_active_party_members()
+	#else:
+		#turn_group = enemies_box.get_children()
+	#for member in turn_group:#check if it is the end of the turn
+		#if !member.state_current in [AppInfo.states.recovery,AppInfo.states.blocking]:
+			##print(member.name, " is blocking the turn change, it is in: ", member.state_current)
+			#turn_end = false
+	##print("turn_end: ",turn_end)
+	#if turn_end:
+		#change_turn()
+#func receive_current_attack(new_attacker,new_attack_name):
+	#current_attack.attacker = new_attacker
+	#current_attack.attack_name = new_attack_name
+#
+#func receive_current_attack_target_choice(target_unit):
+	## 1. Check if the dictionary is null or empty
+	#if current_attack == null or current_attack.is_empty():
+		##print("Warning: Attempted to set target, but current_attack is empty.")
+		#return # Stop the function here
+	## 2. Check for specific required keys to be safe
+	#if not current_attack.has("attacker") or not current_attack.has("attack_name"):
+		##print("Warning: current_attack is missing required keys.")
+		#return
+	## Proceed with logic safely
+	#current_attack.target = target_unit
+	#if current_attack.attacker != null and current_attack.attack_name != null:
+		#attack_process()
+	#if ally_pick:
+		#ally_pick = false
+		#for party_member in player_interface.get_children():
+			#party_member.pick_ally_mode(false)
+	#if turn_player:
+		#check_turn_end()
+##apply damage
+#func attack_process():
+	##get attack info
+	#var atk_info = AppInfo.attack_info_json[current_attack.attack_name]	
+	##attack is possible
+	#if randi_range(0,100) < atk_info.hit_rate:
+		#var final_damage = atk_info.damage
+		#if randi_range(0,100) < atk_info.crit_rate:
+			#final_damage = final_damage * AppInfo.crit_multiplier
+		#current_attack.target.update_life(final_damage)
+	##else:
+		##print("Miss")
+	#if turn_player:
+		#current_attack.attacker.option_picked()
+	#clean_current_atk()
+#
+#func clean_current_atk():
+	#toggle_target_selection(true,false)
+	#current_attack.attacker = null
+	#current_attack.target = null
+	#current_attack.attack_name = null
+#
+#func change_turn():
+	#turn_player = !turn_player
+	#await get_tree().create_timer(1).timeout
+	#if !turn_player:
+		#enemy_turn()
+	#else:
+		#for party_member in player_interface.get_children():
+			#party_member.turn_reset()
+#
+#func enemy_turn():
+	#for enemy in enemies_box.get_children():
+		#enemy.state_current = AppInfo.states.idle
+	#for enemy in enemies_box.get_children():
+		#receive_current_attack(enemy,enemy.pick_attack())
+		#var valid_targets = get_active_party_members()
+		#receive_current_attack_target_choice(valid_targets.pick_random())
+		#await get_tree().create_timer(1).timeout
+	#change_turn()
+#
+#func get_active_party_members() -> Array:
+	#return player_interface.get_children().filter(
+		#func(member): return member.state_current != AppInfo.states.defeated
+	#)
+#
+#func is_action_pending() -> bool:
+	## If the dictionary is empty, there is definitely no action pending
+	#if current_attack.is_empty():
+		#return false
+	## We assume no action is pending until we find a non-null value
+	#for key in current_attack.keys():
+		#if current_attack[key] != null:
+			## We found data! That means an action is in progress.
+			##print("Pending action found in key: ", key)
+			#return true 
+			#
+	#return false
+#
+#func run_away(escape_chance:float):
+	#if randf() < escape_chance:
+		##print("Run away.")
+		##escape to the combat to world scene
+		#call_deferred("Back_to_level")
+		#AppInfo.last_reason_to_return = AppInfo.reason_to_return.escape
+	#else:
+		#print("Escape failed.")
+#
+#func has_battle_ended():
+	##print("battle ended check")
+	#await get_tree().create_timer(1).timeout
+	#if enemies_box.get_children().size() == 0:
+		##print("Player wins")
+		##mantain the position
+		#AppInfo.Add_defeated_encounter()
+		#call_deferred("Back_to_level")
+		#AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
+	#var active_party_members = get_active_party_members()
+	#if active_party_members.size()==0:
+		##print("Enemies won")
+		##clear the position
+		#call_deferred("Back_to_level")
+		#AppInfo.last_reason_to_return = AppInfo.reason_to_return.lose
+#
+#func Back_to_level():
+	#get_tree().change_scene_to_file(AppInfo.current_level)
+
 extends Control
 
 @export var party_member_interface : PackedScene
@@ -8,10 +198,11 @@ var party_info = AppInfo.party_info_json
 var turn_player = true
 var ally_pick:bool = false
 #attack processing
-var current_attack : Dictionary = {
+var current_move : Dictionary = {
 	"attacker"=null,
 	"target"=null,
-	"attack_name"=null
+	"attack_name"=null,
+	"kind"=null  # "attack" or "item"
 }
 
 var rng = RandomNumberGenerator.new()
@@ -23,20 +214,14 @@ func _ready() -> void:
 func load_enemies(enemy_list=[]):
 	if enemy_list.is_empty():#random encounter
 		var enemy_roster = AppInfo.enemy_info_json.keys()
-		#random enemy number
 		rng.randomize()
 		var formation_size = rng.randi_range(1,4)
-		#pick formation
 		for i in range(0, formation_size):
 			var formation_unit = enemy_roster.pick_random()
-			#get the information and check if the scene is valid
 			var unit_info = AppInfo.enemy_info_json[formation_unit]
-			#instance scene
 			var unit_scene:Node = GeneralToolsStatic.instantiate_scene(unit_info.scene_path,enemies_box)
 			unit_scene.button_up.connect(receive_current_attack_target_choice.bind(unit_scene))
 			unit_scene.call_deferred("load_info",unit_info,self)
-	#else:#planned encounter
-		#pass
 
 func load_party_members():
 	var cur_player_id = 1
@@ -48,9 +233,9 @@ func load_party_members():
 			cur_player_id += 1 
 
 func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
-	if current_attack.attack_name!=null:
-		var atk_info = AppInfo.attack_info_json[current_attack.attack_name]
-		match atk_info.target:
+	if current_move.attack_name != null:
+		var info = get_current_action_info()
+		match info.target:
 			"opposition":
 				ally_pick = false
 				target_is_oponent = true
@@ -71,57 +256,76 @@ func check_turn_end():
 		turn_group = get_active_party_members()
 	else:
 		turn_group = enemies_box.get_children()
-	for member in turn_group:#check if it is the end of the turn
+	for member in turn_group:
 		if !member.state_current in [AppInfo.states.recovery,AppInfo.states.blocking]:
-			#print(member.name, " is blocking the turn change, it is in: ", member.state_current)
 			turn_end = false
-	#print("turn_end: ",turn_end)
 	if turn_end:
 		change_turn()
-func receive_current_attack(new_attacker,new_attack_name):
-	current_attack.attacker = new_attacker
-	current_attack.attack_name = new_attack_name
+
+func receive_current_attack(new_attacker, new_attack_name):
+	current_move.attacker = new_attacker
+	current_move.attack_name = new_attack_name
+	current_move.kind = "attack"
+
+func receive_current_item(new_user, new_item_name):
+	current_move.attacker = new_user
+	current_move.attack_name = new_item_name
+	current_move.kind = "item"
+
+func get_current_action_info() -> Dictionary:
+	if current_move.kind == "item":
+		return AppInfo.item_info_json[current_move.attack_name]
+	return AppInfo.attack_info_json[current_move.attack_name]
 
 func receive_current_attack_target_choice(target_unit):
-	# 1. Check if the dictionary is null or empty
-	if current_attack == null or current_attack.is_empty():
-		#print("Warning: Attempted to set target, but current_attack is empty.")
-		return # Stop the function here
-	# 2. Check for specific required keys to be safe
-	if not current_attack.has("attacker") or not current_attack.has("attack_name"):
-		#print("Warning: current_attack is missing required keys.")
+	if current_move == null or current_move.is_empty():
 		return
-	# Proceed with logic safely
-	current_attack.target = target_unit
-	if current_attack.attacker != null and current_attack.attack_name != null:
-		attack_process()
+	if not current_move.has("attacker") or not current_move.has("attack_name"):
+		return
+	current_move.target = target_unit
+	if current_move.attacker != null and current_move.attack_name != null:
+		if current_move.kind == "item":
+			item_process()
+		else:
+			attack_process()
 	if ally_pick:
 		ally_pick = false
 		for party_member in player_interface.get_children():
 			party_member.pick_ally_mode(false)
 	if turn_player:
 		check_turn_end()
+
 #apply damage
 func attack_process():
-	#get attack info
-	var atk_info = AppInfo.attack_info_json[current_attack.attack_name]	
-	#attack is possible
+	var atk_info = AppInfo.attack_info_json[current_move.attack_name]	
 	if randi_range(0,100) < atk_info.hit_rate:
 		var final_damage = atk_info.damage
 		if randi_range(0,100) < atk_info.crit_rate:
 			final_damage = final_damage * AppInfo.crit_multiplier
-		current_attack.target.update_life(final_damage)
-	#else:
-		#print("Miss")
+		current_move.target.update_life(final_damage)
 	if turn_player:
-		current_attack.attacker.option_picked()
+		current_move.attacker.option_picked()
+	clean_current_atk()
+
+#apply item effect
+func item_process():
+	var item_info = AppInfo.item_info_json[current_move.attack_name]
+	current_move.target.update_life(item_info.get("damage", 0))
+	for effect in item_info.get("effects", []):
+		print("item effect")
+		#if ItemEffects.has_method(effect["effect"]):
+			#ItemEffects.call(effect["effect"], current_move.target, effect["value"])
+	AppInfo.Remove_item(current_move.attack_name)
+	if turn_player:
+		current_move.attacker.option_picked()
 	clean_current_atk()
 
 func clean_current_atk():
 	toggle_target_selection(true,false)
-	current_attack.attacker = null
-	current_attack.target = null
-	current_attack.attack_name = null
+	current_move.attacker = null
+	current_move.target = null
+	current_move.attack_name = null
+	current_move.kind = null
 
 func change_turn():
 	turn_player = !turn_player
@@ -148,40 +352,28 @@ func get_active_party_members() -> Array:
 	)
 
 func is_action_pending() -> bool:
-	# If the dictionary is empty, there is definitely no action pending
-	if current_attack.is_empty():
+	if current_move.is_empty():
 		return false
-	# We assume no action is pending until we find a non-null value
-	for key in current_attack.keys():
-		if current_attack[key] != null:
-			# We found data! That means an action is in progress.
-			#print("Pending action found in key: ", key)
+	for key in current_move.keys():
+		if current_move[key] != null:
 			return true 
-			
 	return false
 
 func run_away(escape_chance:float):
 	if randf() < escape_chance:
-		#print("Run away.")
-		#escape to the combat to world scene
 		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.escape
 	else:
 		print("Escape failed.")
 
 func has_battle_ended():
-	#print("battle ended check")
 	await get_tree().create_timer(1).timeout
 	if enemies_box.get_children().size() == 0:
-		#print("Player wins")
-		#mantain the position
 		AppInfo.Add_defeated_encounter()
 		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
 	var active_party_members = get_active_party_members()
 	if active_party_members.size()==0:
-		#print("Enemies won")
-		#clear the position
 		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.lose
 

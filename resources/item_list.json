@@ -7,7 +7,6 @@
 		"target":"ally",
 		"damage": 50,
 		"type":"Curar",
-		"cost":25,
 		"hit_rate": 100,
 		"crit_rate": 20,
 		"stack_cap": 1,
@@ -25,7 +24,6 @@
 		"effects": [
 			{"effect": "AddItemToInventory", "value": "Garrafa"},
 		],
-		"cost":2,
 		"hit_rate": 100,
 		"crit_rate": 15,
 		"stack_cap": 5,
@@ -40,7 +38,6 @@
 		"target":"opposition",
 		"damage": 50,
 		"type":"strike",
-		"cost":25,
 		"hit_rate": 70,
 		"crit_rate": 20,
 		"stack_cap": 1,

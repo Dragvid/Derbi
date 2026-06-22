@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://rkvbppw5p24i" path="res://GamePlayModules/Battle_screen/party_member_controls/party_member_controls.gd" id="1_6ns1b"]
 [ext_resource type="Texture2D" uid="uid://p20530qk7dv5" path="res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg" id="2_g6gwd"]
 [ext_resource type="PackedScene" uid="uid://c30ic2fx7m240" path="res://GamePlayModules/Battle_screen/party_member_controls/attack_option/atk_option.tscn" id="3_feik1"]
+[ext_resource type="PackedScene" uid="uid://bmlcpfdojhql1" path="res://GamePlayModules/Battle_screen/party_member_controls/item_option/item_option.tscn" id="4_3lf37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6oh3"]
 bg_color = Color(2.2140146e-06, 0.71207577, 0.4536922, 1)
 
-[sub_resource type="Animation" id="Animation_feik1"]
+[sub_resource type="Animation" id="Animation_ggshx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -116,7 +117,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qay8n"]
 _data = {
-&"RESET": SubResource("Animation_feik1"),
+&"RESET": SubResource("Animation_ggshx"),
 &"attack": SubResource("Animation_qay8n"),
 &"damage": SubResource("Animation_ml7ld")
 }
@@ -132,6 +133,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_6ns1b")
 attack_option_scene = ExtResource("3_feik1")
+item_option_scene = ExtResource("4_3lf37")
 
 [node name="Panel" type="Panel" parent="." unique_id=514589885]
 layout_mode = 1
@@ -238,7 +240,45 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
 
+[node name="itemListContainer" type="Control" parent="main_game" unique_id=1247986895]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="main_game/itemListContainer" unique_id=1287717278]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="itemList" type="VBoxContainer" parent="main_game/itemListContainer" unique_id=1561810153]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="item_option" parent="main_game/itemListContainer/itemList" unique_id=1090290731 instance=ExtResource("4_3lf37")]
+layout_mode = 2
+
+[node name="leaveItemList" type="Button" parent="main_game/itemListContainer" unique_id=1325350393]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+
 [node name="Keyboard" type="GridContainer" parent="main_game" unique_id=1418449935]
+visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -360,7 +400,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="button_up" from="main_game/atkListContainer/leaveAtkList" to="." method="_on_leave_atk_list_button_up"]
+[connection signal="button_up" from="main_game/itemListContainer/leaveItemList" to="." method="_on_leave_item_list_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Attack" to="." method="_on_attack_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Block" to="." method="_on_block_button_up"]
+[connection signal="button_up" from="main_game/Keyboard/Inventory" to="." method="_on_inventory_button_up"]
 [connection signal="button_up" from="main_game/Keyboard/Escape" to="." method="_on_escape_button_up"]
 [connection signal="button_up" from="pick_button" to="." method="_on_pick_button_button_up"]

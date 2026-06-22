@@ -1,6 +1,7 @@
 extends Control
 
 @export var attack_option_scene : PackedScene
+@export var item_option_scene : PackedScene
 
 var char_name : String
 var total_health : int
@@ -28,6 +29,10 @@ var member_info
 @onready var char_name_label: Label = $char_name_label
 @onready var action_picked: Control = $main_game/action_picked
 
+@onready var item_list_node: Control = $main_game/itemListContainer/itemList
+@onready var leave_item_list_button: Button = $main_game/itemListContainer/leaveItemList
+
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var char_portrait: TextureRect = $char_portrait
 
@@ -42,6 +47,8 @@ func set_up_player(manager, member_data, new_name:String = "[missing]", new_play
 	player_id = new_player_id
 	attack_list = member_data.attacks
 	load_atk_list()
+	#items
+	Load_item_list()
 	#health
 	#total_health = member_data.total_life
 	current_health = member_data.total_life
@@ -101,6 +108,15 @@ func load_atk_list():
 		#else:
 			#print("atk named ",atk," was not found in the list")
 
+func Load_item_list():
+	for item_name in AppInfo.save_file_json["item_inventory"]:
+		var item_quantity = AppInfo.save_file_json["item_inventory"][item_name]
+		#create the button
+		var item_opt_instance = GeneralToolsStatic.instantiate_scene(item_option_scene.resource_path,item_list_node)
+		var item_info = AppInfo.item_info_json[item_name]
+		var text_to_add = str("Target: ",item_info.target, " price: ",item_info.price,"\n ",item_info.description)
+		item_opt_instance.call_deferred("set_information",item_name, item_quantity, text_to_add, self)
+
 func Attack_list_disabled_state(new_state):
 	for option in atk_list_node.get_children():
 		if option is Button:
@@ -124,7 +140,6 @@ func turn_reset():
 	action_picked.visible = false
 	option_keyboard.visible = true
 	Attack_list_disabled_state(false)
-	
 
 func pick_ally_mode(mode:bool):
 	pick_button.visible = mode
@@ -157,3 +172,17 @@ func _on_block_button_up() -> void:
 func _on_pick_button_button_up() -> void:
 	battle_manager.receive_current_attack_target_choice(self)
 	pick_button.visible = false
+
+func _on_leave_item_list_button_up() -> void:
+	item_list_node.get_parent().visible = false
+	option_keyboard.visible = true
+
+func _on_inventory_button_up() -> void:
+	if battle_manager.is_action_pending():
+		return
+	option_keyboard.visible = false
+	item_list_node.get_parent().visible = true
+	if item_list_node.get_child_count() >= 1:
+		item_list_node.get_child(0).grab_focus()
+	else:
+		leave_item_list_button.grab_focus()
