@@ -225,7 +225,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
 [node name="leaveAtkList" type="Button" parent="main_game/atkListContainer" unique_id=617116106]
 layout_mode = 1
@@ -241,6 +240,7 @@ grow_vertical = 0
 text = "Back"
 
 [node name="itemListContainer" type="Control" parent="main_game" unique_id=1247986895]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -259,7 +259,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
 [node name="item_option" parent="main_game/itemListContainer/itemList" unique_id=1090290731 instance=ExtResource("4_3lf37")]
 layout_mode = 2
@@ -278,7 +277,6 @@ grow_vertical = 0
 text = "Back"
 
 [node name="Keyboard" type="GridContainer" parent="main_game" unique_id=1418449935]
-visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4

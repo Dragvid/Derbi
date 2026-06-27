@@ -36,11 +36,11 @@
 		"level_requirement": 1,
 		"description": "Pode ser usado como projétil",
 		"target":"opposition",
-		"damage": 50,
+		"damage": -50,
 		"type":"strike",
 		"hit_rate": 70,
 		"crit_rate": 20,
-		"stack_cap": 1,
+		"stack_cap": 5,
 		"price": 2,
 		"shop":["test"]
 	},

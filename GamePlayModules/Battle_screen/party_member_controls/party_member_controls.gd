@@ -127,6 +127,7 @@ func option_picked():
 		state_current = AppInfo.states.recovery
 	option_keyboard.visible = false
 	atk_list_node.get_parent().visible = false
+	item_list_node.get_parent().visible = false
 	action_picked.visible = true
 	battle_manager.check_turn_end()
 

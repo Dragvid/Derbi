@@ -27,15 +27,14 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	animation_player.play_backwards("display_info")
 
-#var battle_manager = null
-#var player_manager = null
-#func _on_button_up() -> void:
-	##get the target
-	#if battle_manager == null:
-			#battle_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
-	##if player_manager == null:
-			##battle_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
-	#if play_area_manager.try_spend_stamina(AppInfo.Retrive_attack_info(self.text).cost):
-		#battle_manager.receive_current_attack(play_area_manager, self.text)
-		#battle_manager.toggle_target_selection()
-		#play_area_manager.Attack_list_disabled_state(true)
+var battle_manager = null
+func _on_button_up() -> void:
+	if battle_manager == null:
+		battle_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen", self)
+	if battle_manager.is_action_pending():
+		return
+	var item_info = AppInfo.item_info_json[item_name_label.text]
+	battle_manager.receive_current_item(play_area_manager, item_info["name"])
+	AppInfo.Remove_item(item_info["name"])
+	#decrement_quantity()
+	battle_manager.toggle_target_selection()
