@@ -1,9 +1,6 @@
 {
-	"currency": 499950.0,
-	"item_inventory": {
-		"Francesinha": 1.0,
-		"Super-Cevada": 5.0
-	},
+	"currency": 500010.0,
+	"item_inventory": {},
 	"unlocked_moves": [
 		"Soco",
 		"Pontapé"
