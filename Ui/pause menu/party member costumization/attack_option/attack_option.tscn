@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://btvn6pmq1pliw"]
+
+[ext_resource type="Script" uid="uid://bvi4kb0lgu4e2" path="res://Ui/pause menu/party member costumization/attack_option/attack_option_manager.gd" id="1_53tc5"]
+
+[node name="attack_option" type="Button" unique_id=1480111325]
+custom_minimum_size = Vector2(0, 40)
+script = ExtResource("1_53tc5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2037034585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=127603787]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1838879360]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ataque 1"
+
+[node name="action_button" type="Button" parent="HBoxContainer" unique_id=739151610]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Desiquipar"
+
+[node name="Control2" type="Control" parent="HBoxContainer" unique_id=1244320748]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2

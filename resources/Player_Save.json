@@ -1,8 +1,12 @@
 {
-	"currency": 500010.0,
+	"currency": 499855.0,
 	"item_inventory": {},
 	"unlocked_moves": [
 		"Soco",
-		"Pontapé"
+		"Pontapé",
+		"Suplex",
+		"Roundhouse",
+		"Gancho",
+		"Massagem"
 	]
 }

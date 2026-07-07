@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dlenef00qq8su"]
+
+[ext_resource type="Script" uid="uid://b05gsf5kkgnoh" path="res://Ui/pause menu/party member costumization/scripts/party_customization_manager.gd" id="1_y5f8j"]
+[ext_resource type="PackedScene" uid="uid://dohbjgl6w2un8" path="res://Ui/pause menu/party member costumization/character_option/character_option.tscn" id="2_h40wg"]
+[ext_resource type="PackedScene" uid="uid://btvn6pmq1pliw" path="res://Ui/pause menu/party member costumization/attack_option/attack_option.tscn" id="3_wfh7n"]
+
+[node name="PartyCustomization" type="Control" unique_id=789670465]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y5f8j")
+character_button_scene = ExtResource("2_h40wg")
+attack_button_scene = ExtResource("3_wfh7n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=219104940]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="characters" type="ScrollContainer" parent="VBoxContainer" unique_id=824073229]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="container" type="HBoxContainer" parent="VBoxContainer/characters" unique_id=903153276]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="pick_area" type="HBoxContainer" parent="VBoxContainer" unique_id=1362062483]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="current_attacks" type="VBoxContainer" parent="VBoxContainer/pick_area" unique_id=1595068815]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="title" type="Control" parent="VBoxContainer/pick_area/current_attacks" unique_id=101226698]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/pick_area/current_attacks/title" unique_id=964409942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/pick_area/current_attacks/title" unique_id=1949534767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ataques atuais"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/pick_area/current_attacks" unique_id=516454335]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="content" type="VBoxContainer" parent="VBoxContainer/pick_area/current_attacks/ScrollContainer" unique_id=657047895]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="Control" parent="VBoxContainer/pick_area" unique_id=553170501]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="unlocked_attacks" type="VBoxContainer" parent="VBoxContainer/pick_area" unique_id=121720030]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="title" type="Control" parent="VBoxContainer/pick_area/unlocked_attacks" unique_id=767327915]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/pick_area/unlocked_attacks/title" unique_id=819396049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/pick_area/unlocked_attacks/title" unique_id=873549077]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ataques desbloqueados"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/pick_area/unlocked_attacks" unique_id=873492398]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="content" type="VBoxContainer" parent="VBoxContainer/pick_area/unlocked_attacks/ScrollContainer" unique_id=1456996036]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
