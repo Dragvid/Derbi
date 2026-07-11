@@ -87,6 +87,28 @@ static func Unlock_Attack(new_attack_name:String):
 	save_file_json["unlocked_moves"].append(new_attack_name)
 	Save_file("res://resources/Player_Save.json",save_file_json)
 
+static func Unequip_attack(new_attack_name: String, character_name: String):
+	if not party_info_json.has(character_name):
+		print("Character not found: ", character_name)
+		return
+	var member_info = party_info_json[character_name]
+	if new_attack_name in member_info["attacks"]:
+		member_info["attacks"].erase(new_attack_name)
+		Save_file("res://resources/party_info.json", party_info_json)
+	else:
+		print(new_attack_name, " is not equipped on ", character_name)
+
+static func Equip_attack(new_attack_name: String, character_name: String):
+	if not party_info_json.has(character_name):
+		print("Character not found: ", character_name)
+		return
+	var member_info = party_info_json[character_name]
+	if new_attack_name not in member_info["attacks"]:
+		member_info["attacks"].append(new_attack_name)
+		Save_file("res://resources/party_info.json", party_info_json)
+	else:
+		print(new_attack_name, " is already equipped on ", character_name)
+
 static func Get_item(item_name: String):
 	var inventory = save_file_json["item_inventory"]
 	var item_data = item_info_json[item_name]

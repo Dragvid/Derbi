@@ -21,8 +21,7 @@ func Load_character_buttons():
 
 func _on_character_selected(member: String):#when the character button is clicked
 	chosen_character = member
-	Load_unlocked_attacks()
-	Load_equipped_attacks()
+	Reload_module()
 
 func Load_unlocked_attacks():
 	if chosen_character == "":
@@ -30,10 +29,11 @@ func Load_unlocked_attacks():
 	Clear_list(unlocked_attacks_content)
 	for attack in AppInfo.save_file_json["unlocked_moves"]:
 		if attack not in AppInfo.party_info_json[chosen_character]["attacks"]:
-			#print("Can assign: ", attack)
 			# create attack option
 			var new_button: Button = GeneralToolsStatic.instantiate_scene(attack_button_scene.resource_path, unlocked_attacks_content)
 			await get_tree().create_timer(0.01).timeout
+			var action_button : Button = new_button.button
+			action_button.button_up.connect(Equip_attack.bind(attack))
 			new_button.Write_info(attack,"equipar")
 
 # Equipped attacks
@@ -46,6 +46,8 @@ func Load_equipped_attacks():
 		# create attack option
 		var new_button: Button = GeneralToolsStatic.instantiate_scene(attack_button_scene.resource_path, equipped_attacks_content)
 		await get_tree().create_timer(0.01).timeout
+		var action_button : Button = new_button.button
+		action_button.button_up.connect(Unequip_attacks.bind(attack))
 		new_button.Write_info(attack,"desequipar")
 
 # ready
@@ -56,5 +58,16 @@ func _ready() -> void:
 func Clear_list(target_list:Node):
 	for child in target_list.get_children(): 
 		child.queue_free()
-	
-	
+
+func Reload_module():
+	Load_unlocked_attacks()
+	Load_equipped_attacks()
+
+#(un)Equip attacks
+func Unequip_attacks(target_attack):
+	AppInfo.Unequip_attack(target_attack, chosen_character)
+	Reload_module()
+
+func Equip_attack(target_attack):
+	AppInfo.Equip_attack(target_attack, chosen_character)
+	Reload_module()

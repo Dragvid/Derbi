@@ -1,18 +1,27 @@
 {
-	"Pedro":{
-		"total_life" : 70,
-		"block_dmg_resistance" : 0.5,
-		"total_stamina":150,
-		"stamina_recovery":20,
-		"attacks":["Soco","Suplex","Massagem"],
-		"portrait_path": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
-	},
-	"Alex":{
-		"total_life":150,
-		"block_dmg_resistance" : 0.5, 
-		"total_stamina":100, 
-		"stamina_recovery":20,
-		"attacks":["Soco","Suplex","Pontapé"],
+	"Alex": {
+		"attacks": [
+			"Soco",
+			"Gancho",
+			"Roundhouse",
+			"Massagem"
+		],
+		"block_dmg_resistance": 0.5,
 		"portrait_path": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+		"stamina_recovery": 20.0,
+		"total_life": 150.0,
+		"total_stamina": 100.0
+	},
+	"Pedro": {
+		"attacks": [
+			"Soco",
+			"Suplex",
+			"Massagem"
+		],
+		"block_dmg_resistance": 0.5,
+		"portrait_path": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+		"stamina_recovery": 20.0,
+		"total_life": 70.0,
+		"total_stamina": 150.0
 	}
 }
