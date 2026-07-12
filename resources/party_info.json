@@ -1,12 +1,13 @@
 {
 	"Alex": {
 		"attacks": [
-			"Soco",
 			"Gancho",
 			"Roundhouse",
-			"Massagem"
+			"Suplex",
+			"Pontapé"
 		],
 		"block_dmg_resistance": 0.5,
+		"class": "tanque",
 		"portrait_path": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
 		"stamina_recovery": 20.0,
 		"total_life": 150.0,
@@ -14,11 +15,12 @@
 	},
 	"Pedro": {
 		"attacks": [
-			"Soco",
-			"Suplex",
-			"Massagem"
+			"Massagem",
+			"Pontapé",
+			"Soco"
 		],
 		"block_dmg_resistance": 0.5,
+		"class": "médico",
 		"portrait_path": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
 		"stamina_recovery": 20.0,
 		"total_life": 70.0,

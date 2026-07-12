@@ -150,7 +150,8 @@ func _on_attack_button_up() -> void:
 		return
 	atk_list_node.get_parent().visible = true
 	option_keyboard.visible = false
-	atk_list_node.get_child(0).grab_focus()
+	if atk_list_node.get_child_count()>0:
+		atk_list_node.get_child(0).grab_focus()
 
 func _on_leave_atk_list_button_up() -> void:
 	battle_manager.clean_current_atk()

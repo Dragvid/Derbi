@@ -69,5 +69,13 @@ func Unequip_attacks(target_attack):
 	Reload_module()
 
 func Equip_attack(target_attack):
+	var attack_info = AppInfo.attack_info_json[target_attack]
+	var character_info = AppInfo.party_info_json[chosen_character]
+	
+	if attack_info.has("class"):
+		if attack_info["class"] != character_info["class"]:
+			#print(chosen_character, " can't equip ", target_attack, " (wrong class)")
+			return
+	
 	AppInfo.Equip_attack(target_attack, chosen_character)
 	Reload_module()
