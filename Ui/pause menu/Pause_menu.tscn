@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://bd1p5auqxetmb"]
 
-[node name="Control" type="Control" unique_id=298671334]
+[ext_resource type="Script" uid="uid://cgiuxuwfidnqs" path="res://Ui/pause menu/pause_menu.gd" id="1_bh07u"]
+[ext_resource type="PackedScene" uid="uid://dlenef00qq8su" path="res://Ui/pause menu/party member costumization/Party_customization.tscn" id="2_m67dp"]
+
+[node name="pause_menu" type="Control" unique_id=298671334]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bh07u")
+tab_scenes = Array[PackedScene]([ExtResource("2_m67dp")])
 
 [node name="Panel" type="Panel" parent="." unique_id=120398775]
 layout_mode = 1
@@ -24,20 +30,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1642247578]
+[node name="tab_separator" type="HBoxContainer" parent="VBoxContainer" unique_id=1642247578]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
-[node name="members_tab_button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1282322287]
+[node name="members_tab_button" type="Button" parent="VBoxContainer/tab_separator" unique_id=1282322287]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Membros"
 
-[node name="options_tab_button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1271479955]
+[node name="options_tab_button" type="Button" parent="VBoxContainer/tab_separator" unique_id=1271479955]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Opções"
 
-[node name="tab" type="Control" parent="VBoxContainer" unique_id=491462730]
+[node name="resume_button" type="Button" parent="VBoxContainer/tab_separator" unique_id=2003782109]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resume"
+
+[node name="quit_button" type="Button" parent="VBoxContainer/tab_separator" unique_id=10021192]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit"
+
+[node name="tab_parent" type="Control" parent="VBoxContainer" unique_id=491462730]
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="button_up" from="VBoxContainer/tab_separator/members_tab_button" to="." method="_on_members_tab_button_button_up"]

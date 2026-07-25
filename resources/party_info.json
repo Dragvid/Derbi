@@ -3,7 +3,6 @@
 		"attacks": [
 			"Gancho",
 			"Roundhouse",
-			"Suplex",
 			"Pontapé"
 		],
 		"block_dmg_resistance": 0.5,
@@ -15,9 +14,9 @@
 	},
 	"Pedro": {
 		"attacks": [
-			"Massagem",
 			"Pontapé",
-			"Soco"
+			"Soco",
+			"Massagem"
 		],
 		"block_dmg_resistance": 0.5,
 		"class": "médico",
