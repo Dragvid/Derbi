@@ -3,7 +3,9 @@
 		"attacks": [
 			"Gancho",
 			"Roundhouse",
-			"Pontapé"
+			"Soco",
+			"Pontapé",
+			"Suplex"
 		],
 		"block_dmg_resistance": 0.5,
 		"class": "tanque",

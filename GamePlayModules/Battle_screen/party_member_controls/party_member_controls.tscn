@@ -260,9 +260,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="item_option" parent="main_game/itemListContainer/itemList" unique_id=1090290731 instance=ExtResource("4_3lf37")]
-layout_mode = 2
-
 [node name="leaveItemList" type="Button" parent="main_game/itemListContainer" unique_id=1325350393]
 layout_mode = 1
 anchors_preset = 3
