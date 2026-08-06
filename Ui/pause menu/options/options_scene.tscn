@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://ym4cxqfhau7w"]
+
+[ext_resource type="Script" uid="uid://bj86n7d3l2x5s" path="res://Ui/pause menu/options/scripts/options_scene.gd" id="1_3moab"]
+[ext_resource type="Script" uid="uid://bnay4w4t3yq71" path="res://Ui/pause menu/options/scripts/sound_tab.gd" id="1_eal1h"]
+
+[node name="options_tab" type="Control" unique_id=1757400035]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3moab")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=900650266]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tabSeparator" type="HBoxContainer" parent="VBoxContainer" unique_id=327627513]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="sound_Button" type="Button" parent="VBoxContainer/tabSeparator" unique_id=229940718]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+text = "Som"
+
+[node name="controls_Button" type="Button" parent="VBoxContainer/tabSeparator" unique_id=686374940]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+text = "Controls"
+
+[node name="SoundTab" type="Control" parent="VBoxContainer" unique_id=458743116]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_eal1h")
+
+[node name="content" type="VBoxContainer" parent="VBoxContainer/SoundTab" unique_id=272264921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SFX" type="HBoxContainer" parent="VBoxContainer/SoundTab/content" unique_id=985721910]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/SoundTab/content/SFX" unique_id=1237376613]
+layout_mode = 2
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SoundTab/content/SFX" unique_id=87084489]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="OST" type="HBoxContainer" parent="VBoxContainer/SoundTab/content" unique_id=977854346]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/SoundTab/content/OST" unique_id=1820769254]
+layout_mode = 2
+text = "OST"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SoundTab/content/OST" unique_id=2011942443]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="keysTab" type="Control" parent="VBoxContainer" unique_id=1597502917]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="content" type="VBoxContainer" parent="VBoxContainer/keysTab" unique_id=977698011]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="key_control" type="Control" parent="VBoxContainer/keysTab/content" unique_id=1813053943]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/keysTab/content/key_control" unique_id=1741900747]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="Control" parent="VBoxContainer/keysTab/content/key_control" unique_id=215344662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="control_name" type="Label" parent="VBoxContainer/keysTab/content/key_control/HBoxContainer" unique_id=1488108928]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 140.0
+offset_bottom = 46.0
+size_flags_horizontal = 0
+text = "Nome do controlo"
+
+[node name="Button" type="Button" parent="VBoxContainer/keysTab/content/key_control/HBoxContainer" unique_id=828617667]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -35.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="button_up" from="VBoxContainer/tabSeparator/sound_Button" to="." method="_on_sound_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/tabSeparator/controls_Button" to="." method="_on_controls_button_button_up"]

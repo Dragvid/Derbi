@@ -1,4 +1,4 @@
 extends Node
 
-signal refresh_atk_list
-signal refresh_item_list
+signal _refresh_atk_list
+signal _refresh_item_list

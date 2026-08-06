@@ -49,3 +49,7 @@ func Load_tab(tab_name:String):
 
 func _on_members_tab_button_button_up() -> void:
 	Load_tab("Party_customization")
+
+
+func _on_options_tab_button_button_up() -> void:
+	Load_tab("options_scene")

@@ -23,7 +23,7 @@ func Buy_attack():
 	if AppInfo.Check_currency_amount(atk_info["price"]):
 		AppInfo.Update_player_currency(atk_info["price"]*-1)
 		AppInfo.Unlock_Attack(atk_info["name"])
-		SignalsResource.refresh_atk_list.emit()
+		SignalsResource._refresh_atk_list.emit()
 
 func _on_button_button_up() -> void:
 	Buy_attack()

@@ -16,8 +16,8 @@ func _ready() -> void:
 	update_player_currency_label()
 	_on_atacks_button_up()  # set default tab visibility first
 	Load_shop()
-	SignalsResource.refresh_atk_list.connect(Load_shop)
-	SignalsResource.refresh_item_list.connect(Load_shop)
+	SignalsResource._refresh_atk_list.connect(Load_shop)
+	SignalsResource._refresh_item_list.connect(Load_shop)
 
 func Load_shop():
 	Load_attack_shop()
