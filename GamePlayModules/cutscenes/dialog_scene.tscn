@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://2cq3axxfhm55"]
+
+[ext_resource type="Script" uid="uid://cev0llh2m3pjr" path="res://GamePlayModules/cutscenes/dialog_scene.gd" id="1_3ysf3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Dialog_scene" type="Control" unique_id=811297482]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ysf3")
+time_between_chars = 0.05
+
+[node name="separator" type="VBoxContainer" parent="." unique_id=454067924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="portraits" type="Control" parent="separator" unique_id=979438765]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="background_image" type="TextureRect" parent="separator/portraits" unique_id=479310893]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 4
+stretch_mode = 5
+
+[node name="separator" type="HBoxContainer" parent="separator/portraits" unique_id=182798788]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SideA" type="Control" parent="separator/portraits/separator" unique_id=701686495]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="separator/portraits/separator/SideA" unique_id=1837538691]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SideB" type="Control" parent="separator/portraits/separator" unique_id=1727825372]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="separator/portraits/separator/SideB" unique_id=221270245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="dialog_box" type="Control" parent="separator" unique_id=522150419]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="separator/dialog_box" unique_id=6059567]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="separator/dialog_box/MarginContainer" unique_id=738651070]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="separator/dialog_box/MarginContainer" unique_id=28061551]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="dialog_label" type="Label" parent="separator/dialog_box/MarginContainer/MarginContainer" unique_id=458529864]
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 3
+
+[node name="speaker_box" type="Control" parent="separator/dialog_box" unique_id=1012077294]
+anchors_preset = 0
+offset_top = -67.0
+offset_right = 269.0
+offset_bottom = 2.0
+
+[node name="Panel" type="Panel" parent="separator/dialog_box/speaker_box" unique_id=1605327647]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="speaker_label" type="Label" parent="separator/dialog_box/speaker_box" unique_id=580168929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

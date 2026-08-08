@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sap1ksyc8xdr"]
 
-[ext_resource type="PackedScene" uid="uid://c3ru3mhkfxswn" path="res://GamePlayModules/Battle_screen/party_member_controls/party_member_controls.tscn" id="1_ftrgj"]
-[ext_resource type="Script" uid="uid://b4b7ienqffbj1" path="res://GamePlayModules/Battle_screen/scripts/battle_manager.gd" id="1_wgskt"]
+[ext_resource type="Script" uid="uid://b4b7ienqffbj1" path="res://GamePlayModules/Battle_screen/scripts/battle_manager.gd" id="1_fyw07"]
+[ext_resource type="PackedScene" uid="uid://c3ru3mhkfxswn" path="res://GamePlayModules/Battle_screen/party_member_controls/party_member_controls.tscn" id="2_7jami"]
 
 [node name="BattleScreen" type="Control" unique_id=1630584974]
 layout_mode = 3
@@ -11,8 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-script = ExtResource("1_wgskt")
-party_member_interface = ExtResource("1_ftrgj")
+script = ExtResource("1_fyw07")
+party_member_interface = ExtResource("2_7jami")
 
 [node name="Enemies" type="HBoxContainer" parent="." unique_id=2092918280]
 layout_mode = 1

@@ -1,0 +1,24 @@
+{
+	"test": {
+		"0":{
+			"portrait": "res://Assets/auntum city.webp",
+			"side": "background"
+		},
+		"1":{
+			"speaker": "Guard",
+			"text": "Halt! Who goes there?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "a"
+		},
+		"2":{
+			"speaker": "Guard #2",
+			"text": "Tell us!",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "b"
+		},
+		"3":{
+			"speaker": "Guard",
+			"text": "Yeah, tell us where you are. I'm going to write something long in here to stress-test this system."
+		},
+	}
+}
