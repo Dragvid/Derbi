@@ -1,24 +1,590 @@
 {
-	"test": {
-		"0":{
+	"test": [
+		{
 			"portrait": "res://Assets/auntum city.webp",
 			"side": "background"
 		},
-		"1":{
+		{
 			"speaker": "Guard",
 			"text": "Halt! Who goes there?",
 			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
 			"side": "a"
 		},
-		"2":{
+		{
 			"speaker": "Guard #2",
 			"text": "Tell us!",
 			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
 			"side": "b"
 		},
-		"3":{
+		{
 			"speaker": "Guard",
 			"text": "Yeah, tell us where you are. I'm going to write something long in here to stress-test this system."
+		}
+	],
+	"Saída do estádio": [
+		{
+			"portrait": "res://Assets/auntum city.webp",
+			"side": "background",
+			"speaker": "Narrador",
+			"text": "Dois amigos conversam à saída ao sair do estádio dos Linces: "
 		},
-	}
+		{
+			"speaker": "Pedro",
+			"text": "Aquele jogo foi lendário!",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Renhido. Quase iam a penalties.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "E deviam ter ido. O ‘redes deles não prestava. Assim tínhamos ganho limpinho.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Relaxa o amigo) Deixa estar. O próximo também está ganho.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Pois é… Olha, hoje temos a reunião lá da claque.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Temos de ir.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Ainda falta até à hora. ‘Bora para a borga até lá.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Ri-se) Ok, onde queres ir?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Vamos jantar, vamos ao bar e depois vamos para lá.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Olha, esses lugares não vão estar a abarrotar de adeptos dos castelos?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Estás com medo? Nós arrumamos esses cromos!",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "De volta na caderneta?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Confuso) Hem?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Desapontado) Esquece. Sim, nós damos conta.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+	],
+	"Jantar": [
+		{
+			"speaker": "Pedro",
+			"text": "Finalmente! Eu estou esfomeado!",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Acho que os gajos estão a celebrar nos bares agora.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Vamos ter de os apanhar lá. Aaaah pensamos nisso depois.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Acho que me magoei nas costas.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Espera aí, mano. Faz isto e aquilo… Deixa-me torcer ali…",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Wow, estou mesmo melhor!",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Estás a melhorar muito desde que começaste este semestre.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Como está a correr a fisioterapia?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Está a ir okay.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Foca-te nisso. Podes vir a trabalhar para os linces. Posso por-te uma cunha.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Obrigado, vou manter-me na escola e tal.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "E a tua… O que é que estavas a fazer?",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": " Eu? Nada de mais. Estou na academia de MMA dos linces…",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Woah! Vais pro? Já lutaste contra alguém que eu conheça?",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Provavelmente não.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Ah, é as cenas mais… Por ‘baixo da mesa. ‘Tou a ver.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Oh, estás é a ver demasiados filmes. Vamos mas é comer antes que as filas se tornem descomunais.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Vou aproveitar ouvir-te dizer palavras assim enquanto o CTE não te come a cabeça.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+	],
+	"Bar": [
+		{
+			"speaker": "Alex",
+			"text": "(Aliviado) Finalmente!",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Estes gajos estão por todo o lado.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Felizmente não vamos encontrar muitos a caminho da reunião.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Pois é. Sabes o que é que vamos lá fazer?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Soube que ia ser qualquer coisa sobre entrar no círculo interno da claque.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Tens a certeza que queres ir?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Ya, claro.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Já era hora de sermos promovidos! Depois da quantidade de castelos que arrumámos hoje à noite vamos ser tratados como lendas, mano-bro.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Sim… Sim, mas…",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "(Entusiasmado) “Mas” o quê? Mano. Há quanto tempo sonhamos com isto? Vamos subir, conhecer o presidente, e aprender o negócio com o chefe… Vai ser lindo!",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Ok, mas podemos esperar mais uma semana…",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Eles não se vão esquecer do que fizemos até lá.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "(Desconfiado, confuso) Algum dos casteleiros deve te ter dado com força na cabeça.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Estás com os parafusos aí todos marados.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Eu ouvi que as coisas podiam ficar feias hoje.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Estou a pensar duas vezes se devíamos ir.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Relaxa, man. Feio estava ao pé do estádio. ",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Nós vamos estar rodeado dos nossos. Vai ser chill.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Olha, esquece.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+	],
+	"Reunião":[
+		{
+			"speaker": "Chefe",
+			"text": "Obrigado por terem vindo à reunião, Linces! ",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Hoje vamos dar as boas vindas a novos membros, uma salva de palmas!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Membros da claque",
+			"text": "(Palmas animadas)",
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Todos, o nosso desporto está sobre ataque.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Os verdadeiros fãs de futebol já não são a prioridade dos clubes!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Agora eles estão gananciosos e querem trazer uma data de turistas para o NOSSO espaço!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Membros da claque",
+			"text": "(sussurram em coro) Pois é, poisé poize.",
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Estas coisas novas de políticas de inclusão e pagamento igual não são feitas para o bem do desporto, são para encher os bolsos deles! Aqueles corruptos!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Membros da claque",
+			"text": "(sussurram em coro) Pois é, isso mesmo. Poize.",
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Chegámos ao ponto que homens medíocres vão vestir-se de mulheres para entrarem no futebol feminino e dominarem aquilo tudo.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "O futebol não é para toda a gente!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "(Começa a divagar) Eu vi um anúncio no outro dia com uma monhé que não tinha uma perna com um equipamento… Quem é que querem enganar, pá. Ela não joga futebol.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Membros da claque",
+			"text": "(em confusão)",
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Isto é só para os melhores, para os homens a sério. Qual será o nosso espaço de refúgio para estas “wokices”?",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": " É aqui que vocês entram. Foram convidados porque sinto que têm potencial. Juntos podemos avançar para o próximo nível do plano para expulsar os parasitas da nossa paixão! Do nosso refúgio! Do nosso lar!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": " É aqui que vocês entram.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Foram convidados porque sinto que têm potencial.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Juntos podemos avançar para o próximo nível do plano para expulsar os parasitas da nossa paixão! Do nosso refúgio! Do nosso lar!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Nós temos de mostrar quem são os donos do estádio e quem é que se tem de meter na alheta.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "No final do próximo jogo vamos partir o canastro a quem não devia estar cá. Quem está comigo!?",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Membro novo",
+			"text": "Qual é que vai ser esse jogo, chefe?",
+			"portrait": "res://icon.svg",
+			"side": "b"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "(Olha para o Alex e pergunta) O que é que ele está a fazer aqui? Ele é bófia.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Membro do VIP",
+			"text": "E então? O senhor também foi.",
+			"portrait": "res://icon.svg",
+			"side": "b"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Ok, mas este de certeza não faz parte do nosso movimento. Ele é um rabeta.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Membro do VIP",
+			"text": "(confuso) Um quê?",
+			"portrait": "res://icon.svg",
+			"side": "b"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "(elabora) Um paneleiro, uma bicha, um gay! O exato tipo de gajos que não queremos aqui!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Perde a paciência) Sim, e tu és um facho, mas isso não é ofensivo para ti. ",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "(Confuso) Isto é verdade, mano?",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "É verdade sim. Trouxeste um porco para cá.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Posso ser, mas eu tenho provas do que andas a planear aqui.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "O meu telemóvel estava a gravar. Depois vamos ver quem acaba na pocilga, eu ou tu e os teus camaradas.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Boa sorte com isso. Não vais sair daqui de pé, cabrão. Agarrem-nos!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Narrador",
+			"text": "Alex tira uma arma de fogo que tinha escondida à sua cintura e dispara para o ar."
+		},
+		{
+			"speaker": "Narrador",
+			"text": "Todos os membros da claque, que estavam prontos para saltar em cima deles, afastam-se."
+		},
+		{
+			"speaker": "Alex",
+			"text": "Foi o que eu pensei. Em uns minutos os reforços estão todos aqui e vão todos para o hotel.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Para o Pedro) Concentra-te, Pedro. Vamos tentar sair daqui inteiros.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Sim, ajuda o teu namorado.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": " Ei!",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "b"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "Ajuda-nos a apanhar este traidor. Mostra que és um homem a sério.",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "(contempla um bocado)",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Pedro… Man, estás a demorar.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Não vos vou ajudar, vocês são uns anormais.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "b"
+		},
+		{
+			"speaker": "Chefe",
+			"text": "(Perde a paciência) Como queiras. Agarrem-nos!",
+			"portrait": "res://icon.svg",
+			"side": "a"
+		},
+	]
 }

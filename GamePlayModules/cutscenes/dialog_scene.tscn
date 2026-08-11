@@ -14,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ysf3")
 time_between_chars = 0.05
+episode_to_show = "Reunião"
 
 [node name="separator" type="VBoxContainer" parent="." unique_id=454067924]
 layout_mode = 1
@@ -74,8 +75,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="dialog_box" type="Control" parent="separator" unique_id=522150419]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="separator/dialog_box" unique_id=6059567]
 layout_mode = 1
@@ -127,5 +128,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 27
+text = "Nome de alguém"
 horizontal_alignment = 1
 vertical_alignment = 1
