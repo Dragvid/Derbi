@@ -14,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ysf3")
 time_between_chars = 0.05
+time_between_lines = 1.0
 
 [node name="separator" type="VBoxContainer" parent="." unique_id=454067924]
 layout_mode = 1
@@ -131,3 +132,39 @@ theme_override_font_sizes/font_size = 27
 text = "Nome de alguém"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=38583428]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1936895177]
+layout_mode = 2
+alignment = 2
+
+[node name="next_Button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=604163953]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Next"
+
+[node name="auto_Button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=770970914]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Auto"
+
+[node name="skip_Button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1906381373]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Skip"
+
+[connection signal="button_up" from="MarginContainer/HBoxContainer/next_Button" to="." method="_on_next_button_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/auto_Button" to="." method="_on_auto_button_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/skip_Button" to="." method="_on_skip_button_button_up"]

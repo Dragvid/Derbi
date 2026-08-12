@@ -1,6 +1,7 @@
 extends Control
-@export var test_string: String
-@export var time_between_chars: float
+@export var test_string : String
+@export var time_between_chars : float
+@export var time_between_lines : float
 
 var episode_to_show : String = AppInfo.current_chapter
 
@@ -14,6 +15,9 @@ static var script_json = GeneralToolsStatic.get_dictionary_from_json("res://reso
 
 var is_writing: bool = false
 var skip_writing: bool = false
+var skip_scene: bool = false
+var autoplay:bool = false
+var advance_line: bool = false
 
 func _ready() -> void:
 	#Write_line("test", test_string)
@@ -34,12 +38,52 @@ func Play_scene(scene_name: String):
 			await update_portrait(line["portrait"], line["side"])
 		if line.has("speaker") and line.has("text"):
 			await Write_line(line["speaker"], line["text"])
-			await wait_for_input()
+			if !autoplay:
+				await wait_for_input()
+			else:
+				await get_tree().create_timer(time_between_lines).timeout
+
+#func Play_scene(scene_name: String):
+	#if not script_json.has(scene_name):
+		#print("Scene not found: ", scene_name)
+		#return
+	#var lines = script_json[scene_name]
+	#for line in lines:
+		#if skip_scene:
+			## jump to last line only
+			#var last_line = lines[lines.size() - 1]
+			#if last_line.has("portrait") and last_line.has("side"):
+				#await update_portrait(last_line["portrait"], last_line["side"])
+			#if last_line.has("speaker") and last_line.has("text"):
+				#await Write_line(last_line["speaker"], last_line["text"])
+				#await wait_for_input()
+			#skip_scene = false
+			#return
+		#if line.has("portrait") and line.has("side"):
+			#await update_portrait(line["portrait"], line["side"])
+		#if line.has("speaker") and line.has("text"):
+			#await Write_line(line["speaker"], line["text"])
+			#await wait_for_input()
+
+func Skip_Chapter(scene_name: String):
+	if not script_json.has(scene_name):
+		print("Scene not found: ", scene_name)
+		return
+	var lines = script_json[scene_name]
+	var last_line = lines[lines.size() - 1]
+	await Write_line(last_line["speaker"], last_line["text"])
+	await wait_for_input()
+
+#func wait_for_input() -> void:
+	#await get_tree().create_timer(0.1).timeout
+	#while not Input.is_action_just_pressed("ui_accept"):
+		#await get_tree().process_frame
 
 func wait_for_input() -> void:
 	await get_tree().create_timer(0.1).timeout
-	while not Input.is_action_just_pressed("ui_accept"):
+	while not Input.is_action_just_released("ui_accept") and not advance_line:
 		await get_tree().process_frame
+	advance_line = false
 
 func Write_line(speaker_name: String, current_line: String = "...") -> void:
 	is_writing = true
@@ -68,3 +112,23 @@ func update_portrait(new_image_path, side):
 			portrait_side_a.modulate.a = 0.5
 		"background":
 			background_image.texture = new_image
+
+func Advance_line():
+	if is_writing:
+		skip_writing = true
+	else:
+		advance_line = true
+
+func _on_auto_button_button_up() -> void:
+	autoplay = !autoplay
+	Advance_line()
+
+
+func _on_skip_button_button_up() -> void:
+	pass
+
+
+func _on_next_button_button_up() -> void:
+	if autoplay:
+		autoplay = false
+	Advance_line()

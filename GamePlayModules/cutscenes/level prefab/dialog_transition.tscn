@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bgnr4ax6lobqv"]
+
+[ext_resource type="Script" uid="uid://b8cj4g6oc8cqw" path="res://GamePlayModules/cutscenes/level prefab/dialog_transition.gd" id="1_7yc3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7j8x"]
+size = Vector2(50, 80)
+
+[node name="dialog_transition" type="Area2D" unique_id=600604147]
+script = ExtResource("1_7yc3j")
+chapter_name = "Saída do estádio"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1134777535]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_a7j8x")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
