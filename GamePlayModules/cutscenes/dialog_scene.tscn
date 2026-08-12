@@ -14,7 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ysf3")
 time_between_chars = 0.05
-episode_to_show = "Reunião"
 
 [node name="separator" type="VBoxContainer" parent="." unique_id=454067924]
 layout_mode = 1

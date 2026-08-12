@@ -1,26 +1,4 @@
 {
-	"test": [
-		{
-			"portrait": "res://Assets/auntum city.webp",
-			"side": "background"
-		},
-		{
-			"speaker": "Guard",
-			"text": "Halt! Who goes there?",
-			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
-			"side": "a"
-		},
-		{
-			"speaker": "Guard #2",
-			"text": "Tell us!",
-			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
-			"side": "b"
-		},
-		{
-			"speaker": "Guard",
-			"text": "Yeah, tell us where you are. I'm going to write something long in here to stress-test this system."
-		}
-	],
 	"Saída do estádio": [
 		{
 			"portrait": "res://Assets/auntum city.webp",
@@ -101,10 +79,10 @@
 			"side": "b"
 		},
 		{
-			"speaker": "Alex",
+			"speaker": "Pedro",
 			"text": "(Confuso) Hem?",
-			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
-			"side": "b"
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
 		},
 		{
 			"speaker": "Alex",
@@ -585,6 +563,90 @@
 			"text": "(Perde a paciência) Como queiras. Agarrem-nos!",
 			"portrait": "res://icon.svg",
 			"side": "a"
+		},
+	],
+	"Amanhecer":[
+		{
+			"portrait": "res://Assets/auntum city.webp",
+			"side": "background",
+			"speaker": "Narrador",
+			"text": "No final da luta, os dois saem do armazém e os recém chegados polícias entram para prender os derrotados."
+		},
+		{
+			"speaker": "Narrador",
+			"text": "O sol está a nascer."
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Só te queria dizer que… Não sabia que eras dessas pessoas, e … Opah não gosto de ti dessa maneira…",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Pedro, eu sou casado.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Ah! Ufa.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Ri-se) Vou-te bater.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Alex",
+			"text": "(Sincero) Desculpa ter-te mentido sobre o MMA. Mas estava à paisana. Tu compreendes, né?",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Claro. Estás a proteger e servir, man. Tu sempre quiseste fazer isso. Fico orgulhoso. (Faz-se uma luz na cabeça) Ah esta era a confusão que estavas a avisar para eu evitar.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Pois. Tenho de admitir: ainda bem que estavas aqui. Não sei se estaria de pé agora sem a tua ajuda.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Na boa, mano-bro! Tu és mais homem que aqueles idiotas lá dentro.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Um verdadeiro fã partilha a sua paixão com todos. Quantos mais, melhor.",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Isso é bom ouvir. Tu também já és uma lenda para mim. Não precisas da aprovação daqueles animais.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
+		},
+		{
+			"speaker": "Pedro",
+			"text": "Pois. Achas que a claque dos betos é mais calminha?",
+			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",
+			"side": "a"
+		},
+		{
+			"speaker": "Alex",
+			"text": "Eish. Junta-te se quiseres, eu tive a minha dose. A partir de agora vejo os jogos de casa.",
+			"portrait": "res://Assets/partyMembers/9a9fc7af914fdca5831900671774cb09.jpg",
+			"side": "b"
 		},
 	]
 }

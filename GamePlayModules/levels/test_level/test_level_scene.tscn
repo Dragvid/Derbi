@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="6_lyrt0"]
 [ext_resource type="Script" uid="uid://bkehba5cldxlc" path="res://GamePlayModules/shop/level object/Entry_shop.gd" id="7_7ggdl"]
 [ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="8_4dr66"]
+[ext_resource type="Script" uid="uid://b8cj4g6oc8cqw" path="res://GamePlayModules/cutscenes/level prefab/dialog_transition.gd" id="8_tvmjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj1p"]
 
@@ -93,19 +94,30 @@ shape = SubResource("RectangleShape2D_ff60c")
 [node name="shop" type="Area2D" parent="." unique_id=315683155]
 position = Vector2(134, 399)
 script = ExtResource("7_7ggdl")
-shop_name = "teste"
+shop_name = "test"
 return_pos_offset = Vector2(100, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shop" unique_id=312047815]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_a7j8x")
 
+[node name="dialog_transition" type="Area2D" parent="." unique_id=771991318]
+position = Vector2(-104, 486)
+script = ExtResource("8_tvmjw")
+chapter_name = "Saída do estádio"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialog_transition" unique_id=963826452]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_a7j8x")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528680669]
 
 [node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("8_4dr66")]
+visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [connection signal="area_entered" from="enemy" to="enemy" method="_on_area_entered"]
 [connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]
 [connection signal="area_entered" from="shop" to="shop" method="_on_area_entered"]
+[connection signal="area_entered" from="dialog_transition" to="dialog_transition" method="_on_area_entered"]

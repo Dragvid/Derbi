@@ -12,7 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k30k6")
-shop_name = "test"
 attack_line = ExtResource("2_m8rus")
 item_line = ExtResource("3_5xfwy")
 

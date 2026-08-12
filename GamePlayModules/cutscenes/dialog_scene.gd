@@ -2,7 +2,7 @@ extends Control
 @export var test_string: String
 @export var time_between_chars: float
 
-@export var episode_to_show : String
+var episode_to_show : String = AppInfo.current_chapter
 
 @onready var dialog_label: Label = $separator/dialog_box/MarginContainer/MarginContainer/dialog_label
 @onready var speaker_label: Label = $separator/dialog_box/speaker_box/speaker_label
@@ -24,19 +24,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		if is_writing:
 			skip_writing = true  # signal the typewriter to skip
-
-#func Play_scene(scene_name: String):
-	#if not script_json.has(scene_name):
-		#print("Scene not found: ", scene_name)
-		#return
-	#var scene_lines = script_json[scene_name]
-	#for line_number in scene_lines.keys():
-		#var line = scene_lines[line_number]
-		#if line.has("portrait") and line.has("side"):
-			#await update_portrait(line["portrait"], line["side"])
-		#if line.has("speaker") and line.has("text"):
-			#await Write_line(line["speaker"], line["text"])
-		#await wait_for_input()
 
 func Play_scene(scene_name: String):
 	if not script_json.has(scene_name):

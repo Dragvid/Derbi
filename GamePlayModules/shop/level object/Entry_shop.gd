@@ -5,6 +5,7 @@ extends CollisionObject2D
 
 func Load_shop_scene():
 	AppInfo.Set_position_in_level(position + return_pos_offset)
+	AppInfo.current_shop = shop_name
 	get_tree().change_scene_to_file(AppInfo.shop_scene)
 
 func _on_area_entered(_area: Area2D) -> void:

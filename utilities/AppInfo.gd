@@ -27,10 +27,14 @@ static var save_file_json = GeneralToolsStatic.get_dictionary_from_json("res://r
 static var battle_scene = "res://GamePlayModules/Battle_screen/Battle_screen.tscn"
 static var current_level = "res://GamePlayModules/levels/test_level/test_level_scene.tscn"
 static var shop_scene = "res://GamePlayModules/shop/test_shop/Test_shop.tscn"
+static var story_scene = "res://GamePlayModules/cutscenes/dialog_scene.tscn"
 
 static var position_in_level : Vector2
 
 static var defeated_encounters = []
+
+static var current_shop = "" #The shop we're going to load
+static var current_chapter = "" #The chapter we're going to load
 
 static func Set_position_in_level(new_position):
 	position_in_level = new_position
