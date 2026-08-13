@@ -119,13 +119,17 @@ func Advance_line():
 	else:
 		advance_line = true
 
+func Go_to_next_level():
+	get_tree().change_scene_to_file(AppInfo.level_queue)
+	
 func _on_auto_button_button_up() -> void:
 	autoplay = !autoplay
 	Advance_line()
 
 
 func _on_skip_button_button_up() -> void:
-	pass
+	#add a transition in here
+	Go_to_next_level()
 
 
 func _on_next_button_button_up() -> void:

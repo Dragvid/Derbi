@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c1dfmis4e7mjo"]
+
+[ext_resource type="Script" uid="uid://tbrm88sovw77" path="res://Ui/pause menu/Items_tab/prefabs/item_option_inventory.gd" id="1_gf6ik"]
+
+[node name="item" type="Button" unique_id=1008758331]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 184.0
+offset_bottom = 50.0
+script = ExtResource("1_gf6ik")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=108625681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="item_name" type="Label" parent="HBoxContainer" unique_id=956260182]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_quant" type="Label" parent="HBoxContainer" unique_id=1428042612]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1

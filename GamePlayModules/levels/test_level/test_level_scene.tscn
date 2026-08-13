@@ -93,6 +93,7 @@ position = Vector2(134, 399)
 
 [node name="dialog_transition" parent="." unique_id=600604147 instance=ExtResource("8_tvmjw")]
 position = Vector2(-104, 486)
+return_pos_offset = Vector2(100, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528680669]
 

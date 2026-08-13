@@ -31,7 +31,7 @@ func Buy_item():
 		return
 	AppInfo.Update_player_currency(item_info["price"] * -1)
 	AppInfo.Get_item(item_info["name"])
-	SignalsResource.refresh_item_list.emit()
+	SignalsResource._refresh_item_list.emit()
 
 func Sell_item():
 	var inventory = AppInfo.save_file_json["item_inventory"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cgiuxuwfidnqs" path="res://Ui/pause menu/pause_menu.gd" id="1_bh07u"]
 [ext_resource type="PackedScene" uid="uid://dlenef00qq8su" path="res://Ui/pause menu/party member costumization/Party_customization.tscn" id="2_m67dp"]
 [ext_resource type="PackedScene" uid="uid://ym4cxqfhau7w" path="res://Ui/pause menu/options/options_scene.tscn" id="3_oiyyr"]
+[ext_resource type="PackedScene" uid="uid://csqf1aml1grp5" path="res://Ui/pause menu/Items_tab/items_tab.tscn" id="4_45mmy"]
 
 [node name="pause_menu" type="Control" unique_id=298671334]
 process_mode = 3
@@ -13,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bh07u")
-tab_scenes = Array[PackedScene]([ExtResource("2_m67dp"), ExtResource("3_oiyyr")])
+tab_scenes = Array[PackedScene]([ExtResource("2_m67dp"), ExtResource("3_oiyyr"), ExtResource("4_45mmy")])
 
 [node name="Panel" type="Panel" parent="." unique_id=120398775]
 layout_mode = 1
@@ -40,6 +41,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Membros"
 
+[node name="Items_tab_button" type="Button" parent="VBoxContainer/tab_separator" unique_id=850161441]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Itens"
+
 [node name="options_tab_button" type="Button" parent="VBoxContainer/tab_separator" unique_id=1271479955]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -60,4 +66,5 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [connection signal="button_up" from="VBoxContainer/tab_separator/members_tab_button" to="." method="_on_members_tab_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/tab_separator/Items_tab_button" to="." method="_on_items_tab_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/tab_separator/options_tab_button" to="." method="_on_options_tab_button_button_up"]

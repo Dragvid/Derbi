@@ -34,7 +34,8 @@ static var position_in_level : Vector2
 static var defeated_encounters = []
 
 static var current_shop = "" #The shop we're going to load
-static var current_chapter = "" #The chapter we're going to load
+static var current_chapter = "" #The chapter of the story we're going to load
+static var level_queue = "" #Next level that we're going to load (after a cutscene, for example)
 
 static func Set_position_in_level(new_position):
 	position_in_level = new_position

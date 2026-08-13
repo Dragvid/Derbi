@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://csqf1aml1grp5"]
+
+[ext_resource type="Script" uid="uid://b7iqsxrnxbho2" path="res://Ui/pause menu/Items_tab/items_tab.gd" id="1_0fykj"]
+[ext_resource type="PackedScene" uid="uid://c1dfmis4e7mjo" path="res://Ui/pause menu/Items_tab/prefabs/item_option_inventory.tscn" id="2_jqrsp"]
+
+[node name="Items_tab" type="Control" unique_id=1340378705]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fykj")
+item_option_scene = ExtResource("2_jqrsp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=422567334]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.5
+offset_top = -269.5
+offset_right = 253.5
+offset_bottom = 269.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="content" type="VBoxContainer" parent="ScrollContainer" unique_id=957857569]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -178,7 +178,7 @@ alignment = 1
 custom_minimum_size = Vector2(66.52, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "name"
+text = "Nome"
 horizontal_alignment = 1
 
 [node name="damage_type_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=613553154]
@@ -191,13 +191,13 @@ horizontal_alignment = 1
 [node name="damage_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=1506363417]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Damage"
+text = "Dano"
 horizontal_alignment = 1
 
 [node name="price_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=852752752]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "price"
+text = "Preço"
 horizontal_alignment = 1
 
 [node name="quantity_label" type="Label" parent="HBoxContainer/shopOptions/VBoxContainer/shopItemStock/shopStockContainer/row_id" unique_id=689000863]

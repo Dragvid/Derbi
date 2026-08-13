@@ -53,3 +53,7 @@ func _on_members_tab_button_button_up() -> void:
 
 func _on_options_tab_button_button_up() -> void:
 	Load_tab("options_scene")
+
+
+func _on_items_tab_button_button_up() -> void:
+	Load_tab("items_tab")
