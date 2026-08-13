@@ -10,6 +10,8 @@ var episode_to_show : String = AppInfo.current_chapter
 @onready var portrait_side_a: TextureRect = $separator/portraits/separator/SideA/TextureRect
 @onready var portrait_side_b: TextureRect = $separator/portraits/separator/SideB/TextureRect2
 @onready var background_image: TextureRect = $separator/portraits/background_image
+@onready var skip_button: Button = $MarginContainer/HBoxContainer/skip_Button
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 static var script_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/story/story_resource.json")
 
@@ -42,42 +44,9 @@ func Play_scene(scene_name: String):
 				await wait_for_input()
 			else:
 				await get_tree().create_timer(time_between_lines).timeout
-
-#func Play_scene(scene_name: String):
-	#if not script_json.has(scene_name):
-		#print("Scene not found: ", scene_name)
-		#return
-	#var lines = script_json[scene_name]
-	#for line in lines:
-		#if skip_scene:
-			## jump to last line only
-			#var last_line = lines[lines.size() - 1]
-			#if last_line.has("portrait") and last_line.has("side"):
-				#await update_portrait(last_line["portrait"], last_line["side"])
-			#if last_line.has("speaker") and last_line.has("text"):
-				#await Write_line(last_line["speaker"], last_line["text"])
-				#await wait_for_input()
-			#skip_scene = false
-			#return
-		#if line.has("portrait") and line.has("side"):
-			#await update_portrait(line["portrait"], line["side"])
-		#if line.has("speaker") and line.has("text"):
-			#await Write_line(line["speaker"], line["text"])
-			#await wait_for_input()
-
-func Skip_Chapter(scene_name: String):
-	if not script_json.has(scene_name):
-		print("Scene not found: ", scene_name)
-		return
-	var lines = script_json[scene_name]
-	var last_line = lines[lines.size() - 1]
-	await Write_line(last_line["speaker"], last_line["text"])
-	await wait_for_input()
-
-#func wait_for_input() -> void:
-	#await get_tree().create_timer(0.1).timeout
-	#while not Input.is_action_just_pressed("ui_accept"):
-		#await get_tree().process_frame
+	print("end of the scene")
+	skip_button.text = "Next Level"
+	animation_player.play("Pulse")
 
 func wait_for_input() -> void:
 	await get_tree().create_timer(0.1).timeout
@@ -126,11 +95,9 @@ func _on_auto_button_button_up() -> void:
 	autoplay = !autoplay
 	Advance_line()
 
-
 func _on_skip_button_button_up() -> void:
 	#add a transition in here
 	Go_to_next_level()
-
 
 func _on_next_button_button_up() -> void:
 	if autoplay:
