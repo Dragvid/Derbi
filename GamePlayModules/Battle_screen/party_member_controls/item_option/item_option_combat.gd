@@ -9,7 +9,7 @@ extends Button
 var play_area_manager
 
 func _ready() -> void:
-	SignalsResource.refresh_item_list.connect(Update_information)
+	SignalsResource._refresh_item_list.connect(Update_information)
 
 func set_information(new_name,new_item_quant,new_text:String, new_module_manager):
 	item_name_label.text = str(new_name)
@@ -49,5 +49,5 @@ func _on_button_up() -> void:
 	battle_manager.receive_current_item(play_area_manager, item_info["name"])
 	AppInfo.Remove_item(item_info["name"])
 	#decrement_quantity()
-	SignalsResource.refresh_item_list.emit()
+	SignalsResource._refresh_item_list.emit()
 	battle_manager.toggle_target_selection()

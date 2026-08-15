@@ -173,8 +173,8 @@ func run_away(escape_chance:float):
 	if randf() < escape_chance:
 		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.escape
-	else:
-		print("Escape failed.")
+	#else:
+		#print("Escape failed.")
 
 func has_battle_ended():
 	await get_tree().create_timer(1).timeout

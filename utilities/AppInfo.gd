@@ -22,7 +22,14 @@ static var attack_info_json = GeneralToolsStatic.get_dictionary_from_json("res:/
 static var enemy_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/enemy_info.json")
 static var item_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/item_list.json")
 
-static var save_file_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/Player_Save.json")
+# file paths
+const SAVE_FILE_PATH = "res://resources/saves/Player_Save.json"
+const CLEAN_SAVE_FILE_PATH = "res://resources/saves/Player_Save(clean).json"
+const PARTY_INFO_PATH = "res://resources/party_info.json"
+
+static var save_file_json = GeneralToolsStatic.get_dictionary_from_json(SAVE_FILE_PATH)
+static var clean_save_file_json = GeneralToolsStatic.get_dictionary_from_json(CLEAN_SAVE_FILE_PATH)
+
 
 static var battle_scene = "res://GamePlayModules/Battle_screen/Battle_screen.tscn"
 static var current_level = "res://GamePlayModules/levels/test_level/test_level_scene.tscn"
@@ -88,9 +95,17 @@ static func Check_currency_amount(check_amount):
 		result = false
 	return result
 
+static func Reset_save_file():
+	save_file_json = clean_save_file_json.duplicate(true)
+	Save_file(SAVE_FILE_PATH, save_file_json)
+
+static func Save_current_level(new_level_name:String):
+	save_file_json["current_level"] = (new_level_name)
+	Save_file(SAVE_FILE_PATH,save_file_json)
+
 static func Unlock_Attack(new_attack_name:String):
 	save_file_json["unlocked_moves"].append(new_attack_name)
-	Save_file("res://resources/Player_Save.json",save_file_json)
+	Save_file(SAVE_FILE_PATH,save_file_json)
 
 static func Unequip_attack(new_attack_name: String, character_name: String):
 	if not party_info_json.has(character_name):
@@ -126,7 +141,7 @@ static func Get_item(item_name: String):
 			return
 	else:
 		inventory[item_name] = 1
-	Save_file("res://resources/Player_Save.json", save_file_json)
+	Save_file(SAVE_FILE_PATH, save_file_json)
 
 static func Check_item_stack(item_name: String) -> bool:
 	var inventory = save_file_json["item_inventory"]
@@ -141,4 +156,4 @@ static func Remove_item(item_name: String):
 		inventory[item_name] -= 1
 		if inventory[item_name] <= 0:
 			inventory.erase(item_name)  # clean up empty entries
-	Save_file("res://resources/Player_Save.json", save_file_json)
+	Save_file(SAVE_FILE_PATH, save_file_json)

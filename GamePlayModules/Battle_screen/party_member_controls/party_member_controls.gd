@@ -28,6 +28,7 @@ var member_info
 @onready var atk_list_node: VBoxContainer = $main_game/atkListContainer/atkList
 @onready var char_name_label: Label = $char_name_label
 @onready var action_picked: Control = $main_game/action_picked
+@onready var leave_atk_list: Button = $main_game/atkListContainer/leaveAtkList
 
 @onready var item_list_node: Control = $main_game/itemListContainer/itemList
 @onready var leave_item_list_button: Button = $main_game/itemListContainer/leaveItemList
@@ -150,8 +151,8 @@ func _on_attack_button_up() -> void:
 		return
 	atk_list_node.get_parent().visible = true
 	option_keyboard.visible = false
-	if atk_list_node.get_child_count()>0:
-		atk_list_node.get_child(0).grab_focus()
+	leave_atk_list.grab_focus()
+	
 
 func _on_leave_atk_list_button_up() -> void:
 	battle_manager.clean_current_atk()

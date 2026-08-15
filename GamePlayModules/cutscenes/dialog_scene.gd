@@ -44,7 +44,7 @@ func Play_scene(scene_name: String):
 				await wait_for_input()
 			else:
 				await get_tree().create_timer(time_between_lines).timeout
-	print("end of the scene")
+	#print("end of the scene")
 	skip_button.text = "Next Level"
 	animation_player.play("Pulse")
 

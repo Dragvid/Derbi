@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://blt7koienfp3x"]
+
+[ext_resource type="Script" uid="uid://dv5ho3som3d2q" path="res://Ui/Main Menu/main_menu.gd" id="1_y82pu"]
+[ext_resource type="PackedScene" uid="uid://bojaa004vhtkm" path="res://levels/level1-estadio.tscn" id="2_0oyqa"]
+
+[node name="MainMenu" type="Control" unique_id=1256308766]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y82pu")
+first_chapter = "Saída do estádio"
+first_level_scene = ExtResource("2_0oyqa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=987696202]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.102000006
+anchor_top = 0.827
+anchor_right = 0.89800006
+anchor_bottom = 0.92300004
+offset_left = -0.12900543
+offset_top = 0.104003906
+offset_right = 0.12890625
+offset_bottom = -0.104003906
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="newGameButton" type="Button" parent="HBoxContainer" unique_id=1299975982]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "New game"
+
+[node name="continueButton" type="Button" parent="HBoxContainer" unique_id=1652598833]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Continue"
+
+[node name="optionsButton" type="Button" parent="HBoxContainer" unique_id=1892624464]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Options"
+
+[node name="Label" type="Label" parent="." unique_id=184911279]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -11.5
+offset_right = 21.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Derbi"
+
+[connection signal="button_up" from="HBoxContainer/newGameButton" to="." method="_on_new_game_button_button_up"]
+[connection signal="button_up" from="HBoxContainer/continueButton" to="." method="_on_continue_button_button_up"]

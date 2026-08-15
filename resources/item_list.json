@@ -13,6 +13,20 @@
 		"price": 15,
 		"shop":["test"]
 	},
+	"Arroz_de_pato": {
+		"name": "Arroz de pato",
+		"image_path": "",
+		"level_requirement": 5,
+		"description": "Comida pesada que cura muito",
+		"target":"ally",
+		"damage": 50,
+		"type":"Curar",
+		"hit_rate": 100,
+		"crit_rate": 20,
+		"stack_cap": 1,
+		"price": 15,
+		"shop":["test"]
+	},
 	"Super-Cevada": {
 		"name": "Super-Cevada",
 		"image_path": "",
@@ -42,6 +56,20 @@
 		"crit_rate": 20,
 		"stack_cap": 5,
 		"price": 2,
+		"shop":["test"]
+	},
+	"Martelo_de_s_joao": {
+		"name": "Martelo de S. João",
+		"image_path": "",
+		"level_requirement": 1,
+		"description": "Bate na cabeça do alvo para o irritar",
+		"target":"opposition",
+		"damage": -10,
+		"type":"strike",
+		"hit_rate": 70,
+		"crit_rate": 20,
+		"stack_cap": 5,
+		"price": 1,
 		"shop":["test"]
 	},
 }

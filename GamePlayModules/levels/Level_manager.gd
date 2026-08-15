@@ -13,12 +13,18 @@ func _ready() -> void:
 		player_avatar.position = inicial_position
 	else:
 		if AppInfo.position_in_level != Vector2.ZERO:
-			print("set the saved value")
+			#print("set the saved value")
 			player_avatar.position = AppInfo.position_in_level
 		else :
-			print("set new position")
+			#print("set new position")
 			AppInfo.Set_position_in_level(player_avatar.position)
 	AppInfo.last_reason_to_return = null
+	Save_current_level()
+
+func Save_current_level():
+	print("save level")
+	AppInfo.current_level = get_tree().current_scene.scene_file_path
+	AppInfo.Save_current_level(AppInfo.current_level)
 
 func disable_defeated_encounters(node_paths: Array):
 	for path in node_paths:
