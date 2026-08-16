@@ -96,7 +96,8 @@ func _on_auto_button_button_up() -> void:
 	Advance_line()
 
 func _on_skip_button_button_up() -> void:
-	#add a transition in here
+	advance_line = true  # unblock wait_for_input first
+	await get_tree().process_frame  # let the while loop exit
 	Go_to_next_level()
 
 func _on_next_button_button_up() -> void:

@@ -14,7 +14,7 @@
 		"shop":["test"]
 	},
 	"Arroz_de_pato": {
-		"name": "Arroz de pato",
+		"name": "Arroz_de_pato",
 		"image_path": "",
 		"level_requirement": 5,
 		"description": "Comida pesada que cura muito",
@@ -59,7 +59,7 @@
 		"shop":["test"]
 	},
 	"Martelo_de_s_joao": {
-		"name": "Martelo de S. João",
+		"name": "Martelo_de_s_joao",
 		"image_path": "",
 		"level_requirement": 1,
 		"description": "Bate na cabeça do alvo para o irritar",

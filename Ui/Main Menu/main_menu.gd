@@ -5,6 +5,7 @@ extends Control
 
 func Load_new_game():
 	AppInfo.Reset_save_file()
+	AppInfo.Reset_party_info_file()
 	AppInfo.current_chapter = first_chapter
 	AppInfo.level_queue = first_level_scene.resource_path
 	get_tree().change_scene_to_file(AppInfo.story_scene)

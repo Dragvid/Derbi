@@ -2,10 +2,7 @@
 	"Alex": {
 		"attacks": [
 			"Gancho",
-			"Roundhouse",
-			"Soco",
-			"Pontapé",
-			"Suplex"
+			"Soco"
 		],
 		"block_dmg_resistance": 0.5,
 		"class": "tanque",
@@ -17,7 +14,6 @@
 	"Pedro": {
 		"attacks": [
 			"Pontapé",
-			"Soco",
 			"Massagem"
 		],
 		"block_dmg_resistance": 0.5,

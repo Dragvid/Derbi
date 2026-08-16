@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Derbi"
-run/main_scene="uid://c3ru3mhkfxswn"
+run/main_scene="uid://blt7koienfp3x"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

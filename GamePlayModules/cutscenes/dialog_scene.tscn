@@ -51,6 +51,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ysf3")
+test_string = null
 time_between_chars = 0.05
 time_between_lines = 1.0
 

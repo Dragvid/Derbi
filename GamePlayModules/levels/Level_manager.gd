@@ -22,7 +22,7 @@ func _ready() -> void:
 	Save_current_level()
 
 func Save_current_level():
-	print("save level")
+	#print("save level")
 	AppInfo.current_level = get_tree().current_scene.scene_file_path
 	AppInfo.Save_current_level(AppInfo.current_level)
 

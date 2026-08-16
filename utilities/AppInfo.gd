@@ -17,7 +17,7 @@ static var last_reason_to_return
 static var enemy_last_battle
 
 static var party_members = ["Alex","Pedro"]
-static var party_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/party_info.json")
+
 static var attack_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/attack_list.json")
 static var enemy_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/enemy_info.json")
 static var item_info_json = GeneralToolsStatic.get_dictionary_from_json("res://resources/item_list.json")
@@ -25,11 +25,13 @@ static var item_info_json = GeneralToolsStatic.get_dictionary_from_json("res://r
 # file paths
 const SAVE_FILE_PATH = "res://resources/saves/Player_Save.json"
 const CLEAN_SAVE_FILE_PATH = "res://resources/saves/Player_Save(clean).json"
-const PARTY_INFO_PATH = "res://resources/party_info.json"
+const PARTY_INFO_PATH = "res://resources/saves/party_info.json"
+const CLEAN_PARTY_INFO_PATH = "res://resources/saves/party_info(clean).json"
 
 static var save_file_json = GeneralToolsStatic.get_dictionary_from_json(SAVE_FILE_PATH)
 static var clean_save_file_json = GeneralToolsStatic.get_dictionary_from_json(CLEAN_SAVE_FILE_PATH)
-
+static var party_info_json = GeneralToolsStatic.get_dictionary_from_json(PARTY_INFO_PATH)
+static var clean_party_info_json = GeneralToolsStatic.get_dictionary_from_json(CLEAN_PARTY_INFO_PATH)
 
 static var battle_scene = "res://GamePlayModules/Battle_screen/Battle_screen.tscn"
 static var current_level = "res://GamePlayModules/levels/test_level/test_level_scene.tscn"
@@ -99,6 +101,10 @@ static func Reset_save_file():
 	save_file_json = clean_save_file_json.duplicate(true)
 	Save_file(SAVE_FILE_PATH, save_file_json)
 
+static func Reset_party_info_file():
+	party_info_json = clean_party_info_json.duplicate(true)
+	Save_file(PARTY_INFO_PATH, party_info_json)
+
 static func Save_current_level(new_level_name:String):
 	save_file_json["current_level"] = (new_level_name)
 	Save_file(SAVE_FILE_PATH,save_file_json)
@@ -114,7 +120,7 @@ static func Unequip_attack(new_attack_name: String, character_name: String):
 	var member_info = party_info_json[character_name]
 	if new_attack_name in member_info["attacks"]:
 		member_info["attacks"].erase(new_attack_name)
-		Save_file("res://resources/party_info.json", party_info_json)
+		Save_file(PARTY_INFO_PATH, party_info_json)
 	else:
 		print(new_attack_name, " is not equipped on ", character_name)
 
@@ -125,7 +131,7 @@ static func Equip_attack(new_attack_name: String, character_name: String):
 	var member_info = party_info_json[character_name]
 	if new_attack_name not in member_info["attacks"]:
 		member_info["attacks"].append(new_attack_name)
-		Save_file("res://resources/party_info.json", party_info_json)
+		Save_file(PARTY_INFO_PATH, party_info_json)
 	else:
 		print(new_attack_name, " is already equipped on ", character_name)
 

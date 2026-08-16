@@ -185,7 +185,8 @@ func _on_inventory_button_up() -> void:
 		return
 	option_keyboard.visible = false
 	item_list_node.get_parent().visible = true
-	if item_list_node.get_child_count() >= 1:
-		item_list_node.get_child(0).grab_focus()
-	else:
-		leave_item_list_button.grab_focus()
+	#if item_list_node.get_child_count() >= 1:
+		#item_list_node.get_child(0).grab_focus()
+	#else:
+	leave_item_list_button.grab_focus()
+		
