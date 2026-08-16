@@ -176,16 +176,28 @@ func run_away(escape_chance:float):
 	#else:
 		#print("Escape failed.")
 
+#func has_battle_ended():
+	#await get_tree().create_timer(1).timeout
+	#if enemies_box.get_children().size() == 0:
+		#AppInfo.Add_defeated_encounter()
+		#call_deferred("Back_to_level")
+		#AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
+	#var active_party_members = get_active_party_members()
+	#if active_party_members.size()==0:
+		#call_deferred("Back_to_level")
+		#AppInfo.last_reason_to_return = AppInfo.reason_to_return.lose
+
 func has_battle_ended():
 	await get_tree().create_timer(1).timeout
 	if enemies_box.get_children().size() == 0:
 		AppInfo.Add_defeated_encounter()
-		call_deferred("Back_to_level")
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
-	var active_party_members = get_active_party_members()
-	if active_party_members.size()==0:
 		call_deferred("Back_to_level")
+		return  # ← was missing
+	var active_party_members = get_active_party_members()
+	if active_party_members.size() == 0:
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.lose
+		call_deferred("Back_to_level")
 
 func Back_to_level():
 	get_tree().change_scene_to_file(AppInfo.current_level)

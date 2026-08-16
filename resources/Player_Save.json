@@ -1,13 +1,7 @@
 {
-	"currency": 147.0,
-	"current_level": "res://GamePlayModules/levels/test_level/test_level_scene.tscn",
-	"item_inventory": {
-		"Arroz_de_pato": 1,
-		"Francesinha": 1,
-		"Garrafa": 4,
-		"Martelo_de_s_joao": 2,
-		"Super-Cevada": 4
-	},
+	"currency": 280.0,
+	"current_level": "res://levels/level1-estadio.tscn",
+	"item_inventory": {},
 	"unlocked_moves": [
 		"Soco",
 		"Pontapé",

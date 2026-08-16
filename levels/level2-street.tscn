@@ -1,13 +1,12 @@
-[gd_scene format=3 uid="uid://bojaa004vhtkm"]
+[gd_scene format=3 uid="uid://dqls6qu3wuwh8"]
 
-[ext_resource type="Script" uid="uid://bm3tyvffikjy6" path="res://GamePlayModules/levels/Level_manager.gd" id="1_qcyc8"]
-[ext_resource type="Texture2D" uid="uid://b7y13q5nx0f2c" path="res://Assets/background/estadiododragaoporto.jpg" id="2_4nwfw"]
-[ext_resource type="Script" uid="uid://bfno25jopvg6b" path="res://GamePlayModules/party avatar/party_avatar.gd" id="3_cudmv"]
-[ext_resource type="Texture2D" uid="uid://bg7br404huv84" path="res://icon.svg" id="4_l4cni"]
-[ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="5_r33wc"]
-[ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="6_ecrc6"]
-[ext_resource type="PackedScene" uid="uid://bgnr4ax6lobqv" path="res://GamePlayModules/cutscenes/level prefab/dialog_transition.tscn" id="7_vvc8k"]
-[ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="9_1fhcf"]
+[ext_resource type="Script" uid="uid://bm3tyvffikjy6" path="res://GamePlayModules/levels/Level_manager.gd" id="1_mc38e"]
+[ext_resource type="Texture2D" uid="uid://b7y13q5nx0f2c" path="res://Assets/background/estadiododragaoporto.jpg" id="2_0d71y"]
+[ext_resource type="Script" uid="uid://bfno25jopvg6b" path="res://GamePlayModules/party avatar/party_avatar.gd" id="3_omi48"]
+[ext_resource type="Texture2D" uid="uid://bg7br404huv84" path="res://icon.svg" id="4_ivekd"]
+[ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="5_fagdv"]
+[ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="6_i10jl"]
+[ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="7_h1op7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj1p"]
 
@@ -19,12 +18,12 @@ height = 130.0
 size = Vector2(52, 177)
 
 [node name="TestLevelScene" type="Node2D" unique_id=613694492]
-script = ExtResource("1_qcyc8")
+script = ExtResource("1_mc38e")
 
 [node name="AuntumCity" type="Sprite2D" parent="." unique_id=473605122]
 position = Vector2(532, 422)
 scale = Vector2(2.7264826, 2.7264826)
-texture = ExtResource("2_4nwfw")
+texture = ExtResource("2_0d71y")
 
 [node name="Area2D" type="StaticBody2D" parent="." unique_id=352203270]
 position = Vector2(547, 426)
@@ -45,11 +44,11 @@ shape = SubResource("RectangleShape2D_2xj1p")
 [node name="player_avatar" type="CharacterBody2D" parent="." unique_id=29001275]
 position = Vector2(98, 757)
 disable_mode = 2
-script = ExtResource("3_cudmv")
+script = ExtResource("3_omi48")
 speed = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="player_avatar" unique_id=570561812]
-texture = ExtResource("4_l4cni")
+texture = ExtResource("4_ivekd")
 
 [node name="Camera2D" type="Camera2D" parent="player_avatar" unique_id=1978158974]
 position = Vector2(0, -179)
@@ -65,11 +64,11 @@ shape = SubResource("CapsuleShape2D_ff60c")
 [node name="enemy2" type="Area2D" parent="." unique_id=1242436072]
 position = Vector2(1019, 672)
 disable_mode = 2
-script = ExtResource("5_r33wc")
+script = ExtResource("5_fagdv")
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy2" unique_id=1571198828]
 scale = Vector2(0.115, 0.115)
-texture = ExtResource("6_ecrc6")
+texture = ExtResource("6_i10jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2" unique_id=1755514240]
 position = Vector2(2, -1.5)
@@ -78,24 +77,19 @@ shape = SubResource("RectangleShape2D_ff60c")
 [node name="enemy3" type="Area2D" parent="." unique_id=2063416399]
 position = Vector2(463, 702)
 disable_mode = 2
-script = ExtResource("5_r33wc")
+script = ExtResource("5_fagdv")
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy3" unique_id=734831721]
 scale = Vector2(0.115, 0.115)
-texture = ExtResource("6_ecrc6")
+texture = ExtResource("6_i10jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy3" unique_id=560812367]
 position = Vector2(2, -1.5)
 shape = SubResource("RectangleShape2D_ff60c")
 
-[node name="dialog_transition" parent="." unique_id=600604147 instance=ExtResource("7_vvc8k")]
-position = Vector2(1288, 765)
-chapter_name = "Bar"
-level_queue_path = "res://levels/level2-street.tscn"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528680669]
 
-[node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("9_1fhcf")]
+[node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("7_h1op7")]
 visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
