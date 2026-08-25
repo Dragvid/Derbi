@@ -45,6 +45,12 @@ static var defeated_encounters = []
 static var current_shop = "" #The shop we're going to load
 static var current_chapter = "" #The chapter of the story we're going to load
 static var level_queue = "" #Next level that we're going to load (after a cutscene, for example)
+#Prepare the current combat encounter
+static var current_enemy_formation_size
+static var current_combat_parameters = {
+	"enemy_formation_size":0,
+	"background_path":""
+}
 
 static func Set_position_in_level(new_position):
 	position_in_level = new_position

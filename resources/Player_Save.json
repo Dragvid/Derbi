@@ -1,10 +1,17 @@
 {
-	"currency": 280.0,
-	"current_level": "res://levels/level1-estadio.tscn",
-	"item_inventory": {},
+	"currency": 41.0,
+	"current_level": "res://GamePlayModules/levels/test_level/test_level_scene.tscn",
+	"item_inventory": {
+		"Francesinha": 1,
+		"Garrafa": 2,
+		"Martelo_de_s_joao": 5,
+		"Super-Cevada": 5
+	},
 	"unlocked_moves": [
 		"Soco",
 		"Pontapé",
-		"Massagem"
+		"Massagem",
+		"Suplex",
+		"Roundhouse"
 	]
 }

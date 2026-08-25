@@ -1,9 +1,11 @@
 extends Control
 
 @export var party_member_interface : PackedScene
-@onready var enemies_box: HBoxContainer = $Enemies
 
+@onready var enemies_box: HBoxContainer = $Enemies
 @onready var player_interface: HBoxContainer = $Player_interface
+@onready var background: TextureRect = $background
+
 var party_info = AppInfo.party_info_json
 var turn_player = true
 var ally_pick:bool = false
@@ -20,12 +22,20 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	load_party_members()
 	load_enemies()
+	if AppInfo.current_combat_parameters.background_path != "":
+		background.texture = load(AppInfo.current_combat_parameters.background_path)
 
 func load_enemies(enemy_list=[]):
 	if enemy_list.is_empty():#random encounter
 		var enemy_roster = AppInfo.enemy_info_json.keys()
-		rng.randomize()
-		var formation_size = rng.randi_range(1,4)
+		var formation_size:int
+		#if AppInfo.current_enemy_formation_size == 0:
+		if AppInfo.current_combat_parameters.enemy_formation_size == 0:
+			rng.randomize()
+			formation_size = rng.randi_range(1,4)
+		else:
+			#formation_size = AppInfo.current_enemy_formation_size
+			formation_size = AppInfo.current_combat_parameters.enemy_formation_size
 		for i in range(0, formation_size):
 			var formation_unit = enemy_roster.pick_random()
 			var unit_info = AppInfo.enemy_info_json[formation_unit]
@@ -200,4 +210,5 @@ func has_battle_ended():
 		call_deferred("Back_to_level")
 
 func Back_to_level():
+	AppInfo.current_enemy_formation_size = 0 #Make it random again
 	get_tree().change_scene_to_file(AppInfo.current_level)

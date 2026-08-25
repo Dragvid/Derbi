@@ -14,6 +14,16 @@ size_flags_vertical = 8
 script = ExtResource("1_fyw07")
 party_member_interface = ExtResource("2_7jami")
 
+[node name="background" type="TextureRect" parent="." unique_id=2074723002]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 6
+
 [node name="Enemies" type="HBoxContainer" parent="." unique_id=2092918280]
 layout_mode = 1
 anchors_preset = -1
