@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c85qsjleryjes"]
+
+[ext_resource type="Script" uid="uid://hy8usddam1t7" path="res://GamePlayModules/level_transition/level_transition.gd" id="1_sp4jy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(20, 437)
+
+[node name="level_transition" type="Area2D" unique_id=1012604311]
+script = ExtResource("1_sp4jy")
+level_queue_path = "res://levels/level2-street.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140854274]
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.83324325, 0.0013619077, 0.9394882, 0.41960785)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

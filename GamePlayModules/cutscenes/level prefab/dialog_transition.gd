@@ -18,7 +18,6 @@ func Load_dialog_scene():
 func _on_area_entered(_area: Area2D) -> void:
 	call_deferred("Load_dialog_scene")
 
-
 #func _on_child_entered_tree(node: Node) -> void:
 	#if level_queue_path == "":
 		#level_queue_path = AppInfo.current_level

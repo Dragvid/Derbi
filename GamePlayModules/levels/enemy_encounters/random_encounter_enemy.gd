@@ -2,6 +2,7 @@ extends Area2D
 
 @export var enemy_formation_size : int = 4
 @export var encounter_background_path : String
+
 func _on_area_entered(_area: Area2D) -> void:
 	call_deferred("Go_to_combat_scene")
 

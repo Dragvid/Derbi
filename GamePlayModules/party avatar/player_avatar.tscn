@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bvd20xbh8dcs"]
+
+[ext_resource type="Script" uid="uid://bfno25jopvg6b" path="res://GamePlayModules/party avatar/party_avatar.gd" id="1_f4dil"]
+[ext_resource type="Texture2D" uid="uid://bg7br404huv84" path="res://icon.svg" id="2_i8itr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ff60c"]
+radius = 41.0
+height = 176.0
+
+[node name="player_avatar" type="CharacterBody2D" unique_id=125842896]
+disable_mode = 2
+script = ExtResource("1_f4dil")
+speed = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1548486516]
+scale = Vector2(0.63361096, 1.4022226)
+texture = ExtResource("2_i8itr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1520256576]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=985595188]
+shape = SubResource("CapsuleShape2D_ff60c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1273483407]
+shape = SubResource("CapsuleShape2D_ff60c")

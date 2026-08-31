@@ -12,5 +12,6 @@ chapter_name = "Saída do estádio"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1134777535]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_a7j8x")
+debug_color = Color(0.89122593, 0.00024565935, 0.79242057, 0.41960785)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

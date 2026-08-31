@@ -1,6 +1,6 @@
 {
-	"currency": 200.0,
-	"current_level": "res://levels/level1-estadio.tscn",
+	"currency": 480.0,
+	"current_level": "res://levels/level2-street.tscn",
 	"item_inventory": {},
 	"unlocked_moves": [
 		"Soco",
