@@ -1,6 +1,6 @@
 {
-	"currency": 480.0,
-	"current_level": "res://levels/level2-street.tscn",
+	"currency": 440.0,
+	"current_level": "res://GamePlayModules/levels/test_level/test_level_scene.tscn",
 	"item_inventory": {},
 	"unlocked_moves": [
 		"Soco",

@@ -52,6 +52,22 @@ func load_party_members():
 			member_ui.call_deferred("set_up_player", self, member_data, member,  cur_player_id)
 			cur_player_id += 1 
 
+#func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
+	#if current_move.attack_name != null:
+		#var info = get_current_action_info()
+		#match info.target:
+			#"opposition":
+				#ally_pick = false
+				#target_is_oponent = true
+			#"ally":
+				#ally_pick = true
+				#target_is_oponent = false
+	#if target_is_oponent:
+		#for enemy in enemies_box.get_children():
+			#enemy.disabled = !enter
+	#else:
+		#for party_member in player_interface.get_children():
+			#party_member.pick_ally_mode(true)
 func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
 	if current_move.attack_name != null:
 		var info = get_current_action_info()
@@ -62,12 +78,72 @@ func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
 			"ally":
 				ally_pick = true
 				target_is_oponent = false
+			"all_enemies":
+				ally_pick = false
+				target_is_oponent = true
+				if enter:
+					_execute_all_targets()
+				return
+			"all_allies":
+				ally_pick = true
+				target_is_oponent = false
+				if enter:
+					_execute_all_targets()
+				return
 	if target_is_oponent:
 		for enemy in enemies_box.get_children():
 			enemy.disabled = !enter
 	else:
 		for party_member in player_interface.get_children():
 			party_member.pick_ally_mode(true)
+
+func _execute_all_targets():
+	var info = get_current_action_info()
+	var targets = []
+	match info.target:
+		"all_enemies":
+			targets = enemies_box.get_children()
+		"all_allies":
+			targets = get_active_party_members()
+	for target in targets:
+		receive_current_attack_target_choice(target)
+		print("hit ",target.name)
+
+func attack_process():
+	var atk_info = AppInfo.attack_info_json[current_move.attack_name]
+	if randi_range(0,100) < atk_info.hit_rate:
+		var final_damage = atk_info.damage
+		if randi_range(0,100) < atk_info.crit_rate:
+			final_damage = final_damage * AppInfo.crit_multiplier
+		current_move.target.update_life(final_damage)
+	if turn_player:
+		# only call option_picked on the last hit to avoid ending turn early
+		var info = get_current_action_info()
+		if info.target in ["opposition", "ally","all_enemies","all_allies"] or current_move.target == _get_last_target(info.target):
+			current_move.attacker.option_picked()
+	clean_current_atk()
+
+func item_process():
+	var item_info = AppInfo.item_info_json[current_move.attack_name]
+	current_move.target.update_life(item_info.get("damage", 0))
+	for effect in item_info.get("effects", []):
+		print("item effect")
+	if turn_player:
+		var target_type = item_info.get("target", "")
+		if target_type in ["ally", "opposition"] or current_move.target == _get_last_target(target_type):
+			AppInfo.Remove_item(current_move.attack_name)
+			current_move.attacker.option_picked()
+	clean_current_atk()
+
+func _get_last_target(target_type: String) -> Node:
+	match target_type:
+		"all_enemies":
+			var enemies = enemies_box.get_children()
+			return enemies[enemies.size() - 1] if not enemies.is_empty() else null
+		"all_allies":
+			var allies = get_active_party_members()
+			return allies[allies.size() - 1] if not allies.is_empty() else null
+	return null
 
 func check_turn_end():
 	var turn_end = true
@@ -116,29 +192,29 @@ func receive_current_attack_target_choice(target_unit):
 		check_turn_end()
 
 #apply damage
-func attack_process():
-	var atk_info = AppInfo.attack_info_json[current_move.attack_name]	
-	if randi_range(0,100) < atk_info.hit_rate:
-		var final_damage = atk_info.damage
-		if randi_range(0,100) < atk_info.crit_rate:
-			final_damage = final_damage * AppInfo.crit_multiplier
-		current_move.target.update_life(final_damage)
-	if turn_player:
-		current_move.attacker.option_picked()
-	clean_current_atk()
+#func attack_process():
+	#var atk_info = AppInfo.attack_info_json[current_move.attack_name]	
+	#if randi_range(0,100) < atk_info.hit_rate:
+		#var final_damage = atk_info.damage
+		#if randi_range(0,100) < atk_info.crit_rate:
+			#final_damage = final_damage * AppInfo.crit_multiplier
+		#current_move.target.update_life(final_damage)
+	#if turn_player:
+		#current_move.attacker.option_picked()
+	#clean_current_atk()
 
 #apply item effect
-func item_process():
-	var item_info = AppInfo.item_info_json[current_move.attack_name]
-	current_move.target.update_life(item_info.get("damage", 0))
-	for effect in item_info.get("effects", []):
-		print("item effect")
-		#if ItemEffects.has_method(effect["effect"]):
-			#ItemEffects.call(effect["effect"], current_move.target, effect["value"])
-	AppInfo.Remove_item(current_move.attack_name)
-	if turn_player:
-		current_move.attacker.option_picked()
-	clean_current_atk()
+#func item_process():
+	#var item_info = AppInfo.item_info_json[current_move.attack_name]
+	#current_move.target.update_life(item_info.get("damage", 0))
+	#for effect in item_info.get("effects", []):
+		#print("item effect")
+		##if ItemEffects.has_method(effect["effect"]):
+			##ItemEffects.call(effect["effect"], current_move.target, effect["value"])
+	#AppInfo.Remove_item(current_move.attack_name)
+	#if turn_player:
+		#current_move.attacker.option_picked()
+	#clean_current_atk()
 
 func clean_current_atk():
 	toggle_target_selection(true,false)

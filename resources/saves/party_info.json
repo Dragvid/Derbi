@@ -2,7 +2,8 @@
 	"Alex": {
 		"attacks": [
 			"Gancho",
-			"Soco"
+			"Soco",
+			"Gancho_largo"
 		],
 		"block_dmg_resistance": 0.5,
 		"class": "tanque",

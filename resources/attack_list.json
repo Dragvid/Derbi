@@ -87,5 +87,19 @@
 		"price": 35,
 		"shop":["test"]
 	},
-	
+	"Gancho_largo": {
+		"name": "Gancho_largo",
+		"image_path": "",
+		"level_requirement": 4,
+		"description": "Um soco com um arco largo o suficiente para atigir vários oponentes",
+		"target":"all_enemies",
+		"damage": -10,
+		"type":"strike",
+		"class":"tanque",
+		"cost":50,
+		"hit_rate": 100,
+		"crit_rate": 10,
+		"price": 40,
+		"shop":["test"]
+	},
 }
