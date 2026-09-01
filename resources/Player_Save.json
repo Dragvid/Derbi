@@ -1,10 +1,11 @@
 {
-	"currency": 440.0,
+	"currency": 520.0,
 	"current_level": "res://GamePlayModules/levels/test_level/test_level_scene.tscn",
 	"item_inventory": {},
 	"unlocked_moves": [
 		"Soco",
 		"Pontapé",
-		"Massagem"
+		"Massagem",
+		"Gancho_largo"
 	]
 }

@@ -52,22 +52,6 @@ func load_party_members():
 			member_ui.call_deferred("set_up_player", self, member_data, member,  cur_player_id)
 			cur_player_id += 1 
 
-#func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
-	#if current_move.attack_name != null:
-		#var info = get_current_action_info()
-		#match info.target:
-			#"opposition":
-				#ally_pick = false
-				#target_is_oponent = true
-			#"ally":
-				#ally_pick = true
-				#target_is_oponent = false
-	#if target_is_oponent:
-		#for enemy in enemies_box.get_children():
-			#enemy.disabled = !enter
-	#else:
-		#for party_member in player_interface.get_children():
-			#party_member.pick_ally_mode(true)
 func toggle_target_selection(target_is_oponent:bool=true, enter:bool=true):
 	if current_move.attack_name != null:
 		var info = get_current_action_info()
@@ -107,8 +91,8 @@ func _execute_all_targets():
 			targets = get_active_party_members()
 	for target in targets:
 		receive_current_attack_target_choice(target)
-		print("hit ",target.name)
 
+#apply damage
 func attack_process():
 	var atk_info = AppInfo.attack_info_json[current_move.attack_name]
 	if randi_range(0,100) < atk_info.hit_rate:
@@ -121,8 +105,10 @@ func attack_process():
 		var info = get_current_action_info()
 		if info.target in ["opposition", "ally","all_enemies","all_allies"] or current_move.target == _get_last_target(info.target):
 			current_move.attacker.option_picked()
-	clean_current_atk()
+	if atk_info.target not in ["all_enemies", "all_allies"] or current_move.target == enemies_box.get_child(enemies_box.get_children().size()-1):
+		clean_current_atk()
 
+#apply item effect
 func item_process():
 	var item_info = AppInfo.item_info_json[current_move.attack_name]
 	current_move.target.update_life(item_info.get("damage", 0))
@@ -191,30 +177,7 @@ func receive_current_attack_target_choice(target_unit):
 	if turn_player:
 		check_turn_end()
 
-#apply damage
-#func attack_process():
-	#var atk_info = AppInfo.attack_info_json[current_move.attack_name]	
-	#if randi_range(0,100) < atk_info.hit_rate:
-		#var final_damage = atk_info.damage
-		#if randi_range(0,100) < atk_info.crit_rate:
-			#final_damage = final_damage * AppInfo.crit_multiplier
-		#current_move.target.update_life(final_damage)
-	#if turn_player:
-		#current_move.attacker.option_picked()
-	#clean_current_atk()
 
-#apply item effect
-#func item_process():
-	#var item_info = AppInfo.item_info_json[current_move.attack_name]
-	#current_move.target.update_life(item_info.get("damage", 0))
-	#for effect in item_info.get("effects", []):
-		#print("item effect")
-		##if ItemEffects.has_method(effect["effect"]):
-			##ItemEffects.call(effect["effect"], current_move.target, effect["value"])
-	#AppInfo.Remove_item(current_move.attack_name)
-	#if turn_player:
-		#current_move.attacker.option_picked()
-	#clean_current_atk()
 
 func clean_current_atk():
 	toggle_target_selection(true,false)
@@ -261,17 +224,6 @@ func run_away(escape_chance:float):
 		AppInfo.last_reason_to_return = AppInfo.reason_to_return.escape
 	#else:
 		#print("Escape failed.")
-
-#func has_battle_ended():
-	#await get_tree().create_timer(1).timeout
-	#if enemies_box.get_children().size() == 0:
-		#AppInfo.Add_defeated_encounter()
-		#call_deferred("Back_to_level")
-		#AppInfo.last_reason_to_return = AppInfo.reason_to_return.win
-	#var active_party_members = get_active_party_members()
-	#if active_party_members.size()==0:
-		#call_deferred("Back_to_level")
-		#AppInfo.last_reason_to_return = AppInfo.reason_to_return.lose
 
 func has_battle_ended():
 	await get_tree().create_timer(1).timeout
