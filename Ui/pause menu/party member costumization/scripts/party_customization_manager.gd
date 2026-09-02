@@ -29,12 +29,16 @@ func Load_unlocked_attacks():
 	Clear_list(unlocked_attacks_content)
 	for attack in AppInfo.save_file_json["unlocked_moves"]:
 		if attack not in AppInfo.party_info_json[chosen_character]["attacks"]:
-			# create attack option
-			var new_button: Button = GeneralToolsStatic.instantiate_scene(attack_button_scene.resource_path, unlocked_attacks_content)
-			await get_tree().create_timer(0.01).timeout
-			var action_button : Button = new_button.button
-			action_button.button_up.connect(Equip_attack.bind(attack))
-			new_button.Write_info(attack,"equipar")
+			# show if attack has no class restriction, or if it matches the character's class
+			var character_class = AppInfo.party_info_json[chosen_character]["class"]
+			var class_match = not AppInfo.attack_info_json[attack].has("class") or AppInfo.attack_info_json[attack]["class"] == character_class
+			if class_match:
+				# create attack option
+				var new_button: Button = GeneralToolsStatic.instantiate_scene(attack_button_scene.resource_path, unlocked_attacks_content)
+				await get_tree().create_timer(0.01).timeout
+				var action_button : Button = new_button.button
+				action_button.button_up.connect(Equip_attack.bind(attack))
+				new_button.Write_info(attack,"equipar")
 
 # Equipped attacks
 func Load_equipped_attacks(): 

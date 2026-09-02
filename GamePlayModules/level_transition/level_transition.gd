@@ -8,5 +8,5 @@ func Load_next_scene():
 	get_tree().change_scene_to_file(level_queue_path)
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	call_deferred("Load_next_scene")
