@@ -15,7 +15,8 @@
 	"Pedro": {
 		"attacks": [
 			"Pontapé",
-			"Massagem"
+			"Massagem",
+			"Pontos_de_pressão"
 		],
 		"block_dmg_resistance": 0.5,
 		"class": "médico",

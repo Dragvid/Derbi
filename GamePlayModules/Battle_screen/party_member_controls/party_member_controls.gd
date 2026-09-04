@@ -39,6 +39,7 @@ var member_info
 
 
 func _ready() -> void:
+	SignalsResource._refresh_item_list.connect(Load_item_list)
 	btn_attack.grab_focus()
 
 func set_up_player(manager, member_data, new_name:String = "[missing]", new_player_id:int=0):
@@ -93,9 +94,9 @@ func recover_stamina_bar():
 	current_stamina += member_info.stamina_recovery
 	if current_stamina > member_info.total_stamina:
 		current_stamina = member_info.total_stamina
-	stamina_bar.value = current_stamina
 	display_stamina_value()
 func display_stamina_value():
+	stamina_bar.value = current_stamina
 	stamina_bar.get_child(0).text = str(current_stamina)
 	
 func load_atk_list():
@@ -110,6 +111,8 @@ func load_atk_list():
 			#print("atk named ",atk," was not found in the list")
 
 func Load_item_list():
+	for item in item_list_node.get_children():
+		item.queue_free()
 	for item_name in AppInfo.save_file_json["item_inventory"]:
 		var item_quantity = AppInfo.save_file_json["item_inventory"][item_name]
 		#create the button

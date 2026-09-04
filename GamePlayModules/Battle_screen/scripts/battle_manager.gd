@@ -6,6 +6,8 @@ extends Control
 @onready var player_interface: HBoxContainer = $Player_interface
 @onready var background: TextureRect = $background
 
+@onready var special_effects = get_node("/root/SpecialEffectsClass")
+
 var party_info = AppInfo.party_info_json
 var turn_player = true
 var ally_pick:bool = false
@@ -100,6 +102,7 @@ func attack_process():
 		if randi_range(0,100) < atk_info.crit_rate:
 			final_damage = final_damage * AppInfo.crit_multiplier
 		current_move.target.update_life(final_damage)
+	Apply_effect(atk_info)
 	if turn_player:
 		# only call option_picked on the last hit to avoid ending turn early
 		var info = get_current_action_info()
@@ -112,14 +115,20 @@ func attack_process():
 func item_process():
 	var item_info = AppInfo.item_info_json[current_move.attack_name]
 	current_move.target.update_life(item_info.get("damage", 0))
-	for effect in item_info.get("effects", []):
-		print("item effect")
+	Apply_effect(item_info)
 	if turn_player:
 		var target_type = item_info.get("target", "")
 		if target_type in ["ally", "opposition"] or current_move.target == _get_last_target(target_type):
 			AppInfo.Remove_item(current_move.attack_name)
 			current_move.attacker.option_picked()
 	clean_current_atk()
+
+func Apply_effect(info):
+	for effect in info.get("effects", []):
+		if special_effects.has_method(effect["effect"]):
+				special_effects.call(effect["effect"], effect["value"], current_move.target)
+		else:
+			print("Effect not found: ", effect["effect"])
 
 func _get_last_target(target_type: String) -> Node:
 	match target_type:

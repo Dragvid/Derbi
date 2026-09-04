@@ -72,4 +72,21 @@
 		"price": 1,
 		"shop":["test"]
 	},
+	"Besta": {
+		"name": "Besta",
+		"image_path": "",
+		"level_requirement": 4,
+		"description": "Bebida energética que te recupera estamina.",
+		"target":"ally",
+		"damage": 0,
+		"type":"Curar",
+		"effects": [
+			{"effect": "stamina_boost", "value": 30},
+		],
+		"hit_rate": 100,
+		"crit_rate": 15,
+		"stack_cap": 3,
+		"price": 2,
+		"shop":["test"]
+	},
 }

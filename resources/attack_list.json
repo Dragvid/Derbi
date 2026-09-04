@@ -102,4 +102,22 @@
 		"price": 40,
 		"shop":["test"]
 	},
+	"Pontos_de_pressão": {
+		"name": "Pontos_de_pressão",
+		"image_path": "",
+		"level_requirement": 2,
+		"description": "Atinge um ponto de pressão para desbloquear o chakra do teu parceiro.(Devolve-lhe estamina)",
+		"target":"ally",
+		"damage": 5,
+		"type":"Curar",
+		"effects": [
+			{"effect": "stamina_boost", "value": 20},
+		],
+		"class":"médico",
+		"cost":50,
+		"hit_rate": 100,
+		"crit_rate": 0,
+		"price": 35,
+		"shop":["test"]
+	},
 }

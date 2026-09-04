@@ -41,7 +41,7 @@ func Sell_item():
 	var sell_price = int(item_info["price"] * 0.5)  # 50% of buy price
 	AppInfo.Update_player_currency(sell_price)
 	AppInfo.Remove_item(item_info["name"])
-	SignalsResource.refresh_item_list.emit()
+	SignalsResource._refresh_item_list.emit()
 
 func _on_button_button_up() -> void:
 	Buy_item()

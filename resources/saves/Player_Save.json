@@ -1,11 +1,16 @@
 {
-	"currency": 580.0,
+	"currency": 599.0,
 	"current_level": "res://GamePlayModules/levels/test_level/test_level_scene.tscn",
-	"item_inventory": {},
+	"item_inventory": {
+		"Besta": 1.0,
+		"Martelo_de_s_joao": 4.0,
+		"Super-Cevada": 5.0
+	},
 	"unlocked_moves": [
 		"Soco",
 		"Pontapé",
 		"Massagem",
-		"Gancho_largo"
+		"Gancho_largo",
+		"Pontos_de_pressão"
 	]
 }
