@@ -12,7 +12,7 @@ func _ready() -> void:
 	SignalsResource._refresh_item_list.connect(Update_information)
 
 func set_information(new_name,new_item_quant,new_text:String, new_module_manager):
-	item_name_label.text = str(new_name)
+	item_name_label.text = GeneralToolsStatic.Format_from_camel_case(str(new_name))
 	item_quantity_label.text = str(int(new_item_quant))
 	description_label.text = new_text
 	play_area_manager = new_module_manager

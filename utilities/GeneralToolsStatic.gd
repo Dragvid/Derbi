@@ -74,5 +74,6 @@ static func get_dictionary_from_json(file_path: String) -> Dictionary:
 		print("JSON Parse Error: ", json.get_error_message(), " at line ", json.get_error_line())
 		return {}
 		
-#static func Load_queued_scene():
-	#
+static func Format_from_camel_case(raw_string:String):
+	return raw_string.replace("_"," ")
+	

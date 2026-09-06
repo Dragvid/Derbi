@@ -104,7 +104,7 @@ func load_atk_list():
 		if AppInfo.attack_info_json.has(atk):
 			var atk_info = AppInfo.attack_info_json[atk]
 			var atk_opt_instance = GeneralToolsStatic.instantiate_scene(attack_option_scene.resource_path,atk_list_node)
-			atk_opt_instance.text = atk
+			atk_opt_instance.text = GeneralToolsStatic.Format_from_camel_case(atk)
 			var text_to_add = str("Target: ",atk_info.target, " Cost: ",atk_info.cost,"\n ",atk_info.description)
 			atk_opt_instance.call_deferred("set_information", text_to_add, self)
 		#else:

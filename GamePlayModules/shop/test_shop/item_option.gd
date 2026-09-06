@@ -9,7 +9,7 @@ var item_info
 
 func Set_up_option(new_item):
 	item_info = new_item
-	atk_name_label.text = new_item["name"]
+	atk_name_label.text = GeneralToolsStatic.Format_from_camel_case(new_item["name"])
 	damage_type_label.text = new_item["type"]
 	var new_dmg_value = new_item["damage"]
 	if new_dmg_value < 0:

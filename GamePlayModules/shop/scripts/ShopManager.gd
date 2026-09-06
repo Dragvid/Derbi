@@ -13,7 +13,7 @@ var shop_name: String = AppInfo.current_shop
 @export var item_line: PackedScene
 
 func _ready() -> void:
-	print("Shop name: ", shop_name)
+	#print("Shop name: ", shop_name)
 	update_player_currency_label()
 	_on_atacks_button_up()  # set default tab visibility first
 	Load_shop()

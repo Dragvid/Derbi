@@ -27,8 +27,6 @@ func _on_button_up() -> void:
 	#get the target
 	if battle_manager == null:
 			battle_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
-	#if player_manager == null:
-			#battle_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen",self)
 	if play_area_manager.try_spend_stamina(AppInfo.Retrive_attack_info(self.text).cost):
 		battle_manager.receive_current_attack(play_area_manager, self.text)
 		battle_manager.toggle_target_selection()

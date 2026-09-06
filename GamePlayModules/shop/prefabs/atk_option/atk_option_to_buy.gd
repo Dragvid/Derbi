@@ -9,7 +9,7 @@ var atk_info
 
 func Set_up_option(new_attack,owned = false):
 	atk_info = new_attack
-	atk_name_label.text = new_attack["name"]
+	atk_name_label.text = GeneralToolsStatic.Format_from_camel_case(new_attack["name"])
 	damage_type_label.text = new_attack["type"]
 	var new_dmg_value = new_attack["damage"] 
 	if new_dmg_value < 0:
