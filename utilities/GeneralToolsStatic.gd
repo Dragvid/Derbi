@@ -77,3 +77,5 @@ static func get_dictionary_from_json(file_path: String) -> Dictionary:
 static func Format_from_camel_case(raw_string:String):
 	return raw_string.replace("_"," ")
 	
+static func Format_to_camel_case(raw_string:String):
+	return raw_string.replace(" ","_")

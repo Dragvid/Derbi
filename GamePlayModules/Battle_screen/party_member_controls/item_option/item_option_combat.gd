@@ -45,7 +45,7 @@ func _on_button_up() -> void:
 		battle_manager = GeneralToolsStatic.get_right_parent_node("BattleScreen", self)
 	if battle_manager.is_action_pending():
 		return
-	var item_info = AppInfo.item_info_json[item_name_label.text]
+	var item_info = AppInfo.item_info_json[GeneralToolsStatic.Format_to_camel_case(item_name_label.text)]
 	battle_manager.receive_current_item(play_area_manager, item_info["name"])
 	AppInfo.Remove_item(item_info["name"])
 	#decrement_quantity()

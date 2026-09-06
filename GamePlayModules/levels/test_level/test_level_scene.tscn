@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dql782x6ft61r" path="res://Assets/auntum city.webp" id="2_oxoov"]
 [ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="5_18ejq"]
 [ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="6_lyrt0"]
+[ext_resource type="Script" uid="uid://b7veo7fjshaoo" path="res://Ui/hud/UIcontrol.gd" id="7_64skb"]
 [ext_resource type="PackedScene" uid="uid://bo8c6x5lrfh61" path="res://GamePlayModules/shop/level object/shop.tscn" id="7_tvmjw"]
 [ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="8_4dr66"]
 [ext_resource type="PackedScene" uid="uid://bvd20xbh8dcs" path="res://GamePlayModules/party avatar/player_avatar.tscn" id="8_a7j8x"]
@@ -73,11 +74,40 @@ position = Vector2(-104, 486)
 return_pos_offset = Vector2(100, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528680669]
+script = ExtResource("7_64skb")
 
 [node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("8_4dr66")]
 visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1229641242]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="CanvasLayer/UI" unique_id=389399108]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -115.0
+offset_right = 140.0
+offset_bottom = -75.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+joystick_size = 159.0
+action_left = &"left"
+action_right = &"right"
+action_up = &"up"
+action_down = &"down"
 
 [node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("8_a7j8x")]
 position = Vector2(412, 474)
