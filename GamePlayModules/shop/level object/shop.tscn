@@ -13,5 +13,6 @@ return_pos_offset = Vector2(100, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607209890]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_a7j8x")
+debug_color = Color(0.8687876, 0.34249154, 0.22885421, 0.41960785)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

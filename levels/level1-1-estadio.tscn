@@ -113,6 +113,7 @@ shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="level_transition" parent="." unique_id=1012604311 instance=ExtResource("8_vvc8k")]
 position = Vector2(648, 650)
+level_queue_path = "res://levels/level1-2-estadio2.tscn"
 
 [connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]
 [connection signal="area_entered" from="enemy3" to="enemy3" method="_on_area_entered"]

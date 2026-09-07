@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://ckytf8e8hokri"]
+
+[ext_resource type="Script" uid="uid://bm3tyvffikjy6" path="res://GamePlayModules/levels/Level_manager.gd" id="1_81mkl"]
+[ext_resource type="Texture2D" uid="uid://bsbbcbla86ciw" path="res://Assets/background/levels/IMG_7892.JPG" id="2_ly2lq"]
+[ext_resource type="PackedScene" uid="uid://bvd20xbh8dcs" path="res://GamePlayModules/party avatar/player_avatar.tscn" id="3_5fovf"]
+[ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="4_u18gp"]
+[ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="5_c0ycv"]
+[ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="6_l5xbu"]
+[ext_resource type="PackedScene" uid="uid://c85qsjleryjes" path="res://GamePlayModules/level_transition/level_transition.tscn" id="7_gwwhw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff60c"]
+size = Vector2(52, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj1p"]
+size = Vector2(20, 18.43768)
+
+[node name="TestLevelScene" type="Node2D" unique_id=613694492]
+script = ExtResource("1_81mkl")
+
+[node name="background" type="Sprite2D" parent="." unique_id=473605122]
+position = Vector2(99, 497)
+scale = Vector2(0.25487006, 0.25487003)
+texture = ExtResource("2_ly2lq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1978158974]
+position = Vector2(98, 578)
+
+[node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("3_5fovf")]
+position = Vector2(-296, 757)
+
+[node name="enemy2" type="Area2D" parent="." unique_id=1242436072]
+position = Vector2(359, 672)
+disable_mode = 2
+script = ExtResource("4_u18gp")
+enemy_formation_size = 2
+encounter_background_path = "res://Assets/background/battle_background/IMG_7930.JPG"
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy2" unique_id=1571198828]
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("5_c0ycv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2" unique_id=1755514240]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_ff60c")
+
+[node name="enemy3" type="Area2D" parent="." unique_id=2063416399]
+position = Vector2(6, 702)
+disable_mode = 2
+script = ExtResource("4_u18gp")
+enemy_formation_size = 1
+encounter_background_path = "res://Assets/background/battle_background/IMG_7930.JPG"
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy3" unique_id=734831721]
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("5_c0ycv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy3" unique_id=560812367]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_ff60c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528680669]
+
+[node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("6_l5xbu")]
+visible = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Walls" type="Node2D" parent="." unique_id=195694966]
+position = Vector2(-177.00002, 0)
+scale = Vector2(0.6399999, 1)
+
+[node name="Area2D4" type="StaticBody2D" parent="Walls" unique_id=1152892924]
+position = Vector2(-4681.643, 16371.141)
+scale = Vector2(61.03517, 602.2117)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D4" unique_id=348427091]
+shape = SubResource("RectangleShape2D_2xj1p")
+
+[node name="Area2D3" type="StaticBody2D" parent="Walls" unique_id=1272788947]
+position = Vector2(-531.2502, 641)
+scale = Vector2(7.812501, 24.54)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D3" unique_id=835688358]
+shape = SubResource("RectangleShape2D_2xj1p")
+
+[node name="Area2D5" type="StaticBody2D" parent="Walls" unique_id=1008696872]
+position = Vector2(1384.3755, 662)
+scale = Vector2(7.812501, 24.54)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D5" unique_id=2142945869]
+shape = SubResource("RectangleShape2D_2xj1p")
+
+[node name="Area2D2" type="StaticBody2D" parent="Walls" unique_id=442538833]
+position = Vector2(571.99994, 903)
+scale = Vector2(96.75499, 6.535)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D2" unique_id=690533432]
+position = Vector2(-0.87850714, 2.7543945)
+shape = SubResource("RectangleShape2D_2xj1p")
+
+[node name="Area2D6" type="StaticBody2D" parent="Walls" unique_id=352203270]
+position = Vector2(546.8751, 357)
+scale = Vector2(90.355, 25.955002)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D6" unique_id=932581357]
+position = Vector2(-1.3834319, -7.6777096)
+shape = SubResource("RectangleShape2D_2xj1p")
+
+[node name="level_transition" parent="." unique_id=1012604311 instance=ExtResource("7_gwwhw")]
+position = Vector2(648, 650)
+
+[connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]
+[connection signal="area_entered" from="enemy3" to="enemy3" method="_on_area_entered"]

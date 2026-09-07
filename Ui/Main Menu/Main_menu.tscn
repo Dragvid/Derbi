@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blt7koienfp3x"]
 
 [ext_resource type="Script" uid="uid://dv5ho3som3d2q" path="res://Ui/Main Menu/main_menu.gd" id="1_y82pu"]
-[ext_resource type="PackedScene" uid="uid://bojaa004vhtkm" path="res://levels/level1-estadio.tscn" id="2_0oyqa"]
+[ext_resource type="PackedScene" uid="uid://bojaa004vhtkm" path="res://levels/level1-1-estadio.tscn" id="2_0oyqa"]
 
 [node name="MainMenu" type="Control" unique_id=1256308766]
 layout_mode = 3

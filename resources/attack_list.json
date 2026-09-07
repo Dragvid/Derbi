@@ -25,7 +25,7 @@
 		"hit_rate": 70,
 		"crit_rate": 20,
 		"price": 5,
-		"shop":["test"]
+		"shop":["test","estadio"]
 	},
 	"Suplex": {
 		"name": "Suplex",
@@ -119,5 +119,19 @@
 		"crit_rate": 0,
 		"price": 35,
 		"shop":["test"]
+	},
+	"Rasteira": {
+		"name": "Rasteira",
+		"image_path": "",
+		"level_requirement": 2,
+		"description": "Atira-te deslizando no chão, atingindo os tornozelos do alvo. Esta manobra é alto risco-recompensa.",
+		"target":"opposition",
+		"damage": -60,
+		"type":"strike",
+		"cost":50,
+		"hit_rate": 70,
+		"crit_rate": 30,
+		"price": 50,
+		"shop":["test","estadio"]
 	},
 }

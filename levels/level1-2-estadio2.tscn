@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dqls6qu3wuwh8"]
+
+[ext_resource type="Script" uid="uid://bm3tyvffikjy6" path="res://GamePlayModules/levels/Level_manager.gd" id="1_0h4go"]
+[ext_resource type="Texture2D" uid="uid://dy2dmiunaj07b" path="res://Assets/background/levels/IMG_7898.JPG" id="2_ui617"]
+[ext_resource type="PackedScene" uid="uid://bvd20xbh8dcs" path="res://GamePlayModules/party avatar/player_avatar.tscn" id="3_cehrc"]
+[ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="4_bwm8u"]
+[ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="5_vdxma"]
+[ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="6_05m32"]
+[ext_resource type="PackedScene" uid="uid://c85qsjleryjes" path="res://GamePlayModules/level_transition/level_transition.tscn" id="7_c17bm"]
+[ext_resource type="PackedScene" uid="uid://bo8c6x5lrfh61" path="res://GamePlayModules/shop/level object/shop.tscn" id="9_ui617"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff60c"]
+size = Vector2(52, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(23, 675)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(1379, 20)
+
+[node name="TestLevelScene" type="Node2D" unique_id=613694492]
+script = ExtResource("1_0h4go")
+
+[node name="background" type="Sprite2D" parent="." unique_id=473605122]
+position = Vector2(578.6517, 311.01123)
+scale = Vector2(0.22324528, 0.22324526)
+texture = ExtResource("2_ui617")
+
+[node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("3_cehrc")]
+position = Vector2(103, 420)
+
+[node name="enemy2" type="Area2D" parent="." unique_id=1242436072]
+position = Vector2(1006, 439)
+disable_mode = 2
+script = ExtResource("4_bwm8u")
+enemy_formation_size = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy2" unique_id=1571198828]
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("5_vdxma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2" unique_id=1755514240]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_ff60c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528680669]
+
+[node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("6_05m32")]
+visible = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=850463552]
+position = Vector2(580, 331)
+
+[node name="Area2D2" type="StaticBody2D" parent="." unique_id=1033990154]
+position = Vector2(1155, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=898433219]
+position = Vector2(1.5, 327.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=320185717]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1856311204]
+position = Vector2(1.5, 327.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D4" type="StaticBody2D" parent="." unique_id=878208492]
+position = Vector2(617, 645)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=1886606356]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Area2D3" type="StaticBody2D" parent="." unique_id=876813196]
+position = Vector2(555, 246)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1972990902]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="level_transition" parent="." unique_id=1012604311 instance=ExtResource("7_c17bm")]
+position = Vector2(25, 464)
+level_queue_path = "res://levels/level1-1-estadio.tscn"
+
+[node name="shop" parent="." unique_id=278367553 instance=ExtResource("9_ui617")]
+position = Vector2(480.99997, 340)
+scale = Vector2(-2.8675041, 1.521132)
+shop_name = "estadio"
+return_pos_offset = Vector2(150, 0)
+
+[node name="level_transition2" parent="." unique_id=2142524870 instance=ExtResource("7_c17bm")]
+position = Vector2(1137, 439)
+level_queue_path = "res://levels/level1-3-estadio.tscn"
+
+[connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]

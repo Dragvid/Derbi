@@ -12,7 +12,7 @@ static var crit_multiplier = 1.5
 
 enum states {idle,stun,blocking,recovery,defeated}
 
-enum reason_to_return{win,lose,escape,shop}
+enum reason_to_return{win,lose,escape,shop,first_time}
 static var last_reason_to_return
 static var enemy_last_battle
 

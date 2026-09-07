@@ -42,7 +42,7 @@
 		"crit_rate": 15,
 		"stack_cap": 5,
 		"price": 3,
-		"shop":["test"]
+		"shop":["test","estadio"]
 	},
 	"Garrafa": {
 		"name": "Garrafa",
@@ -87,6 +87,20 @@
 		"crit_rate": 15,
 		"stack_cap": 3,
 		"price": 2,
+		"shop":["test","estadio"]
+	},
+	"Cachorro_quente": {
+		"name": "Cachorro_quente",
+		"image_path": "",
+		"level_requirement": 5,
+		"description": "Sandes com salsicha e condimentos que te recupera vida.",
+		"target":"ally",
+		"damage": 25,
+		"type":"Curar",
+		"hit_rate": 100,
+		"crit_rate": 20,
+		"stack_cap": 2,
+		"price": 7,
 		"shop":["test"]
 	},
 }

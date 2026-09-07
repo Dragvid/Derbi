@@ -9,7 +9,7 @@ func _ready() -> void:
 	if AppInfo.last_reason_to_return == AppInfo.reason_to_return.win or AppInfo.last_reason_to_return == AppInfo.reason_to_return.escape or AppInfo.last_reason_to_return == AppInfo.reason_to_return.shop:
 		disable_defeated_encounters(AppInfo.defeated_encounters)
 		
-	if AppInfo.last_reason_to_return == AppInfo.reason_to_return.lose or AppInfo.last_reason_to_return == AppInfo.reason_to_return.escape:
+	if AppInfo.last_reason_to_return == AppInfo.reason_to_return.lose or AppInfo.last_reason_to_return == AppInfo.reason_to_return.escape or AppInfo.reason_to_return.first_time:
 		player_avatar.position = inicial_position
 	else:
 		if AppInfo.position_in_level != Vector2.ZERO:
