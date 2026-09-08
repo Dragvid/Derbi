@@ -93,6 +93,12 @@
 	],
 	"Jantar": [
 		{
+			"portrait": "res://Assets/background/levels/zona_da_restauração.JPG",
+			"side": "background",
+			"speaker": "Narrador",
+			"text": "Os Dois chegaram : "
+		},
+		{
 			"speaker": "Pedro",
 			"text": "Finalmente! Eu estou esfomeado!",
 			"portrait": "res://Assets/partyMembers/Ryuji_Persona-5_Atlus_1920.webp",

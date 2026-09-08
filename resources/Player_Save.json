@@ -1,11 +1,11 @@
 {
-	"currency": 538.0,
-	"current_level": "res://GamePlayModules/levels/test_level/test_level_scene.tscn",
+	"currency": 618.0,
+	"current_level": "res://levels/level1-2-estadio2.tscn",
 	"item_inventory": {
 		"Arroz_de_pato": 1.0,
 		"Besta": 3.0,
 		"Francesinha": 1.0,
-		"Martelo_de_s_joao": 5.0,
+		"Martelo_de_s_joao": 3.0,
 		"Super-Cevada": 5.0
 	},
 	"unlocked_moves": [
@@ -15,6 +15,7 @@
 		"Gancho_largo",
 		"Pontos_de_pressão",
 		"Suplex",
-		"Roundhouse"
+		"Roundhouse",
+		"Gancho"
 	]
 }

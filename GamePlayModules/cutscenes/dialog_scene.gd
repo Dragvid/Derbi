@@ -1,5 +1,5 @@
 extends Control
-@export var test_string : String
+#@export var test_string : String
 @export var time_between_chars : float
 @export var time_between_lines : float
 

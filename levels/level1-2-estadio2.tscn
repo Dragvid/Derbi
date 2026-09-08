@@ -18,7 +18,7 @@ size = Vector2(23, 675)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(1379, 20)
 
-[node name="TestLevelScene" type="Node2D" unique_id=613694492]
+[node name="LevelScene" type="Node2D" unique_id=613694492]
 script = ExtResource("1_0h4go")
 
 [node name="background" type="Sprite2D" parent="." unique_id=473605122]
@@ -34,6 +34,7 @@ position = Vector2(1006, 439)
 disable_mode = 2
 script = ExtResource("4_bwm8u")
 enemy_formation_size = 2
+encounter_background_path = "res://Assets/background/battle_background/IMG_7930.JPG"
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy2" unique_id=1571198828]
 scale = Vector2(0.115, 0.115)

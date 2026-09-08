@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgfaxx74r7glr"
-path="res://.godot/imported/IMG_7904.JPG-e26b7b207d5ac6b69dc2c23b08350f6c.ctex"
+uid="uid://ovfc4uwjqjsb"
+path="res://.godot/imported/zona_da_restauração.JPG-60f6fc16c12ce0081b7de2a304b2f543.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/background/levels/IMG_7904.JPG"
-dest_files=["res://.godot/imported/IMG_7904.JPG-e26b7b207d5ac6b69dc2c23b08350f6c.ctex"]
+source_file="res://Assets/background/levels/zona_da_restauração.JPG"
+dest_files=["res://.godot/imported/zona_da_restauração.JPG-60f6fc16c12ce0081b7de2a304b2f543.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -103,7 +103,7 @@ position = Vector2(-0.87850714, 2.7543945)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D6" type="StaticBody2D" parent="Walls" unique_id=352203270]
-position = Vector2(546.8751, 357)
+position = Vector2(546.8751, 519)
 scale = Vector2(90.355, 25.955002)
 disable_mode = 1
 
