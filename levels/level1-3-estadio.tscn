@@ -1,20 +1,27 @@
 [gd_scene format=3 uid="uid://ckytf8e8hokri"]
 
 [ext_resource type="Script" uid="uid://bm3tyvffikjy6" path="res://GamePlayModules/levels/Level_manager.gd" id="1_81mkl"]
+[ext_resource type="Texture2D" uid="uid://cmnsw1q7qmlwe" path="res://Assets/background/levels/IMG_7976.JPG" id="2_t20yc"]
 [ext_resource type="PackedScene" uid="uid://bvd20xbh8dcs" path="res://GamePlayModules/party avatar/player_avatar.tscn" id="3_5fovf"]
 [ext_resource type="PackedScene" uid="uid://bgnr4ax6lobqv" path="res://GamePlayModules/cutscenes/level prefab/dialog_transition.tscn" id="4_bud4u"]
 [ext_resource type="PackedScene" uid="uid://c85qsjleryjes" path="res://GamePlayModules/level_transition/level_transition.tscn" id="5_2ifa0"]
 [ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="6_l5xbu"]
+[ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="7_f651n"]
+[ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="8_qnwrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj1p"]
 size = Vector2(20, 18.43768)
 
-[node name="TestLevelScene" type="Node2D" unique_id=613694492]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2paa"]
+size = Vector2(52, 177)
+
+[node name="LevelScene" type="Node2D" unique_id=613694492]
 script = ExtResource("1_81mkl")
 
 [node name="background" type="Sprite2D" parent="." unique_id=473605122]
 position = Vector2(99, 497)
 scale = Vector2(0.25487006, 0.25487003)
+texture = ExtResource("2_t20yc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1978158974]
 position = Vector2(98, 578)
@@ -67,7 +74,7 @@ position = Vector2(-0.87850714, 2.7543945)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D6" type="StaticBody2D" parent="Walls" unique_id=352203270]
-position = Vector2(546.8751, 357)
+position = Vector2(546.8751, 519)
 scale = Vector2(90.355, 25.955002)
 disable_mode = 1
 
@@ -79,7 +86,40 @@ shape = SubResource("RectangleShape2D_2xj1p")
 position = Vector2(629, 635)
 scale = Vector2(1, 5.6000013)
 chapter_name = "Jantar"
+level_queue_path = "res://levels/level2-1-shopping.tscn"
 
 [node name="level_transition" parent="." unique_id=1012604311 instance=ExtResource("5_2ifa0")]
 position = Vector2(-454, 633)
 level_queue_path = "res://levels/level1-2-estadio2.tscn"
+
+[node name="enemy" type="Area2D" parent="." unique_id=1685351971]
+position = Vector2(35.687744, 657.75006)
+disable_mode = 2
+script = ExtResource("7_f651n")
+enemy_formation_size = 1
+encounter_background_path = "res://Assets/background/battle_background/IMG_7930.JPG"
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=679896702]
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_qnwrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=256230027]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_i2paa")
+
+[node name="enemy2" type="Area2D" parent="." unique_id=2122482850]
+position = Vector2(417, 703)
+disable_mode = 2
+script = ExtResource("7_f651n")
+encounter_background_path = "res://Assets/background/battle_background/IMG_7930.JPG"
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy2" unique_id=1131012546]
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("8_qnwrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2" unique_id=2113638085]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_i2paa")
+
+[connection signal="area_entered" from="enemy" to="enemy" method="_on_area_entered"]
+[connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]

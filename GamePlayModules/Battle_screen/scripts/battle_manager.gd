@@ -95,20 +95,40 @@ func _execute_all_targets():
 		receive_current_attack_target_choice(target)
 
 #apply damage
+#func attack_process():
+	#var atk_info = AppInfo.attack_info_json[current_move.attack_name]
+	#if randi_range(0,100) < atk_info.hit_rate:
+		#var final_damage = atk_info.damage
+		#if randi_range(0,100) < atk_info.crit_rate:
+			#final_damage = final_damage * AppInfo.crit_multiplier
+		#current_move.target.update_life(final_damage)
+	#Apply_effect(atk_info)
+	#if turn_player:
+		## only call option_picked on the last hit to avoid ending turn early
+		#var info = get_current_action_info()
+		#if info.target in ["opposition", "ally","all_enemies","all_allies"] \
+		#or current_move.target == _get_last_target(info.target):
+			#current_move.attacker.option_picked()
+	#if atk_info.target not in ["all_enemies", "all_allies"] \
+	#or current_move.target == enemies_box.get_child(enemies_box.get_children().size()-1):
+		#if turn_player:
+			#current_move.attacker.option_picked()
+		#clean_current_atk()
+
 func attack_process():
 	var atk_info = AppInfo.attack_info_json[current_move.attack_name]
-	if randi_range(0,100) < atk_info.hit_rate:
+	if randi_range(0, 100) < atk_info.hit_rate:
 		var final_damage = atk_info.damage
-		if randi_range(0,100) < atk_info.crit_rate:
+		if randi_range(0, 100) < atk_info.crit_rate:
 			final_damage = final_damage * AppInfo.crit_multiplier
 		current_move.target.update_life(final_damage)
 	Apply_effect(atk_info)
-	if turn_player:
-		# only call option_picked on the last hit to avoid ending turn early
-		var info = get_current_action_info()
-		if info.target in ["opposition", "ally","all_enemies","all_allies"] or current_move.target == _get_last_target(info.target):
+	var is_multi_target = atk_info.target in ["all_enemies", "all_allies"]
+	var is_last_target = current_move.target == _get_last_target(atk_info.target)
+	var is_single_target = not is_multi_target
+	if is_single_target or (is_multi_target and is_last_target):
+		if turn_player:
 			current_move.attacker.option_picked()
-	if atk_info.target not in ["all_enemies", "all_allies"] or current_move.target == enemies_box.get_child(enemies_box.get_children().size()-1):
 		clean_current_atk()
 
 #apply item effect
@@ -130,13 +150,22 @@ func Apply_effect(info):
 		else:
 			print("Effect not found: ", effect["effect"])
 
+#func _get_last_target(target_type: String) -> Node:
+	#match target_type:
+		#"all_enemies":
+			#var enemies = enemies_box.get_children()
+			#return enemies[enemies.size() - 1] if not enemies.is_empty() else null
+		#"all_allies":
+			#var allies = get_active_party_members()
+			#return allies[allies.size() - 1] if not allies.is_empty() else null
+	#return null
 func _get_last_target(target_type: String) -> Node:
 	match target_type:
 		"all_enemies":
 			var enemies = enemies_box.get_children()
 			return enemies[enemies.size() - 1] if not enemies.is_empty() else null
 		"all_allies":
-			var allies = get_active_party_members()
+			var allies = player_interface.get_children()  # ← was get_active_party_members(), now checks all
 			return allies[allies.size() - 1] if not allies.is_empty() else null
 	return null
 
@@ -212,6 +241,7 @@ func enemy_turn():
 		var valid_targets = get_active_party_members()
 		receive_current_attack_target_choice(valid_targets.pick_random())
 		await get_tree().create_timer(1).timeout
+	clean_current_atk()
 	change_turn()
 
 func get_active_party_members() -> Array:

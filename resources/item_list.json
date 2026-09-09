@@ -101,6 +101,6 @@
 		"crit_rate": 20,
 		"stack_cap": 2,
 		"price": 7,
-		"shop":["test"]
+		"shop":["test","estadio"]
 	},
 }

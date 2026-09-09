@@ -2,7 +2,7 @@ extends Node
 
 class_name SpecialEffects
 
-func AddItemToInventory(new_item, target=null):
+func AddItemToInventory(new_item, _target=null):
 	AppInfo.Get_item(new_item)
 	SignalsResource._refresh_item_list.emit()
 

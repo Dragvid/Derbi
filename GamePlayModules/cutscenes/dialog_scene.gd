@@ -89,6 +89,7 @@ func Advance_line():
 		advance_line = true
 
 func Go_to_next_level():
+	AppInfo.last_reason_to_return = AppInfo.reason_to_return.first_time
 	get_tree().change_scene_to_file(AppInfo.level_queue)
 	
 func _on_auto_button_button_up() -> void:

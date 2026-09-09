@@ -68,7 +68,7 @@
 		"class":"tanque",
 		"cost":50,
 		"hit_rate": 65,
-		"crit_rate": 10,
+		"crit_rate": 30,
 		"price": 40,
 		"shop":["test"]
 	},
@@ -97,7 +97,7 @@
 		"type":"strike",
 		"class":"tanque",
 		"cost":50,
-		"hit_rate": 100,
+		"hit_rate": 55,
 		"crit_rate": 10,
 		"price": 40,
 		"shop":["test"]

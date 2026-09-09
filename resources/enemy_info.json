@@ -1,11 +1,29 @@
 {
 	"normal":{
-		"total_life":100,
+		"total_life":50,
 		"attacks":["Soco"],
 		"agressiveness": 50,
 		"block_dmg_resistance" : 0.5,
-		"defeat_reward": 20,
+		"defeat_reward": 5,
 		"scene_path":"res://GamePlayModules/enemies/basic_enemy/basicEnemy.tscn",
 		"sprite_path":"res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg",
+	},
+	"dps":{
+		"total_life":30,
+		"attacks":["Gancho_largo","Gancho_largo"],
+		"agressiveness": 70,
+		"block_dmg_resistance" : 0.1,
+		"defeat_reward": 7,
+		"scene_path":"res://GamePlayModules/enemies/basic_enemy/basicEnemy.tscn",
+		"sprite_path":"res://Assets/enemies/dps_idle.webp",
+	},
+	"Tank":{
+		"total_life":60,
+		"attacks":["Pontapé","Suplex"],
+		"agressiveness": 40,
+		"block_dmg_resistance" : 0.6,
+		"defeat_reward": 8,
+		"scene_path":"res://GamePlayModules/enemies/basic_enemy/basicEnemy.tscn",
+		"sprite_path":"res://Assets/enemies/tank_idle.jpg",
 	},
 }
