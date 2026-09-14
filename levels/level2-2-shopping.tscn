@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://bkpbieny0uhyk"]
+[gd_scene format=3 uid="uid://xdj3a4g8nkbs"]
 
-[ext_resource type="Script" uid="uid://bm3tyvffikjy6" path="res://GamePlayModules/levels/Level_manager.gd" id="1_83v7h"]
-[ext_resource type="PackedScene" uid="uid://bvd20xbh8dcs" path="res://GamePlayModules/party avatar/player_avatar.tscn" id="2_7tski"]
-[ext_resource type="Texture2D" uid="uid://ovfc4uwjqjsb" path="res://Assets/background/levels/zona_da_restauração.JPG" id="2_vylsf"]
-[ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="3_opqpq"]
-[ext_resource type="PackedScene" uid="uid://c85qsjleryjes" path="res://GamePlayModules/level_transition/level_transition.tscn" id="5_galo3"]
-[ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="6_4058f"]
-[ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="7_x87vv"]
+[ext_resource type="Script" uid="uid://bm3tyvffikjy6" path="res://GamePlayModules/levels/Level_manager.gd" id="1_lr820"]
+[ext_resource type="Texture2D" uid="uid://bhtm27ljit37c" path="res://Assets/background/levels/IMG_7982.JPG" id="2_lr820"]
+[ext_resource type="PackedScene" uid="uid://bvd20xbh8dcs" path="res://GamePlayModules/party avatar/player_avatar.tscn" id="3_cfy8j"]
+[ext_resource type="PackedScene" uid="uid://bd1p5auqxetmb" path="res://Ui/pause menu/Pause_menu.tscn" id="4_sw25s"]
+[ext_resource type="PackedScene" uid="uid://c85qsjleryjes" path="res://GamePlayModules/level_transition/level_transition.tscn" id="5_5pxr0"]
+[ext_resource type="Script" uid="uid://dpau1nus0dh17" path="res://GamePlayModules/levels/enemy_encounters/random_encounter_enemy.gd" id="6_4yb4r"]
+[ext_resource type="Texture2D" uid="uid://cgebv7ut2qsl5" path="res://Assets/enemies/0040162_pro-player-jersey-hyper-blue.jpeg" id="7_8gca8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj1p"]
 size = Vector2(20, 18.43768)
@@ -17,19 +17,19 @@ size = Vector2(52, 177)
 [node name="LevelScene" type="Node2D" unique_id=613694492]
 position = Vector2(806.00006, -444)
 scale = Vector2(1.6460497, 1.6460497)
-script = ExtResource("1_83v7h")
+script = ExtResource("1_lr820")
 
 [node name="background" type="Sprite2D" parent="." unique_id=473605122]
 position = Vector2(99, 497)
 scale = Vector2(0.25487006, 0.25487003)
-texture = ExtResource("2_vylsf")
+texture = ExtResource("2_lr820")
 
-[node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("2_7tski")]
+[node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("3_cfy8j")]
 position = Vector2(-296, 757)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528680669]
 
-[node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("3_opqpq")]
+[node name="pause_menu" parent="CanvasLayer" unique_id=298671334 instance=ExtResource("4_sw25s")]
 visible = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -80,20 +80,20 @@ disable_mode = 1
 position = Vector2(-1.3834319, -7.6777096)
 shape = SubResource("RectangleShape2D_2xj1p")
 
-[node name="level_transition2" parent="." unique_id=1314806694 instance=ExtResource("5_galo3")]
-position = Vector2(513.35016, 642.7509)
+[node name="level_transition2" parent="." unique_id=1314806694 instance=ExtResource("5_5pxr0")]
+position = Vector2(513.3501, 642.7509)
 level_queue_path = "res://levels/level2-2-shopping.tscn"
 
 [node name="enemy" type="Area2D" parent="." unique_id=920835852]
 position = Vector2(35.687744, 657.75006)
 disable_mode = 2
-script = ExtResource("6_4058f")
+script = ExtResource("6_4yb4r")
 enemy_formation_size = 2
 encounter_background_path = "res://Assets/background/battle_background/shopping_background.JPG"
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=894237641]
 scale = Vector2(0.115, 0.115)
-texture = ExtResource("7_x87vv")
+texture = ExtResource("7_8gca8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=1569481020]
 position = Vector2(2, -1.5)
