@@ -94,27 +94,6 @@ func _execute_all_targets():
 	for target in targets:
 		receive_current_attack_target_choice(target)
 
-#apply damage
-#func attack_process():
-	#var atk_info = AppInfo.attack_info_json[current_move.attack_name]
-	#if randi_range(0,100) < atk_info.hit_rate:
-		#var final_damage = atk_info.damage
-		#if randi_range(0,100) < atk_info.crit_rate:
-			#final_damage = final_damage * AppInfo.crit_multiplier
-		#current_move.target.update_life(final_damage)
-	#Apply_effect(atk_info)
-	#if turn_player:
-		## only call option_picked on the last hit to avoid ending turn early
-		#var info = get_current_action_info()
-		#if info.target in ["opposition", "ally","all_enemies","all_allies"] \
-		#or current_move.target == _get_last_target(info.target):
-			#current_move.attacker.option_picked()
-	#if atk_info.target not in ["all_enemies", "all_allies"] \
-	#or current_move.target == enemies_box.get_child(enemies_box.get_children().size()-1):
-		#if turn_player:
-			#current_move.attacker.option_picked()
-		#clean_current_atk()
-
 func attack_process():
 	var atk_info = AppInfo.attack_info_json[current_move.attack_name]
 	if randi_range(0, 100) < atk_info.hit_rate:
@@ -215,9 +194,8 @@ func receive_current_attack_target_choice(target_unit):
 	if turn_player:
 		check_turn_end()
 
-
-
 func clean_current_atk():
+	WriteDownActionMessage()
 	toggle_target_selection(true,false)
 	current_move.attacker = null
 	current_move.target = null
@@ -279,3 +257,9 @@ func has_battle_ended():
 func Back_to_level():
 	AppInfo.current_enemy_formation_size = 0 #Make it random again
 	get_tree().change_scene_to_file(AppInfo.current_level)
+
+#Function that writes the action in a message
+func WriteDownActionMessage():
+	var final_message = ""
+	final_message = str(current_move.attacker.name, " usou ", current_move.attack_name, " no ",current_move.target.name)
+	print(final_message)
