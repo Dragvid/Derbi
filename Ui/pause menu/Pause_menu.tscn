@@ -68,3 +68,4 @@ size_flags_vertical = 3
 [connection signal="button_up" from="VBoxContainer/tab_separator/members_tab_button" to="." method="_on_members_tab_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/tab_separator/Items_tab_button" to="." method="_on_items_tab_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/tab_separator/options_tab_button" to="." method="_on_options_tab_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/tab_separator/quit_button" to="." method="_on_quit_button_button_up"]

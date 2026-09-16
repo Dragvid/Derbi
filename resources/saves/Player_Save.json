@@ -1,6 +1,6 @@
 {
 	"currency": 839.0,
-	"current_level": "res://levels/level2-2-shopping.tscn",
+	"current_level": "res://GamePlayModules/levels/test_level/test_level_scene.tscn",
 	"item_inventory": {
 		"Besta": 3.0,
 		"Cachorro_quente": 2.0,

@@ -22,12 +22,12 @@ size = Vector2(1379, 20)
 script = ExtResource("1_0h4go")
 
 [node name="background" type="Sprite2D" parent="." unique_id=473605122]
-position = Vector2(578.6517, 311.01123)
-scale = Vector2(0.22324528, 0.22324526)
+position = Vector2(590.0843, 348.93677)
+scale = Vector2(0.38268355, 0.38268358)
 texture = ExtResource("2_ui617")
 
 [node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("3_cehrc")]
-position = Vector2(103, 420)
+position = Vector2(-74, 530)
 
 [node name="enemy2" type="Area2D" parent="." unique_id=1242436072]
 position = Vector2(1006, 439)
@@ -55,42 +55,45 @@ size_flags_vertical = 3
 position = Vector2(580, 331)
 
 [node name="Area2D2" type="StaticBody2D" parent="." unique_id=1033990154]
-position = Vector2(1155, 0)
+position = Vector2(1518, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=898433219]
 position = Vector2(1.5, 327.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Area2D" type="StaticBody2D" parent="." unique_id=320185717]
+position = Vector2(-376, 37)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1856311204]
 position = Vector2(1.5, 327.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Area2D4" type="StaticBody2D" parent="." unique_id=878208492]
-position = Vector2(617, 645)
+position = Vector2(620, 695)
+scale = Vector2(1.415, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=1886606356]
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Area2D3" type="StaticBody2D" parent="." unique_id=876813196]
-position = Vector2(555, 246)
+position = Vector2(581, 365)
+scale = Vector2(1.38, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1972990902]
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="level_transition" parent="." unique_id=1012604311 instance=ExtResource("7_c17bm")]
-position = Vector2(25, 464)
+position = Vector2(-342, 464)
 level_queue_path = "res://levels/level1-1-estadio.tscn"
 
 [node name="shop" parent="." unique_id=278367553 instance=ExtResource("9_ui617")]
-position = Vector2(480.99997, 340)
+position = Vector2(415, 385)
 scale = Vector2(-2.8675041, 1.521132)
 shop_name = "estadio"
 return_pos_offset = Vector2(150, 0)
 
 [node name="level_transition2" parent="." unique_id=2142524870 instance=ExtResource("7_c17bm")]
-position = Vector2(1137, 439)
+position = Vector2(1504, 480)
 level_queue_path = "res://levels/level1-3-estadio.tscn"
 
 [connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]

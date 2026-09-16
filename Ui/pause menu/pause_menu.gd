@@ -57,3 +57,7 @@ func _on_options_tab_button_button_up() -> void:
 
 func _on_items_tab_button_button_up() -> void:
 	Load_tab("items_tab")
+
+
+func _on_quit_button_button_up() -> void:
+	get_tree().quit()
