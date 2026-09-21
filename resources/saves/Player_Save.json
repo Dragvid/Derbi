@@ -1,6 +1,6 @@
 {
-	"currency": 893.0,
-	"current_level": "res://levels/level1-2-estadio2.tscn",
+	"currency": 903.0,
+	"current_level": "res://levels/level1-3-estadio.tscn",
 	"item_inventory": {
 		"Besta": 3.0,
 		"Cachorro_quente": 2.0,

@@ -36,7 +36,6 @@ func load_enemies(enemy_list=[]):
 			rng.randomize()
 			formation_size = rng.randi_range(1,4)
 		else:
-			#formation_size = AppInfo.current_enemy_formation_size
 			formation_size = AppInfo.current_combat_parameters.enemy_formation_size
 		for i in range(0, formation_size):
 			var formation_unit = enemy_roster.pick_random()
@@ -157,6 +156,7 @@ func check_turn_end():
 		turn_group = enemies_box.get_children()
 	for member in turn_group:
 		if !member.state_current in [AppInfo.states.recovery,AppInfo.states.blocking]:
+			member.Grab_focus_for_member()
 			turn_end = false
 	if turn_end:
 		change_turn()

@@ -40,7 +40,8 @@ var member_info
 
 func _ready() -> void:
 	SignalsResource._refresh_item_list.connect(Load_item_list)
-	btn_attack.grab_focus()
+	#btn_attack.grab_focus()
+	Grab_focus_for_member()
 
 func set_up_player(manager, member_data, new_name:String = "[missing]", new_player_id:int=0):
 	battle_manager = manager
@@ -140,11 +141,16 @@ func turn_reset():
 		state_current = AppInfo.states.idle
 	#print("Stamina recovery: ", member_info.stamina_recovery)
 	#current_stamina += member_info.stamina_recovery
+	#btn_attack.grab_focus()
+	Grab_focus_for_member()
 	recover_stamina_bar()
 	atk_list_node.get_parent().visible = false
 	action_picked.visible = false
 	option_keyboard.visible = true
 	Attack_list_disabled_state(false)
+
+func Grab_focus_for_member():
+	btn_attack.grab_focus()
 
 func pick_ally_mode(mode:bool):
 	pick_button.visible = mode
@@ -155,7 +161,6 @@ func _on_attack_button_up() -> void:
 	atk_list_node.get_parent().visible = true
 	option_keyboard.visible = false
 	leave_atk_list.grab_focus()
-	
 
 func _on_leave_atk_list_button_up() -> void:
 	battle_manager.clean_current_atk()
@@ -192,4 +197,4 @@ func _on_inventory_button_up() -> void:
 		#item_list_node.get_child(0).grab_focus()
 	#else:
 	leave_item_list_button.grab_focus()
-		
+
