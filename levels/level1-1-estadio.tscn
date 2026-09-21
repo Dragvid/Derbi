@@ -19,7 +19,7 @@ script = ExtResource("1_qcyc8")
 
 [node name="background" type="Sprite2D" parent="." unique_id=473605122]
 position = Vector2(99, 497)
-scale = Vector2(0.25487006, 0.25487003)
+scale = Vector2(0.385, 0.385)
 texture = ExtResource("2_vvc8k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1978158974]
@@ -27,9 +27,11 @@ position = Vector2(98, 578)
 
 [node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("3_4nwfw")]
 position = Vector2(-296, 757)
+scale = Vector2(1.6885576, 1.6885576)
 
 [node name="enemy2" type="Area2D" parent="." unique_id=1242436072]
 position = Vector2(359, 672)
+scale = Vector2(1.6885576, 1.6885576)
 disable_mode = 2
 script = ExtResource("5_r33wc")
 enemy_formation_size = 2
@@ -45,6 +47,7 @@ shape = SubResource("RectangleShape2D_ff60c")
 
 [node name="enemy3" type="Area2D" parent="." unique_id=2063416399]
 position = Vector2(6, 702)
+scale = Vector2(1.6885576, 1.6885576)
 disable_mode = 2
 script = ExtResource("5_r33wc")
 enemy_formation_size = 1
@@ -78,7 +81,7 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D3" type="StaticBody2D" parent="Walls" unique_id=1272788947]
-position = Vector2(-531.2502, 641)
+position = Vector2(-987.5, 710)
 scale = Vector2(7.812501, 24.54)
 disable_mode = 1
 
@@ -86,7 +89,7 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D5" type="StaticBody2D" parent="Walls" unique_id=1008696872]
-position = Vector2(1384.3755, 662)
+position = Vector2(1810.9377, 710)
 scale = Vector2(7.812501, 24.54)
 disable_mode = 1
 
@@ -94,8 +97,8 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D2" type="StaticBody2D" parent="Walls" unique_id=442538833]
-position = Vector2(571.99994, 903)
-scale = Vector2(96.75499, 6.535)
+position = Vector2(535.93756, 1025)
+scale = Vector2(148.19249, 6.535)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D2" unique_id=690533432]
@@ -103,8 +106,8 @@ position = Vector2(-0.87850714, 2.7543945)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D6" type="StaticBody2D" parent="Walls" unique_id=352203270]
-position = Vector2(546.8751, 519)
-scale = Vector2(90.355, 25.955002)
+position = Vector2(598.43756, 579)
+scale = Vector2(146.27625, 7.769775)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D6" unique_id=932581357]
@@ -112,7 +115,7 @@ position = Vector2(-1.3834319, -7.6777096)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="level_transition" parent="." unique_id=1012604311 instance=ExtResource("8_vvc8k")]
-position = Vector2(648, 650)
+position = Vector2(918, 726)
 level_queue_path = "res://levels/level1-2-estadio2.tscn"
 
 [connection signal="area_entered" from="enemy2" to="enemy2" method="_on_area_entered"]
