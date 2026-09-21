@@ -195,7 +195,7 @@ func receive_current_attack_target_choice(target_unit):
 		check_turn_end()
 
 func clean_current_atk():
-	WriteDownActionMessage()
+	#WriteDownActionMessage()
 	toggle_target_selection(true,false)
 	current_move.attacker = null
 	current_move.target = null
@@ -261,5 +261,16 @@ func Back_to_level():
 #Function that writes the action in a message
 func WriteDownActionMessage():
 	var final_message = ""
-	final_message = str(current_move.attacker.name, " usou ", current_move.attack_name, " no ",current_move.target.name)
+	var turn_atacker = ""
+	if current_move.attacker != null:
+		turn_atacker = current_move.attacker.name
+	else:
+		turn_atacker = "[Desconhecido]"
+	var turn_target = "e falhou"
+	if !current_move.target is Array: 
+		#if current_move.target.name != null:
+		turn_target = str(" no ",current_move.target.name,".")
+	else:
+		turn_target = " em todos os oponentes."
+	final_message = str(turn_atacker, " usou ", current_move.attack_name, turn_target)
 	print(final_message)

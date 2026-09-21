@@ -70,9 +70,9 @@ renderer/rendering_method="forward_plus"
 [xogot]
 
 project/editorState=[{
-"column": 116,
+"column": 25,
 "current": true,
-"line": 263,
+"line": 264,
 "path": "res://GamePlayModules/Battle_screen/scripts/battle_manager.gd",
 "type": "file"
 }]
