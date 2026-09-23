@@ -15,14 +15,15 @@ size = Vector2(20, 18.43768)
 size = Vector2(52, 177)
 
 [node name="LevelScene" type="Node2D" unique_id=613694492]
-position = Vector2(806.00006, -444)
-scale = Vector2(1.6460497, 1.6460497)
 script = ExtResource("1_lr820")
 
 [node name="background" type="Sprite2D" parent="." unique_id=473605122]
 position = Vector2(99, 497)
-scale = Vector2(0.25487006, 0.25487003)
+scale = Vector2(0.38, 0.38)
 texture = ExtResource("2_lr820")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1978158974]
+position = Vector2(98, 578)
 
 [node name="player_avatar" parent="." unique_id=125842896 instance=ExtResource("3_cfy8j")]
 position = Vector2(-296, 757)
@@ -47,7 +48,7 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D3" type="StaticBody2D" parent="Walls" unique_id=1272788947]
-position = Vector2(-531.2502, 641)
+position = Vector2(-996.875, 641)
 scale = Vector2(7.812501, 24.54)
 disable_mode = 1
 
@@ -55,7 +56,7 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D5" type="StaticBody2D" parent="Walls" unique_id=1008696872]
-position = Vector2(1384.3755, 662)
+position = Vector2(1843.7502, 654)
 scale = Vector2(7.812501, 24.54)
 disable_mode = 1
 
@@ -63,29 +64,27 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D2" type="StaticBody2D" parent="Walls" unique_id=442538833]
-position = Vector2(571.99994, 903)
-scale = Vector2(96.75499, 6.535)
+position = Vector2(437.50006, 953)
+scale = Vector2(139.75, 10)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D2" unique_id=690533432]
-position = Vector2(-0.87850714, 2.7543945)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D6" type="StaticBody2D" parent="Walls" unique_id=352203270]
-position = Vector2(546.8751, 448.00003)
-scale = Vector2(90.355, 25.955002)
+position = Vector2(382.8126, 325)
+scale = Vector2(150, 24.754)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D6" unique_id=932581357]
-position = Vector2(-1.3834319, -7.6777096)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="level_transition2" parent="." unique_id=1314806694 instance=ExtResource("5_5pxr0")]
-position = Vector2(513.3501, 642.7509)
-level_queue_path = "res://levels/level2-2-shopping.tscn"
+position = Vector2(938, 643)
+level_queue_path = "res://levels/level1-2-estadio2.tscn"
 
 [node name="enemy" type="Area2D" parent="." unique_id=920835852]
-position = Vector2(35.687744, 657.75006)
+position = Vector2(396, 641)
 disable_mode = 2
 script = ExtResource("6_4yb4r")
 enemy_formation_size = 2

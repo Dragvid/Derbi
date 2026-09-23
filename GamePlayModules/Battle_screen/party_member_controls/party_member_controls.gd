@@ -197,4 +197,3 @@ func _on_inventory_button_up() -> void:
 		#item_list_node.get_child(0).grab_focus()
 	#else:
 	leave_item_list_button.grab_focus()
-

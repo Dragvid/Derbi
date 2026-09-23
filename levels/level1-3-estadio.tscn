@@ -19,8 +19,8 @@ size = Vector2(52, 177)
 script = ExtResource("1_81mkl")
 
 [node name="background" type="Sprite2D" parent="." unique_id=473605122]
-position = Vector2(99, 497)
-scale = Vector2(0.25487006, 0.25487003)
+position = Vector2(58, 569)
+scale = Vector2(0.3921039, 0.39210382)
 texture = ExtResource("2_t20yc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1978158974]
@@ -49,7 +49,7 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D3" type="StaticBody2D" parent="Walls" unique_id=1272788947]
-position = Vector2(-531.2502, 641)
+position = Vector2(-993.75, 759)
 scale = Vector2(7.812501, 24.54)
 disable_mode = 1
 
@@ -57,7 +57,7 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D5" type="StaticBody2D" parent="Walls" unique_id=1008696872]
-position = Vector2(1384.3755, 662)
+position = Vector2(1867.1877, 762)
 scale = Vector2(7.812501, 24.54)
 disable_mode = 1
 
@@ -65,17 +65,16 @@ disable_mode = 1
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D2" type="StaticBody2D" parent="Walls" unique_id=442538833]
-position = Vector2(571.99994, 903)
-scale = Vector2(96.75499, 6.535)
+position = Vector2(462.50003, 1041)
+scale = Vector2(153.755, 6.535)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D2" unique_id=690533432]
-position = Vector2(-0.87850714, 2.7543945)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="Area2D6" type="StaticBody2D" parent="Walls" unique_id=352203270]
-position = Vector2(546.8751, 519)
-scale = Vector2(90.355, 25.955002)
+position = Vector2(625.0001, 591)
+scale = Vector2(156.14, 25.955)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D6" unique_id=932581357]
@@ -83,17 +82,17 @@ position = Vector2(-1.3834319, -7.6777096)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="dialog_transition" parent="." unique_id=600604147 instance=ExtResource("4_bud4u")]
-position = Vector2(629, 635)
+position = Vector2(940, 735)
 scale = Vector2(1, 5.6000013)
 chapter_name = "Jantar"
 level_queue_path = "res://levels/level2-1-shopping.tscn"
 
 [node name="level_transition" parent="." unique_id=1012604311 instance=ExtResource("5_2ifa0")]
-position = Vector2(-454, 633)
+position = Vector2(-753, 771)
 level_queue_path = "res://levels/level1-2-estadio2.tscn"
 
 [node name="enemy" type="Area2D" parent="." unique_id=1685351971]
-position = Vector2(35.687744, 657.75006)
+position = Vector2(38, 740)
 disable_mode = 2
 script = ExtResource("7_f651n")
 enemy_formation_size = 1
@@ -108,7 +107,7 @@ position = Vector2(2, -1.5)
 shape = SubResource("RectangleShape2D_i2paa")
 
 [node name="enemy2" type="Area2D" parent="." unique_id=2122482850]
-position = Vector2(417, 703)
+position = Vector2(588, 834)
 disable_mode = 2
 script = ExtResource("7_f651n")
 encounter_background_path = "res://Assets/background/battle_background/IMG_7930.JPG"

@@ -81,7 +81,7 @@ position = Vector2(-1.3834319, -7.6777096)
 shape = SubResource("RectangleShape2D_2xj1p")
 
 [node name="level_transition2" parent="." unique_id=1314806694 instance=ExtResource("5_galo3")]
-position = Vector2(513.35016, 642.7509)
+position = Vector2(651.8636, 642.7509)
 level_queue_path = "res://levels/level2-2-shopping.tscn"
 
 [node name="enemy" type="Area2D" parent="." unique_id=920835852]
